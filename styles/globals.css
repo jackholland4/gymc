@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-surface: #1a1a1a;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Red accent system */
+  --accent-primary: #dc2626;
+  --accent-light: #ef4444;
+  --accent-dark: #b91c1c;
+  --accent-muted: rgba(220, 38, 38, 0.15);
+  --accent-glow: rgba(220, 38, 38, 0.25);
+
+  /* Text */
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --text-accent: #ef4444;
+  --text-on-accent: #ffffff;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(220, 38, 38, 0.4);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+  --gradient-red-subtle: linear-gradient(
+    135deg,
+    rgba(220, 38, 38, 0.06) 0%,
+    transparent 55%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ── Ken Burns keyframes ────────────────────────────────── */
+@keyframes kenburns-1 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-2%, -1%); }
+}
+@keyframes kenburns-2 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.12) translate(2%, 1%); }
+}
+@keyframes kenburns-3 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-1%, 2%); }
+}
+@keyframes kenburns-4 {
+  0%   { transform: scale(1.0) translate(1%, -1%); }
+  100% { transform: scale(1.12) translate(-1%, 1%); }
+}
+
+/* Mobile — subtler zoom */
+@media (max-width: 768px) {
+  @keyframes kenburns-1 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, -0.5%); }
+  }
+  @keyframes kenburns-2 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.07) translate(1%, 0.5%); }
+  }
+  @keyframes kenburns-3 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-0.5%, 1%); }
+  }
+  @keyframes kenburns-4 {
+    0%   { transform: scale(1.0) translate(0.5%, -0.5%); }
+    100% { transform: scale(1.07) translate(-0.5%, 0.5%); }
+  }
+}
