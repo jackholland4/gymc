@@ -182,7 +182,37 @@ export function WorldsSidebar() {
 
   return (
     <aside className="w-96 shrink-0 h-full overflow-y-auto bg-[var(--c-bg-6)] border-r border-[var(--c-border-sm)] flex flex-col">
-      {/* Country Selector */}
+
+      {/* Step 1: Score filters */}
+      <div className="px-4 pt-4 pb-3 border-b border-[var(--c-border-sm)]">
+        <p className="font-body text-xs font-semibold text-[var(--c-txt-4)] uppercase tracking-wider mb-2">Score data</p>
+        <label className="flex items-center gap-2 cursor-pointer mb-1.5">
+          <input
+            type="checkbox"
+            checked={state.scoreFilter.includeDomestic}
+            onChange={(e) => {
+              dispatch({ type: 'SET_SCORE_FILTER', filter: { includeDomestic: e.target.checked } })
+              dispatch({ type: 'SELECT_NOC', noc: null })
+            }}
+            className="accent-[#dc2626]"
+          />
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Include domestic meets</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={state.scoreFilter.includeNonFig}
+            onChange={(e) => {
+              dispatch({ type: 'SET_SCORE_FILTER', filter: { includeNonFig: e.target.checked } })
+              dispatch({ type: 'SELECT_NOC', noc: null })
+            }}
+            className="accent-[#dc2626]"
+          />
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Include non-FIG meets</span>
+        </label>
+      </div>
+
+      {/* Step 2: Country Selector */}
       <div className="px-4 pt-4 pb-3 border-b border-[var(--c-border-sm)]">
         <label className="block font-body text-xs font-semibold text-[var(--c-txt-4)] mb-2 uppercase tracking-wider">
           Country
@@ -250,31 +280,8 @@ export function WorldsSidebar() {
         </>
       )}
 
-      {/* Score filters */}
-      <div className="px-4 py-3 border-t border-[var(--c-border-sm)]">
-        <p className="font-body text-xs font-semibold text-[var(--c-txt-4)] uppercase tracking-wider mb-2">Score data</p>
-        <label className="flex items-center gap-2 cursor-pointer mb-1.5">
-          <input
-            type="checkbox"
-            checked={state.scoreFilter.includeDomestic}
-            onChange={(e) => dispatch({ type: 'SET_SCORE_FILTER', filter: { includeDomestic: e.target.checked } })}
-            className="accent-[#dc2626]"
-          />
-          <span className="font-body text-xs text-[var(--c-txt-2)]">Include domestic meets</span>
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={state.scoreFilter.includeNonFig}
-            onChange={(e) => dispatch({ type: 'SET_SCORE_FILTER', filter: { includeNonFig: e.target.checked } })}
-            className="accent-[#dc2626]"
-          />
-          <span className="font-body text-xs text-[var(--c-txt-2)]">Include non-FIG meets</span>
-        </label>
-      </div>
-
       {/* Simulate */}
-      <div className="px-4 py-4 border-t border-[var(--c-border-sm)]">
+      <div className="px-4 py-4 mt-auto border-t border-[var(--c-border-sm)]">
         <SimulateButton />
       </div>
     </aside>
