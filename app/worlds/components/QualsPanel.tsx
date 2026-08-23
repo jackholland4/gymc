@@ -10,8 +10,6 @@ import type { Apparatus, TeamStanding, EFResult, AAStanding } from '@/types/simu
 const fmt = (v: number | null | undefined) =>
   v != null ? v.toFixed(3) : '—'
 
-const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
-
 // ---------------------------------------------------------------------------
 // Expanded row: per-gymnast scores for a country on each apparatus
 // ---------------------------------------------------------------------------
@@ -19,9 +17,11 @@ const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
 function TeamExpandedRow({
   country,
   allScores,
+  apparatus,
 }: {
   country: string
   allScores: Array<{ country: string; gymnast: string; apparatus: Apparatus; score: number }>
+  apparatus: Apparatus[]
 }) {
   const scores = allScores.filter((s) => s.country === country)
   // Group by gymnast
@@ -31,10 +31,10 @@ function TeamExpandedRow({
     <div className="overflow-x-auto">
       <table className="text-xs font-body w-full">
         <thead>
-          <tr className="border-b border-[rgba(255,255,255,0.06)]">
-            <th className="text-left py-1 pr-3 text-[#555] font-semibold">Gymnast</th>
-            {APPARATUS.map((a) => (
-              <th key={a} className="text-right py-1 px-2 text-[#555] font-semibold">
+          <tr className="border-b border-[var(--c-border-sm)]">
+            <th className="text-left py-1 pr-3 text-[var(--c-txt-5)] font-semibold">Gymnast</th>
+            {apparatus.map((a) => (
+              <th key={a} className="text-right py-1 px-2 text-[var(--c-txt-5)] font-semibold">
                 {a}
               </th>
             ))}
@@ -43,16 +43,16 @@ function TeamExpandedRow({
         <tbody>
           {gymnasts.map((g) => {
             const byApp = Object.fromEntries(
-              APPARATUS.map((a) => {
+              apparatus.map((a) => {
                 const match = scores.find((s) => s.gymnast === g && s.apparatus === a)
                 return [a, match?.score ?? null]
               })
             ) as Record<Apparatus, number | null>
             return (
-              <tr key={g} className="border-b border-[rgba(255,255,255,0.03)]">
-                <td className="py-1.5 pr-3 text-[#888] truncate max-w-[120px]">{g}</td>
-                {APPARATUS.map((a) => (
-                  <td key={a} className="py-1.5 px-2 text-right tabular-nums text-[#a0a0a0]">
+              <tr key={g} className="border-b border-[var(--c-border-sm)]">
+                <td className="py-1.5 pr-3 text-[var(--c-txt-3)] truncate max-w-[120px]">{g}</td>
+                {apparatus.map((a) => (
+                  <td key={a} className="py-1.5 px-2 text-right tabular-nums text-[var(--c-txt-1)]">
                     {fmt(byApp[a])}
                   </td>
                 ))}
@@ -71,8 +71,9 @@ function TeamExpandedRow({
 
 export function QualsPanel() {
   const [state] = useWorlds()
+  const { apparatus } = state
   const [expandedCountry, setExpandedCountry] = useState<string | null>(null)
-  const [activeApp, setActiveApp] = useState<Apparatus>('VT')
+  const [activeApp, setActiveApp] = useState<Apparatus>(() => apparatus[0])
 
   const quals = state.simResult?.quals
   if (!quals) return null
@@ -91,59 +92,32 @@ export function QualsPanel() {
       header: '#',
       align: 'center' as const,
       render: (_row: TeamStanding, idx: number) => (
-        <span className="font-body text-xs tabular-nums text-[#666]">{idx + 1}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-4)]">{idx + 1}</span>
       ),
     },
     {
       key: 'country',
       header: 'Country',
       render: (row: TeamStanding) => (
-        <span className="font-body text-xs text-[#f5f5f5] font-medium">{row.country}</span>
+        <span className="font-body text-xs text-[var(--c-txt-0)] font-medium">{row.country}</span>
       ),
       sortValue: (row: TeamStanding) => row.country,
     },
-    {
-      key: 'VT',
-      header: 'VT',
+    ...apparatus.map((app) => ({
+      key: app,
+      header: app,
       align: 'right' as const,
       render: (row: TeamStanding) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.VT)}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-1)]">{fmt(row[app] as number)}</span>
       ),
-      sortValue: (row: TeamStanding) => row.VT,
-    },
-    {
-      key: 'UB',
-      header: 'UB',
-      align: 'right' as const,
-      render: (row: TeamStanding) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.UB)}</span>
-      ),
-      sortValue: (row: TeamStanding) => row.UB,
-    },
-    {
-      key: 'BB',
-      header: 'BB',
-      align: 'right' as const,
-      render: (row: TeamStanding) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.BB)}</span>
-      ),
-      sortValue: (row: TeamStanding) => row.BB,
-    },
-    {
-      key: 'FX',
-      header: 'FX',
-      align: 'right' as const,
-      render: (row: TeamStanding) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.FX)}</span>
-      ),
-      sortValue: (row: TeamStanding) => row.FX,
-    },
+      sortValue: (row: TeamStanding) => row[app] as number,
+    })),
     {
       key: 'total',
       header: 'Total',
       align: 'right' as const,
       render: (row: TeamStanding) => (
-        <span className="font-body text-xs tabular-nums font-semibold text-[#f5f5f5]">
+        <span className="font-body text-xs tabular-nums font-semibold text-[var(--c-txt-0)]">
           {fmt(row.total)}
         </span>
       ),
@@ -158,7 +132,7 @@ export function QualsPanel() {
       header: '#',
       align: 'center' as const,
       render: (_row: EFResult, idx: number) => (
-        <span className="font-body text-xs tabular-nums text-[#666]">{idx + 1}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-4)]">{idx + 1}</span>
       ),
     },
     {
@@ -171,7 +145,7 @@ export function QualsPanel() {
       key: 'country',
       header: 'NOC',
       render: (row: EFResult) => (
-        <span className="font-body text-xs text-[#a0a0a0]">{row.country}</span>
+        <span className="font-body text-xs text-[var(--c-txt-1)]">{row.country}</span>
       ),
       sortValue: (row: EFResult) => row.country,
     },
@@ -180,7 +154,7 @@ export function QualsPanel() {
       header: 'Score',
       align: 'right' as const,
       render: (row: EFResult) => (
-        <span className="font-body text-xs tabular-nums text-[#f5f5f5]">{fmt(row.score)}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-0)]">{fmt(row.score)}</span>
       ),
       sortValue: (row: EFResult) => row.score,
     },
@@ -206,7 +180,7 @@ export function QualsPanel() {
       header: '#',
       align: 'center' as const,
       render: (_row: AAStanding, idx: number) => (
-        <span className="font-body text-xs tabular-nums text-[#666]">{idx + 1}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-4)]">{idx + 1}</span>
       ),
     },
     {
@@ -219,7 +193,7 @@ export function QualsPanel() {
       key: 'country',
       header: 'NOC',
       render: (row: AAStanding) => (
-        <span className="font-body text-xs text-[#a0a0a0]">{row.country}</span>
+        <span className="font-body text-xs text-[var(--c-txt-1)]">{row.country}</span>
       ),
       sortValue: (row: AAStanding) => row.country,
     },
@@ -228,7 +202,7 @@ export function QualsPanel() {
       header: 'Total',
       align: 'right' as const,
       render: (row: AAStanding) => (
-        <span className="font-body text-xs tabular-nums font-semibold text-[#f5f5f5]">
+        <span className="font-body text-xs tabular-nums font-semibold text-[var(--c-txt-0)]">
           {fmt(row.score)}
         </span>
       ),
@@ -255,9 +229,9 @@ export function QualsPanel() {
     <div className="space-y-8">
       {/* Team Standings */}
       <section>
-        <h3 className="font-display text-sm font-semibold text-[#f5f5f5] mb-3">
+        <h3 className="font-display text-sm font-semibold text-[var(--c-txt-0)] mb-3">
           Team Standings
-          <span className="ml-2 font-body text-xs text-[#555] font-normal">Top 8 advance to Team Final</span>
+          <span className="ml-2 font-body text-xs text-[var(--c-txt-5)] font-normal">Top 8 advance to Team Final</span>
         </h3>
         <DataTable
           columns={teamColumns}
@@ -271,7 +245,7 @@ export function QualsPanel() {
           }
           expandedKey={expandedCountry}
           renderExpanded={(row) => (
-            <TeamExpandedRow country={row.country} allScores={all_scores} />
+            <TeamExpandedRow country={row.country} allScores={all_scores} apparatus={apparatus} />
           )}
         />
       </section>
@@ -279,11 +253,11 @@ export function QualsPanel() {
       {/* Apparatus Rankings */}
       <section>
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-display text-sm font-semibold text-[#f5f5f5]">
+          <h3 className="font-display text-sm font-semibold text-[var(--c-txt-0)]">
             Apparatus Rankings
-            <span className="ml-2 font-body text-xs text-[#555] font-normal">Top 8 → EF (2 per country max)</span>
+            <span className="ml-2 font-body text-xs text-[var(--c-txt-5)] font-normal">Top 8 → EF (2 per country max)</span>
           </h3>
-          <ApparatusTabs active={activeApp} onChange={setActiveApp} />
+          <ApparatusTabs active={activeApp} onChange={setActiveApp} apparatuses={apparatus} />
         </div>
         <DataTable
           columns={appColumns}
@@ -297,9 +271,9 @@ export function QualsPanel() {
 
       {/* AA Standings */}
       <section>
-        <h3 className="font-display text-sm font-semibold text-[#f5f5f5] mb-3">
+        <h3 className="font-display text-sm font-semibold text-[var(--c-txt-0)] mb-3">
           All-Around Standings
-          <span className="ml-2 font-body text-xs text-[#555] font-normal">Top 24 → AA Final (2 per country max)</span>
+          <span className="ml-2 font-body text-xs text-[var(--c-txt-5)] font-normal">Top 24 → AA Final (2 per country max)</span>
         </h3>
         <DataTable
           columns={aaColumns}

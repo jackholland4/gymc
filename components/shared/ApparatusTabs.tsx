@@ -2,28 +2,34 @@
 
 import type { Apparatus } from '@/types/simulation'
 
-const DEFAULT_LABELS: Record<Apparatus, string> = {
+const DEFAULT_LABELS: Partial<Record<Apparatus, string>> = {
   VT: 'Vault',
   UB: 'Uneven Bars',
   BB: 'Balance Beam',
   FX: 'Floor',
+  PH: 'Pommel Horse',
+  SR: 'Still Rings',
+  PB: 'Parallel Bars',
+  HB: 'High Bar',
 }
 
 export function ApparatusTabs({
   active,
   onChange,
   labels,
+  apparatuses,
 }: {
   active: Apparatus
   onChange: (a: Apparatus) => void
   labels?: Partial<Record<Apparatus, string>>
+  apparatuses?: Apparatus[]
 }) {
-  const apparatuses: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
+  const list: Apparatus[] = apparatuses ?? ['VT', 'UB', 'BB', 'FX']
   const resolved = { ...DEFAULT_LABELS, ...labels }
 
   return (
     <div className="flex flex-wrap gap-1">
-      {apparatuses.map((app) => {
+      {list.map((app) => {
         const isActive = active === app
         return (
           <button
@@ -36,7 +42,7 @@ export function ApparatusTabs({
               border: isActive ? '1px solid rgba(220,38,38,0.35)' : '1px solid transparent',
             }}
           >
-            {resolved[app]}
+            {resolved[app] ?? app}
           </button>
         )
       })}

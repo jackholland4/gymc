@@ -7,13 +7,23 @@ import type {
   SimulationResult,
   BatchTeamStats,
   BatchGymnastStats,
+  Discipline,
+  Apparatus,
 } from '@/types/simulation'
+import { APPARATUS_WAG, APPARATUS_MAG } from '@/types/simulation'
 
 // ---------------------------------------------------------------------------
 // State
 // ---------------------------------------------------------------------------
 
+export interface ScoreFilter {
+  includeDomestic: boolean
+  includeNonFig: boolean
+}
+
 export interface WorldsState {
+  discipline: Discipline
+  apparatus: Apparatus[]
   countries: Country[]
   countriesError: string | null
   selectedNoc: string | null
@@ -29,9 +39,12 @@ export interface WorldsState {
   isBatchRunning: boolean
   batchError: string | null
   openGymnast: { noc: string; name: string } | null
+  scoreFilter: ScoreFilter
 }
 
 const initialState: WorldsState = {
+  discipline: 'WAG',
+  apparatus: APPARATUS_WAG,
   countries: [],
   countriesError: null,
   selectedNoc: null,
@@ -47,6 +60,7 @@ const initialState: WorldsState = {
   isBatchRunning: false,
   batchError: null,
   openGymnast: null,
+  scoreFilter: { includeDomestic: true, includeNonFig: true },
 }
 
 // ---------------------------------------------------------------------------
@@ -54,6 +68,7 @@ const initialState: WorldsState = {
 // ---------------------------------------------------------------------------
 
 export type WorldsAction =
+  | { type: 'SET_DISCIPLINE'; discipline: Discipline }
   | { type: 'SET_COUNTRIES'; countries: Country[] }
   | { type: 'SET_COUNTRIES_ERROR'; msg: string }
   | { type: 'SELECT_NOC'; noc: string | null }
@@ -70,6 +85,7 @@ export type WorldsAction =
   | { type: 'BATCH_TEAM_SUCCESS'; stats: BatchTeamStats }
   | { type: 'BATCH_GYMNAST_SUCCESS'; stats: BatchGymnastStats }
   | { type: 'BATCH_ERROR'; msg: string }
+  | { type: 'SET_SCORE_FILTER'; filter: Partial<ScoreFilter> }
 
 // ---------------------------------------------------------------------------
 // Reducer
@@ -77,6 +93,13 @@ export type WorldsAction =
 
 function reducer(state: WorldsState, action: WorldsAction): WorldsState {
   switch (action.type) {
+    case 'SET_DISCIPLINE':
+      return {
+        ...state,
+        discipline: action.discipline,
+        apparatus: action.discipline === 'MAG' ? APPARATUS_MAG : APPARATUS_WAG,
+      }
+
     case 'SET_COUNTRIES':
       return { ...state, countries: action.countries, countriesError: null }
 
@@ -131,6 +154,9 @@ function reducer(state: WorldsState, action: WorldsAction): WorldsState {
     case 'BATCH_ERROR':
       return { ...state, isBatchRunning: false, batchError: action.msg }
 
+    case 'SET_SCORE_FILTER':
+      return { ...state, scoreFilter: { ...state.scoreFilter, ...action.filter } }
+
     default:
       return state
   }
@@ -142,8 +168,18 @@ function reducer(state: WorldsState, action: WorldsAction): WorldsState {
 
 const WorldsContext = createContext<[WorldsState, Dispatch<WorldsAction>] | null>(null)
 
-export function WorldsProvider({ children }: { children: React.ReactNode }) {
-  const value = useReducer(reducer, initialState)
+export function WorldsProvider({
+  children,
+  discipline = 'WAG',
+}: {
+  children: React.ReactNode
+  discipline?: Discipline
+}) {
+  const value = useReducer(reducer, {
+    ...initialState,
+    discipline,
+    apparatus: discipline === 'MAG' ? APPARATUS_MAG : APPARATUS_WAG,
+  })
   return <WorldsContext.Provider value={value}>{children}</WorldsContext.Provider>
 }
 

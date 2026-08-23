@@ -5,15 +5,14 @@ import { useWorlds } from '../WorldsProvider'
 import { fetchTopCandidates } from '@/lib/api'
 import type { CandidateResult, TopCandidatesResponse, Apparatus, LineupConfig } from '@/types/simulation'
 
-const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
-
 function buildLineups(
   selected: string[],
-  candidates: CandidateResult[]
+  candidates: CandidateResult[],
+  apparatus: Apparatus[]
 ): LineupConfig {
   const quals: Record<string, string[]> = {}
   const teamFinal: Record<string, string[]> = {}
-  for (const app of APPARATUS) {
+  for (const app of apparatus) {
     const ranked = selected
       .filter((name) => {
         const c = candidates.find((c) => c.gymnast === name)
@@ -37,7 +36,7 @@ function buildLineups(
 function MiniBar({ pct, max = 100 }: { pct: number; max?: number }) {
   const fill = Math.round((pct / max) * 100)
   return (
-    <div className="w-12 h-1.5 rounded-full bg-[#222] overflow-hidden shrink-0">
+    <div className="w-12 h-1.5 rounded-full bg-[var(--c-bg-7)] overflow-hidden shrink-0">
       <div
         className="h-full rounded-full"
         style={{ width: `${fill}%`, backgroundColor: '#dc2626' }}
@@ -46,40 +45,40 @@ function MiniBar({ pct, max = 100 }: { pct: number; max?: number }) {
   )
 }
 
-function ExpandedDetail({ c, allMeanTotal }: { c: CandidateResult; allMeanTotal: number }) {
+function ExpandedDetail({ c, allMeanTotal, apparatus }: { c: CandidateResult; allMeanTotal: number; apparatus: Apparatus[] }) {
   return (
-    <div className="mt-1 mb-2 mx-1 rounded-lg bg-[#111] border border-[rgba(255,255,255,0.06)] px-3 py-2.5 space-y-2">
+    <div className="mt-1 mb-2 mx-1 rounded-lg bg-[var(--c-bg-4)] border border-[var(--c-border-sm)] px-3 py-2.5 space-y-2">
       <div className="grid grid-cols-4 gap-1">
-        {APPARATUS.map((app) => {
+        {apparatus.map((app) => {
           const mean = c.apparatus_means[app]
           const max = c.apparatus_maxes[app]
           const n = c.apparatus_counts[app]
           return (
             <div key={app} className="text-center">
-              <p className={`font-body text-[10px] font-semibold mb-0.5 ${mean != null ? 'text-[#ef4444]' : 'text-[#444]'}`}>
+              <p className={`font-body text-[10px] font-semibold mb-0.5 ${mean != null ? 'text-[#ef4444]' : 'text-[var(--c-txt-6)]'}`}>
                 {app}
               </p>
               {mean != null ? (
                 <>
-                  <p className="font-body text-xs text-[#c0c0c0] tabular-nums">{mean.toFixed(3)}</p>
-                  <p className="font-body text-[9px] text-[#555] tabular-nums">↑{max!.toFixed(3)}</p>
-                  <p className="font-body text-[9px] text-[#444]">n={n}</p>
+                  <p className="font-body text-xs text-[var(--c-txt-2)] tabular-nums">{mean.toFixed(3)}</p>
+                  <p className="font-body text-[9px] text-[var(--c-txt-5)] tabular-nums">↑{max!.toFixed(3)}</p>
+                  <p className="font-body text-[9px] text-[var(--c-txt-6)]">n={n}</p>
                 </>
               ) : (
-                <p className="font-body text-[10px] text-[#333]">—</p>
+                <p className="font-body text-[10px] text-[var(--c-txt-7)]">—</p>
               )}
             </div>
           )
         })}
       </div>
-      <div className="border-t border-[rgba(255,255,255,0.05)] pt-2 space-y-0.5">
+      <div className="border-t border-[var(--c-border-sm)] pt-2 space-y-0.5">
         <div className="flex justify-between">
-          <span className="font-body text-[10px] text-[#555]">On team avg</span>
-          <span className="font-body text-[10px] text-[#888] tabular-nums">{c.mean_team_total_included.toFixed(3)}</span>
+          <span className="font-body text-[10px] text-[var(--c-txt-5)]">On team avg</span>
+          <span className="font-body text-[10px] text-[var(--c-txt-3)] tabular-nums">{c.mean_team_total_included.toFixed(3)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="font-body text-[10px] text-[#555]">Off team avg</span>
-          <span className="font-body text-[10px] text-[#888] tabular-nums">{c.mean_team_total_excluded.toFixed(3)}</span>
+          <span className="font-body text-[10px] text-[var(--c-txt-5)]">Off team avg</span>
+          <span className="font-body text-[10px] text-[var(--c-txt-3)] tabular-nums">{c.mean_team_total_excluded.toFixed(3)}</span>
         </div>
         <div className="flex justify-between">
           <span className="font-body text-[10px] text-[#ef4444]">Marginal value</span>
@@ -93,7 +92,8 @@ function ExpandedDetail({ c, allMeanTotal }: { c: CandidateResult; allMeanTotal:
 }
 
 export function TopCandidatesPanel({ noc }: { noc: string }) {
-  const [, dispatch] = useWorlds()
+  const [state, dispatch] = useWorlds()
+  const { apparatus, discipline, scoreFilter } = state
   const [data, setData] = useState<TopCandidatesResponse | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -106,27 +106,27 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
     setExpanded(null)
     setError(null)
     setLoading(true)
-    fetchTopCandidates(noc, 1000)
+    fetchTopCandidates(noc, 1000, discipline, undefined, scoreFilter)
       .then((d) => {
         setData(d)
         setSelected(new Set(d.default_team))
       })
       .catch(() => setError('Failed to compute team rankings.'))
       .finally(() => setLoading(false))
-  }, [noc])
+  }, [noc, discipline, scoreFilter])
 
   // Dispatch lineup whenever selection changes and data is ready
   useEffect(() => {
     if (!data) return
     const sel = Array.from(selected)
-    const lineup = buildLineups(sel, data.candidates)
+    const lineup = buildLineups(sel, data.candidates, apparatus)
     dispatch({ type: 'SET_LINEUP', noc, lineup })
-  }, [selected, data, noc, dispatch])
+  }, [selected, data, noc, dispatch, apparatus])
 
   const meanTeamTotal = useMemo(() => {
     if (!data || selected.size !== 5) return null
     let total = 0
-    for (const app of APPARATUS) {
+    for (const app of apparatus) {
       const scores = Array.from(selected)
         .map((name) => data.candidates.find((c) => c.gymnast === name)?.apparatus_means[app])
         .filter((s): s is number => s != null)
@@ -136,18 +136,18 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
       total += scores.reduce((a, b) => a + b, 0)
     }
     return total
-  }, [data, selected])
+  }, [data, selected, apparatus])
 
   const cannotField = useMemo(() => {
     if (!data || selected.size !== 5) return null
-    for (const app of APPARATUS) {
+    for (const app of apparatus) {
       const count = Array.from(selected).filter(
         (name) => (data.candidates.find((c) => c.gymnast === name)?.apparatus_means[app] ?? null) != null
       ).length
       if (count < 3) return app
     }
     return null
-  }, [data, selected])
+  }, [data, selected, apparatus])
 
   function toggle(name: string) {
     setSelected((prev) => {
@@ -166,11 +166,11 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
       <div className="px-4 py-4 space-y-2">
         <div className="flex items-center gap-2">
           <div className="w-3.5 h-3.5 border-2 border-[#dc2626] border-t-transparent rounded-full animate-spin shrink-0" />
-          <span className="font-body text-xs text-[#666]">Running {(1000).toLocaleString()} simulations…</span>
+          <span className="font-body text-xs text-[var(--c-txt-4)]">Running {(1000).toLocaleString()} simulations…</span>
         </div>
         {/* skeleton rows */}
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="h-8 rounded-lg bg-[#141414] animate-pulse" />
+          <div key={i} className="h-8 rounded-lg bg-[var(--c-bg-1)] animate-pulse" />
         ))}
       </div>
     )
@@ -187,7 +187,7 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
   return (
     <div className="px-3 pb-3 space-y-0.5">
       {/* meta */}
-      <p className="font-body text-[10px] text-[#444] px-1 pb-1">
+      <p className="font-body text-[10px] text-[var(--c-txt-6)] px-1 pb-1">
         {data.n_sims.toLocaleString()} Monte Carlo trials · {data.roster_size} gymnasts
       </p>
 
@@ -200,7 +200,7 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
         return (
           <div key={c.gymnast}>
             {showDivider && (
-              <div className="border-t border-[rgba(255,255,255,0.06)] my-1.5" />
+              <div className="border-t border-[var(--c-border-sm)] my-1.5" />
             )}
             <div
               className={[
@@ -218,7 +218,7 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
                   disabled={atLimit}
                   className={`shrink-0 w-3.5 h-3.5 rounded flex items-center justify-center transition-all ${atLimit ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}`}
                   style={{
-                    border: isSelected ? 'none' : '1px solid #444',
+                    border: isSelected ? 'none' : '1px solid var(--c-txt-6)',
                     backgroundColor: isSelected ? '#dc2626' : 'transparent',
                   }}
                 >
@@ -230,14 +230,14 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
                 </button>
 
                 {/* rank */}
-                <span className="font-body text-[10px] text-[#444] tabular-nums w-3 shrink-0">{i + 1}</span>
+                <span className="font-body text-[10px] text-[var(--c-txt-6)] tabular-nums w-3 shrink-0">{i + 1}</span>
 
                 {/* name */}
                 <button
                   onClick={() => setExpanded(isExpanded ? null : c.gymnast)}
                   className="flex-1 min-w-0 text-left"
                 >
-                  <span className={`font-body text-xs truncate block ${isSelected ? 'text-[#e0e0e0]' : 'text-[#888]'}`}>
+                  <span className={`font-body text-xs truncate block ${isSelected ? 'text-[var(--c-txt-8)]' : 'text-[var(--c-txt-3)]'}`}>
                     {c.gymnast}
                   </span>
                 </button>
@@ -245,19 +245,19 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
                 {/* bar + pct */}
                 <div className="flex items-center gap-1 shrink-0">
                   <MiniBar pct={c.team_value_pct} max={maxPct} />
-                  <span className="font-body text-[10px] text-[#666] tabular-nums w-8 text-right">
+                  <span className="font-body text-[10px] text-[var(--c-txt-4)] tabular-nums w-8 text-right">
                     {c.team_value_pct.toFixed(0)}%
                   </span>
                 </div>
 
                 {/* type badge */}
-                <span className={`font-body text-[9px] px-1 py-0.5 rounded shrink-0 ${c.is_specialist ? 'bg-[rgba(251,191,36,0.1)] text-[#fbbf24]' : 'bg-[#1a1a1a] text-[#555]'}`}>
+                <span className={`font-body text-[9px] px-1 py-0.5 rounded shrink-0 ${c.is_specialist ? 'bg-[rgba(251,191,36,0.1)] text-[#fbbf24]' : 'bg-[var(--c-bg-2)] text-[var(--c-txt-5)]'}`}>
                   {c.apparatus_label}
                 </span>
               </div>
 
               {isExpanded && (
-                <ExpandedDetail c={c} allMeanTotal={data.candidates[0]?.mean_team_total_included ?? 0} />
+                <ExpandedDetail c={c} allMeanTotal={data.candidates[0]?.mean_team_total_included ?? 0} apparatus={apparatus} />
               )}
             </div>
           </div>
@@ -272,18 +272,18 @@ export function TopCandidatesPanel({ noc }: { noc: string }) {
           </p>
         )}
         <div className="flex items-center justify-between">
-          <span className={`font-body text-[10px] ${selected.size === 5 ? 'text-[#666]' : 'text-[#ef4444]'}`}>
+          <span className={`font-body text-[10px] ${selected.size === 5 ? 'text-[var(--c-txt-4)]' : 'text-[#ef4444]'}`}>
             {selected.size}/5 selected
           </span>
           {meanTeamTotal != null && !cannotField && (
-            <span className="font-body text-[10px] text-[#555] tabular-nums">
+            <span className="font-body text-[10px] text-[var(--c-txt-5)] tabular-nums">
               est. {meanTeamTotal.toFixed(2)}
             </span>
           )}
         </div>
         <button
           onClick={() => setSelected(new Set(data.default_team))}
-          className="font-body text-[10px] text-[#555] hover:text-[#888] transition-colors"
+          className="font-body text-[10px] text-[var(--c-txt-5)] hover:text-[var(--c-txt-3)] transition-colors"
         >
           Reset to default
         </button>

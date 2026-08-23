@@ -28,7 +28,7 @@ export default function Hero({ photos }: { photos: string[] }) {
       >
         {/* Title */}
         <h1
-          className="font-display font-bold text-[#f5f5f5] leading-none flex"
+          className="font-display font-bold text-[var(--c-txt-0)] leading-none flex"
           style={{ fontSize: 'clamp(4rem, 10vw, 10rem)', letterSpacing: '-0.04em' }}
         >
           {TITLE.split('').map((letter, i) => (
@@ -45,7 +45,7 @@ export default function Hero({ photos }: { photos: string[] }) {
 
         {/* Subtitle */}
         <motion.p
-          className="font-body text-[#a0a0a0] mt-4 tracking-[0.18em] uppercase"
+          className="font-body text-[var(--c-txt-1)] mt-4 tracking-[0.18em] uppercase"
           style={{ fontSize: 'clamp(0.65rem, 1.4vw, 0.9rem)' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

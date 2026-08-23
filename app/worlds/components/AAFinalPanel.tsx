@@ -10,6 +10,7 @@ const fmt = (v: number | null | undefined) => (v != null ? v.toFixed(3) : '—')
 
 export function AAFinalPanel() {
   const [state] = useWorlds()
+  const { apparatus } = state
 
   const rows = state.simResult?.aa_final ?? []
 
@@ -30,52 +31,25 @@ export function AAFinalPanel() {
       key: 'country',
       header: 'NOC',
       render: (row: AAResult) => (
-        <span className="font-body text-xs text-[#a0a0a0]">{row.country}</span>
+        <span className="font-body text-xs text-[var(--c-txt-1)]">{row.country}</span>
       ),
       sortValue: (row: AAResult) => row.country,
     },
-    {
-      key: 'VT',
-      header: 'VT',
+    ...apparatus.map((app) => ({
+      key: app,
+      header: app,
       align: 'right' as const,
       render: (row: AAResult) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.VT)}</span>
+        <span className="font-body text-xs tabular-nums text-[var(--c-txt-1)]">{fmt(row[app] as number)}</span>
       ),
-      sortValue: (row: AAResult) => row.VT,
-    },
-    {
-      key: 'UB',
-      header: 'UB',
-      align: 'right' as const,
-      render: (row: AAResult) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.UB)}</span>
-      ),
-      sortValue: (row: AAResult) => row.UB,
-    },
-    {
-      key: 'BB',
-      header: 'BB',
-      align: 'right' as const,
-      render: (row: AAResult) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.BB)}</span>
-      ),
-      sortValue: (row: AAResult) => row.BB,
-    },
-    {
-      key: 'FX',
-      header: 'FX',
-      align: 'right' as const,
-      render: (row: AAResult) => (
-        <span className="font-body text-xs tabular-nums text-[#a0a0a0]">{fmt(row.FX)}</span>
-      ),
-      sortValue: (row: AAResult) => row.FX,
-    },
+      sortValue: (row: AAResult) => row[app] as number,
+    })),
     {
       key: 'total',
       header: 'Total',
       align: 'right' as const,
       render: (row: AAResult) => (
-        <span className="font-body text-xs tabular-nums font-semibold text-[#f5f5f5]">
+        <span className="font-body text-xs tabular-nums font-semibold text-[var(--c-txt-0)]">
           {fmt(row.total)}
         </span>
       ),
@@ -85,7 +59,7 @@ export function AAFinalPanel() {
 
   return (
     <div className="space-y-4">
-      <h3 className="font-display text-sm font-semibold text-[#f5f5f5]">All-Around Final</h3>
+      <h3 className="font-display text-sm font-semibold text-[var(--c-txt-0)]">All-Around Final</h3>
       <DataTable
         columns={columns}
         rows={rows}

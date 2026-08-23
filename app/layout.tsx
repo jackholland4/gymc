@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import Header from '@/components/shared/Header'
 import Footer from '@/components/shared/Footer'
+import { ThemeProvider } from '@/components/shared/ThemeProvider'
 import '@/styles/globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -29,10 +30,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${spaceGrotesk.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-[#0a0a0a] text-[#f5f5f5] font-body antialiased">
-        <Header />
-        {children}
-        <Footer />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('gymc-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className="bg-[var(--c-bg-0)] text-[var(--c-txt-0)] font-body antialiased">
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

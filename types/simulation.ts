@@ -1,5 +1,8 @@
-export type Apparatus = 'VT' | 'UB' | 'BB' | 'FX'
+export type Apparatus = 'VT' | 'UB' | 'BB' | 'FX' | 'PH' | 'SR' | 'PB' | 'HB'
 export const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
+export const APPARATUS_WAG: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
+export const APPARATUS_MAG: Apparatus[] = ['FX', 'PH', 'SR', 'VT', 'PB', 'HB']
+export type Discipline = 'WAG' | 'MAG'
 
 export interface GymnastSummary {
   name: string
@@ -10,6 +13,7 @@ export interface GymnastSummary {
 
 export interface Country {
   noc: string
+  name: string
   gymnasts: GymnastSummary[]
   is_team_country?: boolean
 }
@@ -29,11 +33,8 @@ export interface Score {
 
 export interface TeamStanding {
   country: string
-  VT: number
-  UB: number
-  BB: number
-  FX: number
   total: number
+  [apparatus: string]: number | string
 }
 
 export interface EFQualifier {
@@ -56,11 +57,8 @@ export interface EFResult {
 export interface AAResult {
   gymnast: string
   country: string
-  VT: number
-  UB: number
-  BB: number
-  FX: number
   total: number
+  [apparatus: string]: number | string
 }
 
 export interface SimulationResult {

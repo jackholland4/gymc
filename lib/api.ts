@@ -10,6 +10,7 @@ import type {
   ScrapedMeetRow,
   ScrapedMeet,
   TopCandidatesResponse,
+  Discipline,
 } from '@/types/simulation'
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
@@ -38,30 +39,38 @@ export function toApiLineup(lineup: LineupConfig) {
 }
 
 /** GET /api/countries */
-export function fetchCountries(): Promise<Country[]> {
-  return request<Country[]>('/api/countries')
+export function fetchCountries(
+  discipline: Discipline = 'WAG',
+  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
+): Promise<Country[]> {
+  const params = new URLSearchParams({ discipline })
+  if (scoreFilter?.includeDomestic === false) params.set('include_domestic', 'false')
+  if (scoreFilter?.includeNonFig === false) params.set('include_non_fig', 'false')
+  return request<Country[]>(`/api/countries?${params}`)
 }
 
 /** POST /api/optimize */
-export function optimizeTeam(noc: string, teamSize?: number): Promise<OptimizeResult> {
+export function optimizeTeam(noc: string, teamSize?: number, discipline: Discipline = 'WAG'): Promise<OptimizeResult> {
   return request<OptimizeResult>('/api/optimize', {
     method: 'POST',
-    body: JSON.stringify({ noc, ...(teamSize !== undefined ? { team_size: teamSize } : {}) }),
+    body: JSON.stringify({ noc, discipline, ...(teamSize !== undefined ? { team_size: teamSize } : {}) }),
   })
 }
 
 /** POST /api/validate-lineup */
-export function validateLineup(noc: string, lineup: LineupConfig): Promise<ValidationResult> {
+export function validateLineup(noc: string, lineup: LineupConfig, discipline: Discipline = 'WAG'): Promise<ValidationResult> {
   return request<ValidationResult>('/api/validate-lineup', {
     method: 'POST',
-    body: JSON.stringify({ noc, lineup: toApiLineup(lineup) }),
+    body: JSON.stringify({ noc, discipline, lineup: toApiLineup(lineup) }),
   })
 }
 
 /** POST /api/simulate */
 export function simulateMeet(
   lineups: Record<string, LineupConfig>,
-  seed?: number
+  seed?: number,
+  discipline: Discipline = 'WAG',
+  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
 ): Promise<SimulationResult> {
   const apiLineups: Record<string, ReturnType<typeof toApiLineup>> = {}
   for (const [noc, lineup] of Object.entries(lineups)) {
@@ -69,7 +78,19 @@ export function simulateMeet(
   }
   return request<SimulationResult>('/api/simulate', {
     method: 'POST',
-    body: JSON.stringify({ lineups: apiLineups, ...(seed !== undefined ? { seed } : {}) }),
+    body: JSON.stringify({
+      lineups: apiLineups,
+      discipline,
+      ...(seed !== undefined ? { seed } : {}),
+      ...(scoreFilter
+        ? {
+            score_filter: {
+              include_domestic: scoreFilter.includeDomestic ?? true,
+              include_non_fig: scoreFilter.includeNonFig ?? true,
+            },
+          }
+        : {}),
+    }),
   })
 }
 
@@ -81,6 +102,8 @@ export function runBatch(
     seed?: number
     aggregateCountry?: string
     aggregateGymnast?: string
+    discipline?: Discipline
+    scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
   } = {}
 ): Promise<BatchTeamStats | BatchGymnastStats> {
   const apiLineups: Record<string, ReturnType<typeof toApiLineup>> = {}
@@ -95,13 +118,22 @@ export function runBatch(
       ...(opts.seed !== undefined ? { seed: opts.seed } : {}),
       ...(opts.aggregateCountry !== undefined ? { aggregate_country: opts.aggregateCountry } : {}),
       ...(opts.aggregateGymnast !== undefined ? { aggregate_gymnast: opts.aggregateGymnast } : {}),
+      ...(opts.discipline !== undefined ? { discipline: opts.discipline } : {}),
+      ...(opts.scoreFilter
+        ? {
+            score_filter: {
+              include_domestic: opts.scoreFilter.includeDomestic ?? true,
+              include_non_fig: opts.scoreFilter.includeNonFig ?? true,
+            },
+          }
+        : {}),
     }),
   })
 }
 
 /** GET /api/gymnast/{noc}/{name}/history */
-export function fetchGymnastHistory(noc: string, name: string): Promise<GymnastHistory> {
-  return request<GymnastHistory>(`/api/gymnast/${encodeURIComponent(noc)}/${encodeURIComponent(name)}/history`)
+export function fetchGymnastHistory(noc: string, name: string, discipline: Discipline = 'WAG'): Promise<GymnastHistory> {
+  return request<GymnastHistory>(`/api/gymnast/${encodeURIComponent(noc)}/${encodeURIComponent(name)}/history?discipline=${discipline}`)
 }
 
 /** GET /api/meet-results?gymnast=... */
@@ -123,13 +155,15 @@ export function fetchScrapedMeets(): Promise<ScrapedMeet[]> {
 export function analyzeTeams(
   noc: string,
   candidateTeams: string[][],
-  nSims?: number
+  nSims?: number,
+  discipline: Discipline = 'WAG'
 ): Promise<{ teams: BatchTeamStats[] }> {
   return request<{ teams: BatchTeamStats[] }>('/api/batch/teams', {
     method: 'POST',
     body: JSON.stringify({
       noc,
       candidate_teams: candidateTeams,
+      discipline,
       ...(nSims !== undefined ? { n_sims: nSims } : {}),
     }),
   })
@@ -139,10 +173,26 @@ export function analyzeTeams(
 export function fetchTopCandidates(
   noc: string,
   nSims = 1000,
-  seed?: number
+  discipline: Discipline = 'WAG',
+  seed?: number,
+  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
 ): Promise<TopCandidatesResponse> {
   return request<TopCandidatesResponse>('/api/top-team-candidates', {
     method: 'POST',
-    body: JSON.stringify({ noc, n_sims: nSims, top_k: 10, ...(seed !== undefined ? { seed } : {}) }),
+    body: JSON.stringify({
+      noc,
+      n_sims: nSims,
+      top_k: 10,
+      discipline,
+      ...(seed !== undefined ? { seed } : {}),
+      ...(scoreFilter
+        ? {
+            score_filter: {
+              include_domestic: scoreFilter.includeDomestic ?? true,
+              include_non_fig: scoreFilter.includeNonFig ?? true,
+            },
+          }
+        : {}),
+    }),
   })
 }

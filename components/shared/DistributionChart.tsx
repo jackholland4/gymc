@@ -16,7 +16,7 @@ export function DistributionChart({
   if (!data || data.length === 0) {
     return (
       <div
-        className="flex items-center justify-center font-body text-xs text-[#555]"
+        className="flex items-center justify-center font-body text-xs text-[var(--c-txt-5)]"
         style={{ height }}
       >
         No data
@@ -86,7 +86,7 @@ export function DistributionChart({
         })}
       </svg>
       {label && (
-        <p className="mt-1 text-center font-body text-xs text-[#555]">{label}</p>
+        <p className="mt-1 text-center font-body text-xs text-[var(--c-txt-5)]">{label}</p>
       )}
     </div>
   )

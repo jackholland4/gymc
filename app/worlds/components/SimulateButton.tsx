@@ -15,7 +15,7 @@ export function SimulateButton() {
 
     dispatch({ type: 'SIM_START' })
     try {
-      const result = await simulateMeet(state.lineups, seedNum)
+      const result = await simulateMeet(state.lineups, seedNum, state.discipline, state.scoreFilter)
       dispatch({
         type: 'SIM_SUCCESS',
         result,
@@ -37,13 +37,13 @@ export function SimulateButton() {
     <div className="space-y-2">
       {/* Seed input */}
       <div>
-        <label className="block font-body text-xs text-[#666] mb-1">Seed (optional)</label>
+        <label className="block font-body text-xs text-[var(--c-txt-4)] mb-1">Seed (optional)</label>
         <input
           type="number"
           placeholder="Random"
           value={state.seed}
           onChange={(e) => dispatch({ type: 'SET_SEED', seed: e.target.value })}
-          className="w-full bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg px-3 py-1.5 text-xs text-[#f5f5f5] placeholder-[#444] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          className="w-full bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-3 py-1.5 text-xs text-[var(--c-txt-0)] placeholder-[var(--c-txt-6)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
         />
       </div>
 
@@ -53,9 +53,9 @@ export function SimulateButton() {
         disabled={!canSim}
         className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg font-body text-sm font-semibold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
         style={{
-          backgroundColor: canSim ? '#dc2626' : '#1a1a1a',
-          color: canSim ? '#fff' : '#666',
-          border: canSim ? 'none' : '1px solid rgba(255,255,255,0.08)',
+          backgroundColor: canSim ? '#dc2626' : 'var(--c-bg-2)',
+          color: canSim ? '#fff' : 'var(--c-txt-4)',
+          border: canSim ? 'none' : '1px solid var(--c-border-md)',
         }}
       >
         {state.isSimulating ? (
@@ -77,8 +77,8 @@ export function SimulateButton() {
 
       {/* Seed used */}
       {state.usedSeed !== null && !state.isSimulating && (
-        <p className="font-body text-xs text-[#555]">
-          Seed used: <span className="text-[#888] tabular-nums">{state.usedSeed}</span>
+        <p className="font-body text-xs text-[var(--c-txt-5)]">
+          Seed used: <span className="text-[var(--c-txt-3)] tabular-nums">{state.usedSeed}</span>
         </p>
       )}
     </div>

@@ -28,7 +28,7 @@ export interface DataTableProps<T> {
 }
 
 function SortIcon({ active, dir }: { active: boolean; dir: SortDir }) {
-  if (!active) return <span className="ml-1 text-[#444]">↕</span>
+  if (!active) return <span className="ml-1 text-[var(--c-txt-6)]">↕</span>
   return <span className="ml-1 text-[#ef4444]">{dir === 'desc' ? '↓' : '↑'}</span>
 }
 
@@ -81,17 +81,17 @@ export function DataTable<T>({
 
   if (rows.length === 0) {
     return (
-      <div className="overflow-x-auto rounded-xl border border-[rgba(255,255,255,0.06)]">
-        <div className="py-12 text-center font-body text-sm text-[#555]">No data available.</div>
+      <div className="overflow-x-auto rounded-xl border border-[var(--c-border-sm)]">
+        <div className="py-12 text-center font-body text-sm text-[var(--c-txt-5)]">No data available.</div>
       </div>
     )
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-[rgba(255,255,255,0.06)]">
+    <div className="overflow-x-auto rounded-xl border border-[var(--c-border-sm)]">
       <table className="w-full border-collapse">
         <thead className={stickyHeader ? 'sticky top-0 z-10' : ''}>
-          <tr className="border-b border-[rgba(255,255,255,0.08)] bg-[#0f0f0f]">
+          <tr className="border-b border-[var(--c-border-md)] bg-[var(--c-bg-5)]">
             {columns.map((col) => {
               const canSort = !!col.sortValue
               const isActive = sortKey === col.key
@@ -101,9 +101,9 @@ export function DataTable<T>({
                   onClick={() => handleHeaderClick(col.key, canSort)}
                   className={[
                     'px-3 py-2.5 font-body text-xs font-semibold tracking-wide whitespace-nowrap',
-                    'text-[#666] transition-colors select-none',
+                    'text-[var(--c-txt-4)] transition-colors select-none',
                     alignClass(col.align),
-                    canSort ? 'cursor-pointer hover:text-[#a0a0a0]' : 'cursor-default',
+                    canSort ? 'cursor-pointer hover:text-[var(--c-txt-1)]' : 'cursor-default',
                     col.className ?? '',
                   ].join(' ')}
                 >
@@ -126,7 +126,7 @@ export function DataTable<T>({
                   key={key}
                   onClick={() => onRowClick?.(row)}
                   className={[
-                    'border-b border-[rgba(255,255,255,0.04)] transition-colors',
+                    'border-b border-[var(--c-border-sm)] transition-colors',
                     onRowClick || renderExpanded ? 'cursor-pointer hover:bg-[rgba(255,255,255,0.02)]' : '',
                     dim ? 'opacity-50' : '',
                   ].join(' ')}
@@ -135,7 +135,7 @@ export function DataTable<T>({
                     <td
                       key={col.key}
                       className={[
-                        'px-3 py-3 font-body text-xs text-[#c0c0c0] tabular-nums',
+                        'px-3 py-3 font-body text-xs text-[var(--c-txt-2)] tabular-nums',
                         alignClass(col.align),
                         col.className ?? '',
                       ].join(' ')}
@@ -147,7 +147,7 @@ export function DataTable<T>({
                 {isExpanded && renderExpanded && (
                   <tr
                     key={`${key}--expanded`}
-                    className="border-b border-[rgba(255,255,255,0.04)] bg-[rgba(220,38,38,0.03)]"
+                    className="border-b border-[var(--c-border-sm)] bg-[rgba(220,38,38,0.03)]"
                   >
                     <td colSpan={columns.length} className="px-3 py-3">
                       {renderExpanded(row)}

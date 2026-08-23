@@ -6,8 +6,6 @@ import { SimulateButton } from './SimulateButton'
 import { TopCandidatesPanel } from './TopCandidatesPanel'
 import type { Apparatus, LineupConfig } from '@/types/simulation'
 
-const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
-
 // ---------------------------------------------------------------------------
 // Lineup Pill + Add Dropdown
 // ---------------------------------------------------------------------------
@@ -33,8 +31,8 @@ function LineupRow({
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between">
-        <span className="font-body text-xs text-[#666] uppercase tracking-wider">{apparatus}</span>
-        <span className="font-body text-xs text-[#444]">
+        <span className="font-body text-xs text-[var(--c-txt-4)] uppercase tracking-wider">{apparatus}</span>
+        <span className="font-body text-xs text-[var(--c-txt-6)]">
           {gymnasts.length}/{max}
         </span>
       </div>
@@ -42,12 +40,12 @@ function LineupRow({
         {gymnasts.map((g) => (
           <span
             key={g}
-            className="inline-flex items-center gap-1 bg-[#1f1f1f] border border-[rgba(255,255,255,0.08)] rounded-md px-2 py-0.5 font-body text-xs text-[#c0c0c0]"
+            className="inline-flex items-center gap-1 bg-[var(--c-bg-3)] border border-[var(--c-border-md)] rounded-md px-2 py-0.5 font-body text-xs text-[var(--c-txt-2)]"
           >
             {g}
             <button
               onClick={() => onRemove(g)}
-              className="text-[#555] hover:text-[#ef4444] transition-colors leading-none"
+              className="text-[var(--c-txt-5)] hover:text-[#ef4444] transition-colors leading-none"
               aria-label={`Remove ${g}`}
             >
               ×
@@ -59,13 +57,13 @@ function LineupRow({
           <div className="relative">
             <button
               onClick={() => setAddOpen((v) => !v)}
-              className="inline-flex items-center justify-center w-5 h-5 rounded-md bg-[#1f1f1f] border border-[rgba(255,255,255,0.08)] text-[#666] hover:text-[#ef4444] hover:border-[rgba(220,38,38,0.3)] transition-colors font-body text-sm leading-none"
+              className="inline-flex items-center justify-center w-5 h-5 rounded-md bg-[var(--c-bg-3)] border border-[var(--c-border-md)] text-[var(--c-txt-4)] hover:text-[#ef4444] hover:border-[rgba(220,38,38,0.3)] transition-colors font-body text-sm leading-none"
               aria-label="Add gymnast"
             >
               +
             </button>
             {addOpen && (
-              <div className="absolute left-0 top-6 z-50 min-w-[140px] bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg shadow-xl overflow-hidden">
+              <div className="absolute left-0 top-6 z-50 min-w-[140px] bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg shadow-xl overflow-hidden">
                 {available.map((g) => (
                   <button
                     key={g}
@@ -73,7 +71,7 @@ function LineupRow({
                       onAdd(g)
                       setAddOpen(false)
                     }}
-                    className="w-full text-left px-3 py-1.5 font-body text-xs text-[#c0c0c0] hover:bg-[rgba(220,38,38,0.1)] hover:text-[#ef4444] transition-colors"
+                    className="w-full text-left px-3 py-1.5 font-body text-xs text-[var(--c-txt-2)] hover:bg-[rgba(220,38,38,0.1)] hover:text-[#ef4444] transition-colors"
                   >
                     {g}
                   </button>
@@ -102,13 +100,13 @@ function Section({
 }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
-    <div className="border-t border-[rgba(255,255,255,0.06)]">
+    <div className="border-t border-[var(--c-border-sm)]">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-4 py-2.5 font-body text-xs font-semibold text-[#888] hover:text-[#c0c0c0] transition-colors select-none"
+        className="w-full flex items-center justify-between px-4 py-2.5 font-body text-xs font-semibold text-[var(--c-txt-3)] hover:text-[var(--c-txt-2)] transition-colors select-none"
       >
         {title}
-        <span className="text-[#555]">{open ? '▲' : '▼'}</span>
+        <span className="text-[var(--c-txt-5)]">{open ? '▲' : '▼'}</span>
       </button>
       {open && <div className="px-4 pb-4 space-y-3">{children}</div>}
     </div>
@@ -121,6 +119,7 @@ function Section({
 
 export function WorldsSidebar() {
   const [state, dispatch] = useWorlds()
+  const APPARATUS = state.apparatus
 
   const lineup = state.selectedNoc ? state.lineups[state.selectedNoc] : null
 
@@ -182,10 +181,10 @@ export function WorldsSidebar() {
   }
 
   return (
-    <aside className="w-96 shrink-0 h-full overflow-y-auto bg-[#0d0d0d] border-r border-[rgba(255,255,255,0.06)] flex flex-col">
+    <aside className="w-96 shrink-0 h-full overflow-y-auto bg-[var(--c-bg-6)] border-r border-[var(--c-border-sm)] flex flex-col">
       {/* Country Selector */}
-      <div className="px-4 pt-4 pb-3 border-b border-[rgba(255,255,255,0.06)]">
-        <label className="block font-body text-xs font-semibold text-[#666] mb-2 uppercase tracking-wider">
+      <div className="px-4 pt-4 pb-3 border-b border-[var(--c-border-sm)]">
+        <label className="block font-body text-xs font-semibold text-[var(--c-txt-4)] mb-2 uppercase tracking-wider">
           Country
         </label>
         {state.countriesError && (
@@ -196,13 +195,12 @@ export function WorldsSidebar() {
         <select
           value={state.selectedNoc ?? ''}
           onChange={(e) => handleSelectCountry(e.target.value)}
-          className="w-full bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg px-3 py-2 text-sm text-[#f5f5f5] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
+          className="w-full bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-3 py-2 text-sm text-[var(--c-txt-0)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
         >
           <option value="">Select country…</option>
           {state.countries.map((c) => (
             <option key={c.noc} value={c.noc}>
-              {c.noc}
-              {c.is_team_country ? ' ★' : ''}
+              {c.name} ({c.noc}){c.is_team_country ? ' ★' : ''}
             </option>
           ))}
         </select>
@@ -252,8 +250,31 @@ export function WorldsSidebar() {
         </>
       )}
 
+      {/* Score filters */}
+      <div className="px-4 py-3 border-t border-[var(--c-border-sm)]">
+        <p className="font-body text-xs font-semibold text-[var(--c-txt-4)] uppercase tracking-wider mb-2">Score data</p>
+        <label className="flex items-center gap-2 cursor-pointer mb-1.5">
+          <input
+            type="checkbox"
+            checked={state.scoreFilter.includeDomestic}
+            onChange={(e) => dispatch({ type: 'SET_SCORE_FILTER', filter: { includeDomestic: e.target.checked } })}
+            className="accent-[#dc2626]"
+          />
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Include domestic meets</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={state.scoreFilter.includeNonFig}
+            onChange={(e) => dispatch({ type: 'SET_SCORE_FILTER', filter: { includeNonFig: e.target.checked } })}
+            className="accent-[#dc2626]"
+          />
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Include non-FIG meets</span>
+        </label>
+      </div>
+
       {/* Simulate */}
-      <div className="px-4 py-4 mt-auto border-t border-[rgba(255,255,255,0.06)]">
+      <div className="px-4 py-4 border-t border-[var(--c-border-sm)]">
         <SimulateButton />
       </div>
     </aside>

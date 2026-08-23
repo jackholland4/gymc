@@ -15,19 +15,19 @@ export function MetricCard({
     <div
       className="rounded-xl p-4"
       style={{
-        backgroundColor: '#141414',
-        border: '1px solid rgba(255,255,255,0.08)',
+        backgroundColor: 'var(--c-bg-1)',
+        border: '1px solid var(--c-border-md)',
       }}
     >
-      <p className="font-body text-xs text-[#666] mb-1">{label}</p>
+      <p className="font-body text-xs text-[var(--c-txt-4)] mb-1">{label}</p>
       <p
         className="font-body text-xl font-semibold tabular-nums leading-tight"
-        style={{ color: highlight ? '#ef4444' : '#f5f5f5' }}
+        style={{ color: highlight ? '#ef4444' : 'var(--c-txt-0)' }}
       >
         {displayValue}
       </p>
       {sub && (
-        <p className="font-body text-xs text-[#555] mt-0.5 tabular-nums">{sub}</p>
+        <p className="font-body text-xs text-[var(--c-txt-5)] mt-0.5 tabular-nums">{sub}</p>
       )}
     </div>
   )

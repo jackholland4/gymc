@@ -5,9 +5,7 @@ import { useWorlds } from '../WorldsProvider'
 import { fetchCountries } from '@/lib/api'
 import type { Apparatus, Country, LineupConfig } from '@/types/simulation'
 
-const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
-
-function buildDefaultLineup(country: Country): LineupConfig {
+function buildDefaultLineup(country: Country, apparatus: Apparatus[]): LineupConfig {
   const gymnasts = country.gymnasts
 
   // Rank gymnasts by sum of their known means (proxy for overall value)
@@ -26,7 +24,7 @@ function buildDefaultLineup(country: Country): LineupConfig {
   const quals: Record<string, string[]> = {}
   const teamFinal: Record<string, string[]> = {}
 
-  for (const app of APPARATUS) {
+  for (const app of apparatus) {
     const ranked = team
       .filter((name) => {
         const g = gymnasts.find((g) => g.name === name)
@@ -72,7 +70,7 @@ function TabBar() {
   const [state, dispatch] = useWorlds()
 
   return (
-    <div className="flex items-center gap-1 border-b border-[rgba(255,255,255,0.06)] px-6 pt-3 pb-0 shrink-0">
+    <div className="flex items-center gap-1 border-b border-[var(--c-border-sm)] px-6 pt-3 pb-0 shrink-0">
       {TABS.map((tab) => {
         const isActive = state.activeTab === tab.key
         return (
@@ -80,7 +78,7 @@ function TabBar() {
             key={tab.key}
             onClick={() => dispatch({ type: 'SET_TAB', tab: tab.key })}
             className="relative px-3 pb-3 pt-1 font-body text-sm font-medium transition-colors duration-150"
-            style={{ color: isActive ? '#ef4444' : '#666' }}
+            style={{ color: isActive ? '#ef4444' : 'var(--c-txt-4)' }}
           >
             {tab.label}
             {isActive && (
@@ -107,7 +105,7 @@ function EmptyState() {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-4">
         <div className="w-8 h-8 border-2 border-[#dc2626] border-t-transparent rounded-full animate-spin" />
-        <p className="font-body text-sm text-[#a0a0a0]">Running simulation…</p>
+        <p className="font-body text-sm text-[var(--c-txt-1)]">Running simulation…</p>
       </div>
     )
   }
@@ -121,12 +119,12 @@ function EmptyState() {
         <span className="font-display text-xl text-[#ef4444]">→</span>
       </div>
       <div>
-        <p className="font-display text-base font-semibold text-[#f5f5f5] mb-1">
+        <p className="font-display text-base font-semibold text-[var(--c-txt-0)] mb-1">
           Run a simulation
         </p>
-        <p className="font-body text-sm text-[#555]">
+        <p className="font-body text-sm text-[var(--c-txt-5)]">
           Select a country, configure your lineup, then hit{' '}
-          <span className="text-[#a0a0a0]">Run Simulation</span> in the sidebar.
+          <span className="text-[var(--c-txt-1)]">Run Simulation</span> in the sidebar.
         </p>
       </div>
     </div>
@@ -142,11 +140,11 @@ export function WorldsMain() {
 
   // Load countries and immediately build default lineups for all of them
   useEffect(() => {
-    fetchCountries()
+    fetchCountries(state.discipline, state.scoreFilter)
       .then((countries) => {
         dispatch({ type: 'SET_COUNTRIES', countries })
         const lineups: Record<string, LineupConfig> = {}
-        for (const c of countries) lineups[c.noc] = buildDefaultLineup(c)
+        for (const c of countries) lineups[c.noc] = buildDefaultLineup(c, state.apparatus)
         dispatch({ type: 'SET_ALL_LINEUPS', lineups })
       })
       .catch(() =>
@@ -155,7 +153,8 @@ export function WorldsMain() {
           msg: 'Could not reach the simulation API. Start it with:\ncd ~/api && uvicorn main:app --port 8000',
         })
       )
-  }, [dispatch])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, state.discipline, state.scoreFilter])
 
   const hasResult = !!state.simResult
 

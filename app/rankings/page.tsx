@@ -10,10 +10,10 @@ const DATA_FILE = join(process.cwd(), 'public', 'data', 'rankings.json')
 function NoData() {
   return (
     <div className="flex flex-col items-center justify-center py-32 gap-4 text-center">
-      <p className="font-display text-lg font-semibold text-[#f5f5f5]">Rankings not yet computed</p>
-      <p className="font-body text-sm text-[#666] max-w-sm">
-        Run <code className="text-[#a0a0a0] bg-[#1a1a1a] px-1.5 py-0.5 rounded">python rankings_compute.py</code>{' '}
-        in the <code className="text-[#a0a0a0] bg-[#1a1a1a] px-1.5 py-0.5 rounded">worlds_sim/</code> directory,
+      <p className="font-display text-lg font-semibold text-[var(--c-txt-0)]">Rankings not yet computed</p>
+      <p className="font-body text-sm text-[var(--c-txt-4)] max-w-sm">
+        Run <code className="text-[var(--c-txt-1)] bg-[var(--c-bg-2)] px-1.5 py-0.5 rounded">python rankings_compute.py</code>{' '}
+        in the <code className="text-[var(--c-txt-1)] bg-[var(--c-bg-2)] px-1.5 py-0.5 rounded">worlds_sim/</code> directory,
         then refresh this page.
       </p>
     </div>
@@ -33,15 +33,15 @@ export default function RankingsPage() {
       <section className="pt-24 pb-8 px-6 md:px-12 lg:px-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 font-body text-sm text-[#a0a0a0] hover:text-[#ef4444] transition-colors duration-200 mb-8"
+          className="inline-flex items-center gap-1.5 font-body text-sm text-[var(--c-txt-1)] hover:text-[#ef4444] transition-colors duration-200 mb-8"
         >
           ← Back to GYMC
         </Link>
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#f5f5f5] leading-tight">
+        <h1 className="font-display text-3xl md:text-4xl font-bold text-[var(--c-txt-0)] leading-tight">
           Power Rankings
         </h1>
         <RedRule delay={0.3} />
-        <p className="mt-4 font-body text-[#a0a0a0] max-w-xl leading-relaxed">
+        <p className="mt-4 font-body text-[var(--c-txt-1)] max-w-xl leading-relaxed">
           Projected medal probabilities and event-final rates derived from 5,000 Monte Carlo simulations
           of the 2026 World Championships.
         </p>

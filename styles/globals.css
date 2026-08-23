@@ -3,7 +3,40 @@
 @tailwind utilities;
 
 :root {
-  /* Backgrounds */
+  /* ── Theme: backgrounds ── */
+  --c-bg-0: #0a0a0a;
+  --c-bg-1: #141414;
+  --c-bg-2: #1a1a1a;
+  --c-bg-3: #1f1f1f;
+  --c-bg-4: #111;
+  --c-bg-5: #0f0f0f;
+  --c-bg-6: #0d0d0d;
+  --c-bg-7: #222;
+
+  /* ── Theme: text ── */
+  --c-txt-0: #f5f5f5;
+  --c-txt-1: #a0a0a0;
+  --c-txt-2: #c0c0c0;
+  --c-txt-3: #888;
+  --c-txt-4: #666;
+  --c-txt-5: #555;
+  --c-txt-6: #444;
+  --c-txt-7: #333;
+  --c-txt-8: #e0e0e0;
+
+  /* ── Theme: borders ── */
+  --c-border-sm: rgba(255,255,255,0.06);
+  --c-border-md: rgba(255,255,255,0.08);
+  --c-border-lg: rgba(255,255,255,0.1);
+  --c-border-xl: rgba(255,255,255,0.15);
+  --c-border-2xl: rgba(255,255,255,0.2);
+
+  /* ── Theme: shadow / header ── */
+  --c-shadow: rgba(0,0,0,0.6);
+  --c-header-bg: rgba(10,10,10,0.95);
+  --c-header-border: rgba(255,255,255,0.06);
+
+  /* ── Legacy aliases (kept for any remaining references) ── */
   --bg-primary: #0a0a0a;
   --bg-elevated: #141414;
   --bg-surface: #1a1a1a;
@@ -40,13 +73,61 @@
   );
 }
 
+[data-theme="light"] {
+  --c-bg-0: #ffffff;
+  --c-bg-1: #f5f5f5;
+  --c-bg-2: #ededed;
+  --c-bg-3: #e4e4e4;
+  --c-bg-4: #f0f0f0;
+  --c-bg-5: #f2f2f2;
+  --c-bg-6: #f4f4f4;
+  --c-bg-7: #e0e0e0;
+
+  --c-txt-0: #111111;
+  --c-txt-1: #555555;
+  --c-txt-2: #444444;
+  --c-txt-3: #666666;
+  --c-txt-4: #777777;
+  --c-txt-5: #888888;
+  --c-txt-6: #999999;
+  --c-txt-7: #aaaaaa;
+  --c-txt-8: #222222;
+
+  --c-border-sm: rgba(0,0,0,0.07);
+  --c-border-md: rgba(0,0,0,0.09);
+  --c-border-lg: rgba(0,0,0,0.11);
+  --c-border-xl: rgba(0,0,0,0.16);
+  --c-border-2xl: rgba(0,0,0,0.20);
+
+  --c-shadow: rgba(0,0,0,0.15);
+  --c-header-bg: rgba(255,255,255,0.95);
+  --c-header-border: rgba(0,0,0,0.08);
+
+  /* Update legacy aliases for light mode */
+  --bg-primary: #ffffff;
+  --bg-elevated: #f5f5f5;
+  --bg-surface: #ededed;
+  --bg-overlay: rgba(0, 0, 0, 0.15);
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --border-subtle: rgba(0, 0, 0, 0.09);
+
+  /* Gradient adjusted for light mode */
+  --gradient-hero: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--c-bg-0);
+  color: var(--c-txt-0);
 }
 
 /* ── Ken Burns keyframes ────────────────────────────────── */

@@ -36,7 +36,7 @@ const TOOLS = [
 
 export default function NavCards() {
   return (
-    <section className="bg-[#0a0a0a] py-24 px-6 md:px-12 lg:px-20">
+    <section className="bg-[var(--c-bg-0)] py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
         <motion.p
@@ -66,14 +66,14 @@ export default function NavCards() {
                 <div className="flex flex-col flex-1 p-8">
                   {/* Title */}
                   <h2
-                    className="font-display font-bold text-[#f5f5f5] leading-tight mb-4"
+                    className="font-display font-bold text-[var(--c-txt-0)] leading-tight mb-4"
                     style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' }}
                   >
                     {tool.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="font-body text-sm text-[#a0a0a0] leading-relaxed mb-10 flex-grow">
+                  <p className="font-body text-sm text-[var(--c-txt-1)] leading-relaxed mb-10 flex-grow">
                     {tool.description}
                   </p>
 

@@ -9,14 +9,14 @@ export default function WorldsShell() {
 
   return (
     <div
-      className="relative w-full rounded-xl overflow-hidden border border-[rgba(255,255,255,0.08)] bg-[#141414]"
+      className="relative w-full rounded-xl overflow-hidden border border-[var(--c-border-md)] bg-[var(--c-bg-1)]"
       style={{ minHeight: 'calc(100vh - 220px)' }}
     >
       {/* Loading state */}
       {!loaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10">
           <div className="w-8 h-8 border-2 border-[#dc2626] border-t-transparent rounded-full animate-spin" />
-          <span className="font-body text-sm text-[#a0a0a0]">Loading simulation…</span>
+          <span className="font-body text-sm text-[var(--c-txt-1)]">Loading simulation…</span>
         </div>
       )}
 

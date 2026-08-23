@@ -7,8 +7,6 @@ import { useWorlds } from '../WorldsProvider'
 import { runBatch } from '@/lib/api'
 import type { Apparatus, BatchTeamStats, BatchGymnastStats } from '@/types/simulation'
 
-const APPARATUS: Apparatus[] = ['VT', 'UB', 'BB', 'FX']
-
 const pct = (v: number | null | undefined) =>
   v != null ? `${(v * 100).toFixed(1)}%` : '—'
 
@@ -21,6 +19,7 @@ const num = (v: number | null | undefined, dp = 3) =>
 
 function TeamAnalysis() {
   const [state, dispatch] = useWorlds()
+  const APPARATUS = state.apparatus
   const [nSims, setNSims] = useState(200)
   const [expandedDist, setExpandedDist] = useState(false)
 
@@ -31,6 +30,8 @@ function TeamAnalysis() {
       const result = await runBatch(state.lineups, {
         nSims,
         aggregateCountry: state.selectedNoc,
+        discipline: state.discipline,
+        scoreFilter: state.scoreFilter,
       })
       dispatch({ type: 'BATCH_TEAM_SUCCESS', stats: result as BatchTeamStats })
     } catch (err) {
@@ -47,11 +48,11 @@ function TeamAnalysis() {
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-3">
-        <h4 className="font-display text-sm font-semibold text-[#f5f5f5]">
+        <h4 className="font-display text-sm font-semibold text-[var(--c-txt-0)]">
           Team Analysis — {noc}
         </h4>
         <div className="flex items-center gap-2 ml-auto">
-          <label className="font-body text-xs text-[#666]">Sims:</label>
+          <label className="font-body text-xs text-[var(--c-txt-4)]">Sims:</label>
           <input
             type="number"
             value={nSims}
@@ -59,7 +60,7 @@ function TeamAnalysis() {
             max={2000}
             step={50}
             onChange={(e) => setNSims(parseInt(e.target.value) || 200)}
-            className="w-20 bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg px-2 py-1 text-xs text-[#f5f5f5] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-20 bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-2 py-1 text-xs text-[var(--c-txt-0)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
           <button
             onClick={handleRunTeam}
@@ -111,16 +112,16 @@ function TeamAnalysis() {
           {/* EF breakdown */}
           {s.ef_breakdown && (
             <div>
-              <p className="font-body text-xs text-[#666] mb-2">Mean EF Qualifiers by Event</p>
+              <p className="font-body text-xs text-[var(--c-txt-4)] mb-2">Mean EF Qualifiers by Event</p>
               <div className="grid grid-cols-4 gap-2">
                 {APPARATUS.map((a) => (
                   <div
                     key={a}
                     className="rounded-lg p-3 text-center"
-                    style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)' }}
+                    style={{ backgroundColor: 'var(--c-bg-1)', border: '1px solid var(--c-border-md)' }}
                   >
-                    <p className="font-body text-xs text-[#666] mb-1">{a}</p>
-                    <p className="font-body text-sm font-semibold text-[#f5f5f5] tabular-nums">
+                    <p className="font-body text-xs text-[var(--c-txt-4)] mb-1">{a}</p>
+                    <p className="font-body text-sm font-semibold text-[var(--c-txt-0)] tabular-nums">
                       {num(s.ef_breakdown[a], 2)}
                     </p>
                   </div>
@@ -134,15 +135,15 @@ function TeamAnalysis() {
             <div>
               <button
                 onClick={() => setExpandedDist((v) => !v)}
-                className="flex items-center gap-1.5 font-body text-xs text-[#666] hover:text-[#a0a0a0] transition-colors mb-2"
+                className="flex items-center gap-1.5 font-body text-xs text-[var(--c-txt-4)] hover:text-[var(--c-txt-1)] transition-colors mb-2"
               >
                 TF Rank Distribution{' '}
-                <span className="text-[#444]">{expandedDist ? '▲' : '▼'}</span>
+                <span className="text-[var(--c-txt-6)]">{expandedDist ? '▲' : '▼'}</span>
               </button>
               {expandedDist && (
                 <div
                   className="rounded-xl p-3"
-                  style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)' }}
+                  style={{ backgroundColor: 'var(--c-bg-1)', border: '1px solid var(--c-border-md)' }}
                 >
                   <DistributionChart
                     data={s.tf_rank_distribution}
@@ -157,23 +158,23 @@ function TeamAnalysis() {
           {/* Gymnast EF rates table */}
           {s.gymnast_ef_rates && Object.keys(s.gymnast_ef_rates).length > 0 && (
             <div>
-              <p className="font-body text-xs text-[#666] mb-2">Gymnast Qualification Rates</p>
-              <div className="overflow-x-auto rounded-xl border border-[rgba(255,255,255,0.06)]">
+              <p className="font-body text-xs text-[var(--c-txt-4)] mb-2">Gymnast Qualification Rates</p>
+              <div className="overflow-x-auto rounded-xl border border-[var(--c-border-sm)]">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-[rgba(255,255,255,0.08)] bg-[#0f0f0f]">
-                      <th className="text-left px-3 py-2 font-body text-xs text-[#666] font-semibold">
+                    <tr className="border-b border-[var(--c-border-md)] bg-[var(--c-bg-5)]">
+                      <th className="text-left px-3 py-2 font-body text-xs text-[var(--c-txt-4)] font-semibold">
                         Gymnast
                       </th>
                       {APPARATUS.map((a) => (
                         <th
                           key={a}
-                          className="text-right px-3 py-2 font-body text-xs text-[#666] font-semibold"
+                          className="text-right px-3 py-2 font-body text-xs text-[var(--c-txt-4)] font-semibold"
                         >
                           {a} EF%
                         </th>
                       ))}
-                      <th className="text-right px-3 py-2 font-body text-xs text-[#666] font-semibold">
+                      <th className="text-right px-3 py-2 font-body text-xs text-[var(--c-txt-4)] font-semibold">
                         AA%
                       </th>
                     </tr>
@@ -182,18 +183,18 @@ function TeamAnalysis() {
                     {Object.entries(s.gymnast_ef_rates).map(([gymnast, rates]) => (
                       <tr
                         key={gymnast}
-                        className="border-b border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.02)] transition-colors"
+                        className="border-b border-[var(--c-border-sm)] hover:bg-[rgba(255,255,255,0.02)] transition-colors"
                       >
-                        <td className="px-3 py-2 font-body text-xs text-[#c0c0c0]">{gymnast}</td>
+                        <td className="px-3 py-2 font-body text-xs text-[var(--c-txt-2)]">{gymnast}</td>
                         {APPARATUS.map((a) => (
                           <td
                             key={a}
-                            className="px-3 py-2 font-body text-xs tabular-nums text-right text-[#a0a0a0]"
+                            className="px-3 py-2 font-body text-xs tabular-nums text-right text-[var(--c-txt-1)]"
                           >
                             {rates[a] != null ? pct(rates[a]) : '—'}
                           </td>
                         ))}
-                        <td className="px-3 py-2 font-body text-xs tabular-nums text-right text-[#a0a0a0]">
+                        <td className="px-3 py-2 font-body text-xs tabular-nums text-right text-[var(--c-txt-1)]">
                           {s.gymnast_aa_rates?.[gymnast] != null
                             ? pct(s.gymnast_aa_rates[gymnast])
                             : '—'}
@@ -217,6 +218,7 @@ function TeamAnalysis() {
 
 function GymnastSearch() {
   const [state, dispatch] = useWorlds()
+  const APPARATUS = state.apparatus
   const [selectedGymnast, setSelectedGymnast] = useState('')
   const [nSims, setNSims] = useState(200)
   const [expandedApp, setExpandedApp] = useState<Apparatus | null>(null)
@@ -235,6 +237,8 @@ function GymnastSearch() {
         nSims,
         aggregateCountry: state.selectedNoc,
         aggregateGymnast: selectedGymnast,
+        discipline: state.discipline,
+        scoreFilter: state.scoreFilter,
       })
       dispatch({ type: 'BATCH_GYMNAST_SUCCESS', stats: result as BatchGymnastStats })
     } catch (err) {
@@ -250,12 +254,12 @@ function GymnastSearch() {
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-3 flex-wrap">
-        <h4 className="font-display text-sm font-semibold text-[#f5f5f5]">Gymnast Search</h4>
+        <h4 className="font-display text-sm font-semibold text-[var(--c-txt-0)]">Gymnast Search</h4>
         <div className="flex items-center gap-2 ml-auto flex-wrap">
           <select
             value={selectedGymnast}
             onChange={(e) => setSelectedGymnast(e.target.value)}
-            className="bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg px-3 py-1.5 text-xs text-[#f5f5f5] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
+            className="bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-3 py-1.5 text-xs text-[var(--c-txt-0)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
           >
             <option value="">Select gymnast…</option>
             {teamMembers.map((g) => (
@@ -264,7 +268,7 @@ function GymnastSearch() {
               </option>
             ))}
           </select>
-          <label className="font-body text-xs text-[#666]">Sims:</label>
+          <label className="font-body text-xs text-[var(--c-txt-4)]">Sims:</label>
           <input
             type="number"
             value={nSims}
@@ -272,7 +276,7 @@ function GymnastSearch() {
             max={2000}
             step={50}
             onChange={(e) => setNSims(parseInt(e.target.value) || 200)}
-            className="w-20 bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] rounded-lg px-2 py-1 text-xs text-[#f5f5f5] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-20 bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-2 py-1 text-xs text-[var(--c-txt-0)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
           <button
             onClick={handleRunGymnast}
@@ -310,33 +314,33 @@ function GymnastSearch() {
                 <div
                   key={a}
                   className="rounded-xl overflow-hidden"
-                  style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)' }}
+                  style={{ backgroundColor: 'var(--c-bg-1)', border: '1px solid var(--c-border-md)' }}
                 >
-                  <div className="px-3 pt-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
+                  <div className="px-3 pt-3 pb-2 border-b border-[var(--c-border-sm)]">
                     <p className="font-display text-xs font-semibold text-[#ef4444]">{a}</p>
                   </div>
                   <div className="p-3 space-y-2">
                     <div className="flex justify-between">
-                      <span className="font-body text-xs text-[#666]">Quals Score</span>
-                      <span className="font-body text-xs tabular-nums text-[#f5f5f5]">
+                      <span className="font-body text-xs text-[var(--c-txt-4)]">Quals Score</span>
+                      <span className="font-body text-xs tabular-nums text-[var(--c-txt-0)]">
                         {num(appStats.mean_quals_score)}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-body text-xs text-[#666]">EF Qual Rate</span>
-                      <span className="font-body text-xs tabular-nums text-[#f5f5f5]">
+                      <span className="font-body text-xs text-[var(--c-txt-4)]">EF Qual Rate</span>
+                      <span className="font-body text-xs tabular-nums text-[var(--c-txt-0)]">
                         {pct(appStats.ef_qual_rate)}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-body text-xs text-[#666]">Mean EF Rank</span>
-                      <span className="font-body text-xs tabular-nums text-[#f5f5f5]">
+                      <span className="font-body text-xs text-[var(--c-txt-4)]">Mean EF Rank</span>
+                      <span className="font-body text-xs tabular-nums text-[var(--c-txt-0)]">
                         {appStats.mean_ef_rank != null ? num(appStats.mean_ef_rank, 1) : '—'}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-body text-xs text-[#666]">Medal Rate</span>
-                      <span className="font-body text-xs tabular-nums text-[#f5f5f5]">
+                      <span className="font-body text-xs text-[var(--c-txt-4)]">Medal Rate</span>
+                      <span className="font-body text-xs tabular-nums text-[var(--c-txt-0)]">
                         {pct(appStats.ef_medal_rate)}
                       </span>
                     </div>
@@ -344,7 +348,7 @@ function GymnastSearch() {
                       <>
                         <button
                           onClick={() => setExpandedApp(isExpanded ? null : a)}
-                          className="w-full text-left font-body text-xs text-[#555] hover:text-[#888] transition-colors mt-1"
+                          className="w-full text-left font-body text-xs text-[var(--c-txt-5)] hover:text-[var(--c-txt-3)] transition-colors mt-1"
                         >
                           {isExpanded ? 'Hide dist ▲' : 'Show dist ▼'}
                         </button>
@@ -366,7 +370,7 @@ function GymnastSearch() {
           {/* AA stats */}
           {gs.all_around && (
             <div>
-              <p className="font-body text-xs text-[#666] mb-2">All-Around</p>
+              <p className="font-body text-xs text-[var(--c-txt-4)] mb-2">All-Around</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 <MetricCard
                   label="Mean Quals Total"
@@ -390,8 +394,8 @@ function GymnastSearch() {
                 <MetricCard label="Medal Rate" value={pct(gs.all_around.aa_medal_rate)} />
               </div>
               {gs.all_around.aa_rank_distribution && gs.all_around.aa_rank_distribution.length > 0 && (
-                <div className="mt-3 rounded-xl p-3" style={{ backgroundColor: '#141414', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <p className="font-body text-xs text-[#666] mb-2">AA Rank Distribution</p>
+                <div className="mt-3 rounded-xl p-3" style={{ backgroundColor: 'var(--c-bg-1)', border: '1px solid var(--c-border-md)' }}>
+                  <p className="font-body text-xs text-[var(--c-txt-4)] mb-2">AA Rank Distribution</p>
                   <DistributionChart
                     data={gs.all_around.aa_rank_distribution}
                     label="AA rank"
@@ -417,7 +421,7 @@ export function AnalyticsPanel() {
   if (!state.selectedNoc) {
     return (
       <div className="flex items-center justify-center h-48">
-        <p className="font-body text-sm text-[#555]">Select a country to run analytics.</p>
+        <p className="font-body text-sm text-[var(--c-txt-5)]">Select a country to run analytics.</p>
       </div>
     )
   }
@@ -425,9 +429,9 @@ export function AnalyticsPanel() {
   return (
     <div className="space-y-10">
       {/* Divider */}
-      <div className="h-px bg-[rgba(255,255,255,0.06)]" />
+      <div className="h-px bg-[var(--c-border-sm)]" />
       <TeamAnalysis />
-      <div className="h-px bg-[rgba(255,255,255,0.06)]" />
+      <div className="h-px bg-[var(--c-border-sm)]" />
       <GymnastSearch />
     </div>
   )

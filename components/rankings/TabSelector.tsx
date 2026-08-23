@@ -27,7 +27,7 @@ export default function TabSelector({
           className="relative px-3.5 py-1.5 rounded-lg font-body text-xs font-medium transition-all duration-200"
           style={{
             backgroundColor: active === id ? 'rgba(220,38,38,0.15)' : 'transparent',
-            color: active === id ? '#ef4444' : '#666',
+            color: active === id ? '#ef4444' : 'var(--c-txt-4)',
             border: active === id ? '1px solid rgba(220,38,38,0.35)' : '1px solid transparent',
           }}
         >
