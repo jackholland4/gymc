@@ -1,6 +1,6 @@
 # gymc
 
-A Monte Carlo simulation tool for artistic gymnastics competition. Model team and individual results for WAG and MAG disciplines using real competition data scraped from the 2026 season.
+A Monte Carlo simulation tool for artistic gymnastics competition. Model team and individual results for WAG and MAG disciplines using real competition data scraped from the 2026 season. Live through European Championships (23 Aug 2026)
 
 ## What it does
 
@@ -36,7 +36,7 @@ Set `NEXT_PUBLIC_API_URL=http://localhost:8001` or update `lib/api.ts`.
 
 ## Data pipeline
 
-Competition results are scraped from The Gymternet's results pages and stored in `gymc.db`. Each score row carries two binary flags:
+Competition results are scraped from The Gymternet, FIG Archives, and r/gymnastics. Stored in `gymc.db`. Each score row carries two binary flags:
 
 - `is_fig` — meet is FIG-sanctioned (World Cups, continental championships, etc.)
 - `is_domestic` — meet is a national domestic competition
