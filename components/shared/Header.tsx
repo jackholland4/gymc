@@ -53,6 +53,7 @@ export default function Header() {
     { href: '/worlds-men', label: 'Worlds (M)' },
     { href: '/rankings', label: 'Rankings' },
     { href: '/team-selection', label: 'Team Selection' },
+    { href: '/calendar', label: 'Calendar' },
   ]
 
   return (
@@ -69,7 +70,7 @@ export default function Header() {
       {/* Logo */}
       <Link
         href="/"
-        className="font-display font-bold text-lg text-[var(--c-txt-0)] tracking-tight hover:text-white transition-colors duration-200 group"
+        className="font-display font-bold text-lg text-[var(--c-txt-0)] tracking-tight hover:text-[#ef4444] transition-colors duration-200 group"
       >
         GYMC
         <span className="block h-0.5 w-0 group-hover:w-full bg-[#dc2626] transition-all duration-300 ease-out" />

@@ -5,10 +5,32 @@ import { DataTable } from '@/components/shared/DataTable'
 import { ApparatusTabs } from '@/components/shared/ApparatusTabs'
 import { useWorlds } from '../WorldsProvider'
 import { GymnastName } from './GymnastName'
-import type { Apparatus, TeamStanding, EFResult, AAStanding } from '@/types/simulation'
+import type { Apparatus, Score, TeamStanding, EFResult, AAStanding } from '@/types/simulation'
 
 const fmt = (v: number | null | undefined) =>
   v != null ? v.toFixed(3) : '—'
+
+// ---------------------------------------------------------------------------
+// Score cell with competition tooltip on hover
+// ---------------------------------------------------------------------------
+
+function ScoreCell({ score, competition }: { score: number | null; competition?: string | null }) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <td
+      className="py-1.5 px-2 text-right tabular-nums text-[var(--c-txt-1)] relative select-none"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <span className={competition ? 'cursor-default' : ''}>{fmt(score)}</span>
+      {hovered && competition && (
+        <div className="absolute right-2 bottom-full mb-1 z-50 px-2 py-1 rounded-md bg-[var(--c-bg-0)] border border-[var(--c-border-lg)] shadow-lg pointer-events-none whitespace-nowrap">
+          <span className="font-body text-[10px] text-[var(--c-txt-3)]">{competition}</span>
+        </div>
+      )}
+    </td>
+  )
+}
 
 // ---------------------------------------------------------------------------
 // Expanded row: per-gymnast scores for a country on each apparatus
@@ -20,12 +42,18 @@ function TeamExpandedRow({
   apparatus,
 }: {
   country: string
-  allScores: Array<{ country: string; gymnast: string; apparatus: Apparatus; score: number }>
+  allScores: Score[]
   apparatus: Apparatus[]
 }) {
   const scores = allScores.filter((s) => s.country === country)
-  // Group by gymnast
   const gymnasts = Array.from(new Set(scores.map((s) => s.gymnast)))
+
+  // Build competition lookup: gymnast → apparatus → competition name
+  const compLookup: Record<string, Record<string, string | null>> = {}
+  for (const s of scores) {
+    if (!compLookup[s.gymnast]) compLookup[s.gymnast] = {}
+    compLookup[s.gymnast][s.apparatus] = s.competition ?? null
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -50,11 +78,15 @@ function TeamExpandedRow({
             ) as Record<Apparatus, number | null>
             return (
               <tr key={g} className="border-b border-[var(--c-border-sm)]">
-                <td className="py-1.5 pr-3 text-[var(--c-txt-3)] truncate max-w-[120px]">{g}</td>
+                <td className="py-1.5 pr-3 truncate max-w-[120px]">
+                  <GymnastName name={g} noc={country} />
+                </td>
                 {apparatus.map((a) => (
-                  <td key={a} className="py-1.5 px-2 text-right tabular-nums text-[var(--c-txt-1)]">
-                    {fmt(byApp[a])}
-                  </td>
+                  <ScoreCell
+                    key={a}
+                    score={byApp[a]}
+                    competition={compLookup[g]?.[a]}
+                  />
                 ))}
               </tr>
             )

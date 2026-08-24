@@ -11,6 +11,8 @@ import type {
   ScrapedMeet,
   TopCandidatesResponse,
   Discipline,
+  CalendarMeet,
+  MeetDetail,
 } from '@/types/simulation'
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
@@ -167,6 +169,16 @@ export function analyzeTeams(
       ...(nSims !== undefined ? { n_sims: nSims } : {}),
     }),
   })
+}
+
+/** GET /api/calendar?discipline=WAG */
+export function fetchCalendar(discipline: Discipline = 'WAG'): Promise<CalendarMeet[]> {
+  return request<CalendarMeet[]>(`/api/calendar?discipline=${discipline}`)
+}
+
+/** GET /api/meet/{meet_name}/results?discipline=WAG */
+export function fetchMeetDetail(meetName: string, discipline: Discipline = 'WAG'): Promise<MeetDetail> {
+  return request<MeetDetail>(`/api/meet/${encodeURIComponent(meetName)}/results?discipline=${discipline}`)
 }
 
 /** POST /api/top-team-candidates */

@@ -29,6 +29,7 @@ export interface Score {
   gymnast: string
   apparatus: Apparatus
   score: number
+  competition?: string | null
 }
 
 export interface TeamStanding {
@@ -182,6 +183,42 @@ export interface ScrapedMeet {
   status: string
   row_count: number
   scraped_at: string
+}
+
+// ── Meet calendar ────────────────────────────────────────────────────────────
+
+export interface CalendarMeet {
+  meet_name: string
+  date_str: string | null
+  location: string | null
+  landing_url: string | null
+  results_url: string | null
+  row_count: number
+}
+
+export interface MeetResultRow {
+  section: string | null
+  round: string | null
+  rank: number | null
+  gymnast: string | null
+  club: string | null
+  VT: number | null
+  UB: number | null
+  BB: number | null
+  FX: number | null
+  PH: number | null
+  SR: number | null
+  PB: number | null
+  HB: number | null
+  AA: number | null
+  vt_sanctioned: boolean | null
+  results_url: string | null
+}
+
+export interface MeetDetail {
+  meet_name: string
+  discipline: string
+  sections: Record<string, MeetResultRow[]>
 }
 
 export interface CandidateResult {
