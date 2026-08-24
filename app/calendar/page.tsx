@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { fetchCalendar, fetchMeetDetail } from '@/lib/api'
 import type { CalendarMeet, MeetDetail, MeetResultRow, Discipline } from '@/types/simulation'
 
@@ -221,14 +222,17 @@ function MeetList({
 }
 
 // ---------------------------------------------------------------------------
-// Page
+// Page (inner, uses useSearchParams)
 // ---------------------------------------------------------------------------
 
-export default function CalendarPage() {
+function CalendarPageInner() {
+  const searchParams = useSearchParams()
   const [discipline, setDiscipline] = useState<Discipline>('WAG')
   const [meets, setMeets] = useState<CalendarMeet[] | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [selectedMeet, setSelectedMeet] = useState<string | null>(null)
+  const [selectedMeet, setSelectedMeet] = useState<string | null>(
+    searchParams.get('meet')
+  )
 
   const load = useCallback((disc: Discipline) => {
     setMeets(null)
@@ -299,5 +303,13 @@ export default function CalendarPage() {
         />
       )}
     </main>
+  )
+}
+
+export default function CalendarPage() {
+  return (
+    <Suspense>
+      <CalendarPageInner />
+    </Suspense>
   )
 }

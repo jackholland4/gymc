@@ -30,6 +30,7 @@ export interface Score {
   apparatus: Apparatus
   score: number
   competition?: string | null
+  round?: string | null
 }
 
 export interface TeamStanding {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { DataTable } from '@/components/shared/DataTable'
 import { ApparatusTabs } from '@/components/shared/ApparatusTabs'
 import { useWorlds } from '../WorldsProvider'
@@ -11,21 +12,41 @@ const fmt = (v: number | null | undefined) =>
   v != null ? v.toFixed(3) : '—'
 
 // ---------------------------------------------------------------------------
-// Score cell with competition tooltip on hover
+// Score cell with competition/round tooltip and click-to-calendar
 // ---------------------------------------------------------------------------
 
-function ScoreCell({ score, competition }: { score: number | null; competition?: string | null }) {
+function ScoreCell({
+  score,
+  competition,
+  round,
+}: {
+  score: number | null
+  competition?: string | null
+  round?: string | null
+}) {
   const [hovered, setHovered] = useState(false)
+  const router = useRouter()
+  const label = competition
+    ? round
+      ? `${competition}: ${round}`
+      : competition
+    : null
+
   return (
     <td
       className="py-1.5 px-2 text-right tabular-nums text-[var(--c-txt-1)] relative select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <span className={competition ? 'cursor-default' : ''}>{fmt(score)}</span>
-      {hovered && competition && (
+      <span
+        className={competition ? 'cursor-pointer hover:text-[#ef4444] transition-colors' : ''}
+        onClick={competition ? () => router.push(`/calendar?meet=${encodeURIComponent(competition)}`) : undefined}
+      >
+        {fmt(score)}
+      </span>
+      {hovered && label && (
         <div className="absolute right-2 bottom-full mb-1 z-50 px-2 py-1 rounded-md bg-[var(--c-bg-0)] border border-[var(--c-border-lg)] shadow-lg pointer-events-none whitespace-nowrap">
-          <span className="font-body text-[10px] text-[var(--c-txt-3)]">{competition}</span>
+          <span className="font-body text-[10px] text-[var(--c-txt-3)]">{label}</span>
         </div>
       )}
     </td>
@@ -35,6 +56,8 @@ function ScoreCell({ score, competition }: { score: number | null; competition?:
 // ---------------------------------------------------------------------------
 // Expanded row: per-gymnast scores for a country on each apparatus
 // ---------------------------------------------------------------------------
+
+type ScoreMeta = { competition: string | null; round: string | null }
 
 function TeamExpandedRow({
   country,
@@ -48,11 +71,14 @@ function TeamExpandedRow({
   const scores = allScores.filter((s) => s.country === country)
   const gymnasts = Array.from(new Set(scores.map((s) => s.gymnast)))
 
-  // Build competition lookup: gymnast → apparatus → competition name
-  const compLookup: Record<string, Record<string, string | null>> = {}
+  // Build lookup: gymnast → apparatus → { competition, round }
+  const metaLookup: Record<string, Record<string, ScoreMeta>> = {}
   for (const s of scores) {
-    if (!compLookup[s.gymnast]) compLookup[s.gymnast] = {}
-    compLookup[s.gymnast][s.apparatus] = s.competition ?? null
+    if (!metaLookup[s.gymnast]) metaLookup[s.gymnast] = {}
+    metaLookup[s.gymnast][s.apparatus] = {
+      competition: s.competition ?? null,
+      round: s.round ?? null,
+    }
   }
 
   return (
@@ -81,13 +107,17 @@ function TeamExpandedRow({
                 <td className="py-1.5 pr-3 truncate max-w-[120px]">
                   <GymnastName name={g} noc={country} />
                 </td>
-                {apparatus.map((a) => (
-                  <ScoreCell
-                    key={a}
-                    score={byApp[a]}
-                    competition={compLookup[g]?.[a]}
-                  />
-                ))}
+                {apparatus.map((a) => {
+                  const meta = metaLookup[g]?.[a]
+                  return (
+                    <ScoreCell
+                      key={a}
+                      score={byApp[a]}
+                      competition={meta?.competition}
+                      round={meta?.round}
+                    />
+                  )
+                })}
               </tr>
             )
           })}
