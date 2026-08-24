@@ -10,13 +10,7 @@ const APPARATUS_MAG = ['FX', 'PH', 'SR', 'VT', 'PB', 'HB'] as const
 const fmt = (v: number | null | undefined) => (v != null ? v.toFixed(3) : '—')
 
 function formatDate(dateStr: string | null) {
-  if (!dateStr) return null
-  try {
-    const d = new Date(dateStr)
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-  } catch {
-    return dateStr
-  }
+  return dateStr ?? null
 }
 
 // ---------------------------------------------------------------------------
