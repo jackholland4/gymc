@@ -189,26 +189,26 @@ export function WorldsSidebar() {
         <label className="flex items-center gap-2 cursor-pointer mb-1.5">
           <input
             type="checkbox"
-            checked={state.scoreFilter.includeDomestic}
+            checked={state.scoreFilter.excludeDomestic}
             onChange={(e) => {
-              dispatch({ type: 'SET_SCORE_FILTER', filter: { includeDomestic: e.target.checked } })
+              dispatch({ type: 'SET_SCORE_FILTER', filter: { excludeDomestic: e.target.checked } })
               dispatch({ type: 'SELECT_NOC', noc: null })
             }}
             className="accent-[#dc2626]"
           />
-          <span className="font-body text-xs text-[var(--c-txt-2)]">Include domestic meets</span>
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Exclude domestic meets</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input
             type="checkbox"
-            checked={state.scoreFilter.includeNonFig}
+            checked={state.scoreFilter.excludeNonFig}
             onChange={(e) => {
-              dispatch({ type: 'SET_SCORE_FILTER', filter: { includeNonFig: e.target.checked } })
+              dispatch({ type: 'SET_SCORE_FILTER', filter: { excludeNonFig: e.target.checked } })
               dispatch({ type: 'SELECT_NOC', noc: null })
             }}
             className="accent-[#dc2626]"
           />
-          <span className="font-body text-xs text-[var(--c-txt-2)]">Include non-FIG meets</span>
+          <span className="font-body text-xs text-[var(--c-txt-2)]">Exclude non-FIG meets</span>
         </label>
       </div>
 

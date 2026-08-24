@@ -17,8 +17,8 @@ import { APPARATUS_WAG, APPARATUS_MAG } from '@/types/simulation'
 // ---------------------------------------------------------------------------
 
 export interface ScoreFilter {
-  includeDomestic: boolean
-  includeNonFig: boolean
+  excludeDomestic: boolean
+  excludeNonFig: boolean
 }
 
 export interface WorldsState {
@@ -60,7 +60,7 @@ const initialState: WorldsState = {
   isBatchRunning: false,
   batchError: null,
   openGymnast: null,
-  scoreFilter: { includeDomestic: true, includeNonFig: true },
+  scoreFilter: { excludeDomestic: false, excludeNonFig: false },
 }
 
 // ---------------------------------------------------------------------------

@@ -43,11 +43,11 @@ export function toApiLineup(lineup: LineupConfig) {
 /** GET /api/countries */
 export function fetchCountries(
   discipline: Discipline = 'WAG',
-  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
 ): Promise<Country[]> {
   const params = new URLSearchParams({ discipline })
-  if (scoreFilter?.includeDomestic === false) params.set('include_domestic', 'false')
-  if (scoreFilter?.includeNonFig === false) params.set('include_non_fig', 'false')
+  if (scoreFilter?.excludeDomestic) params.set('include_domestic', 'false')
+  if (scoreFilter?.excludeNonFig) params.set('include_non_fig', 'false')
   return request<Country[]>(`/api/countries?${params}`)
 }
 
@@ -72,7 +72,7 @@ export function simulateMeet(
   lineups: Record<string, LineupConfig>,
   seed?: number,
   discipline: Discipline = 'WAG',
-  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
 ): Promise<SimulationResult> {
   const apiLineups: Record<string, ReturnType<typeof toApiLineup>> = {}
   for (const [noc, lineup] of Object.entries(lineups)) {
@@ -87,8 +87,8 @@ export function simulateMeet(
       ...(scoreFilter
         ? {
             score_filter: {
-              include_domestic: scoreFilter.includeDomestic ?? true,
-              include_non_fig: scoreFilter.includeNonFig ?? true,
+              include_domestic: !scoreFilter.excludeDomestic,
+              include_non_fig: !scoreFilter.excludeNonFig,
             },
           }
         : {}),
@@ -105,7 +105,7 @@ export function runBatch(
     aggregateCountry?: string
     aggregateGymnast?: string
     discipline?: Discipline
-    scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
+    scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
   } = {}
 ): Promise<BatchTeamStats | BatchGymnastStats> {
   const apiLineups: Record<string, ReturnType<typeof toApiLineup>> = {}
@@ -124,8 +124,8 @@ export function runBatch(
       ...(opts.scoreFilter
         ? {
             score_filter: {
-              include_domestic: opts.scoreFilter.includeDomestic ?? true,
-              include_non_fig: opts.scoreFilter.includeNonFig ?? true,
+              include_domestic: !opts.scoreFilter.excludeDomestic,
+              include_non_fig: !opts.scoreFilter.excludeNonFig,
             },
           }
         : {}),
@@ -187,7 +187,7 @@ export function fetchTopCandidates(
   nSims = 1000,
   discipline: Discipline = 'WAG',
   seed?: number,
-  scoreFilter?: { includeDomestic?: boolean; includeNonFig?: boolean }
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
 ): Promise<TopCandidatesResponse> {
   return request<TopCandidatesResponse>('/api/top-team-candidates', {
     method: 'POST',
@@ -200,8 +200,8 @@ export function fetchTopCandidates(
       ...(scoreFilter
         ? {
             score_filter: {
-              include_domestic: scoreFilter.includeDomestic ?? true,
-              include_non_fig: scoreFilter.includeNonFig ?? true,
+              include_domestic: !scoreFilter.excludeDomestic,
+              include_non_fig: !scoreFilter.excludeNonFig,
             },
           }
         : {}),
