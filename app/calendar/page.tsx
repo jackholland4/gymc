@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { fetchCalendar, fetchMeetDetail, fetchMeetResultsForGymnast } from '@/lib/api'
+import { fetchCalendar, fetchMeetDetail, fetchMeetResultsForGymnast, fetchCountries } from '@/lib/api'
 import type { CalendarMeet, MeetDetail, MeetResultRow, Discipline, ScrapedMeetRow } from '@/types/simulation'
 
 const ALL_APPARATUS = ['VT', 'UB', 'BB', 'FX', 'PH', 'SR', 'PB', 'HB'] as const
@@ -189,30 +189,92 @@ function SectionTable({
 }
 
 // ---------------------------------------------------------------------------
-// Gymnast lookup
+// Gymnast lookup with autocomplete
 // ---------------------------------------------------------------------------
 
+type GymnastEntry = { name: string; noc: string; country: string }
+
 function GymnastLookup({ onSelectMeet }: { onSelectMeet: (name: string) => void }) {
+  const [index, setIndex] = useState<GymnastEntry[]>([])
   const [query, setQuery] = useState('')
   const [submitted, setSubmitted] = useState('')
   const [rows, setRows] = useState<ScrapedMeetRow[] | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [activeIdx, setActiveIdx] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const search = useCallback((q: string) => {
-    const name = q.trim()
-    if (!name) return
-    setSubmitted(name)
+  // Build name index from both disciplines
+  useEffect(() => {
+    Promise.all([fetchCountries('WAG'), fetchCountries('MAG')])
+      .then(([wag, mag]) => {
+        const seen = new Set<string>()
+        const all: GymnastEntry[] = []
+        for (const c of [...wag, ...mag]) {
+          for (const g of c.gymnasts) {
+            const key = `${g.name}|${c.noc}`
+            if (!seen.has(key)) {
+              seen.add(key)
+              all.push({ name: g.name, noc: c.noc, country: c.name })
+            }
+          }
+        }
+        all.sort((a, b) => a.name.localeCompare(b.name))
+        setIndex(all)
+      })
+      .catch(() => {})
+  }, [])
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        !dropdownRef.current?.contains(e.target as Node) &&
+        !inputRef.current?.contains(e.target as Node)
+      ) setShowDropdown(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  const suggestions: GymnastEntry[] = query.length >= 2
+    ? index
+        .filter((g) => g.name.toLowerCase().includes(query.toLowerCase()))
+        .slice(0, 10)
+    : []
+
+  const search = useCallback((name: string) => {
+    const q = name.trim()
+    if (!q) return
+    setQuery(q)
+    setSubmitted(q)
+    setShowDropdown(false)
+    setActiveIdx(-1)
     setLoading(true)
     setError(null)
     setRows(null)
-    fetchMeetResultsForGymnast(name)
+    fetchMeetResultsForGymnast(q)
       .then((r) => { setRows(r); setLoading(false) })
       .catch(() => { setError('Search failed.'); setLoading(false) })
   }, [])
 
-  // Group by meet_name, preserving order of first appearance
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showDropdown || suggestions.length === 0) return
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActiveIdx((i) => Math.min(i + 1, suggestions.length - 1))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActiveIdx((i) => Math.max(i - 1, -1))
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      e.preventDefault()
+      search(suggestions[activeIdx].name)
+    }
+  }
+
+  // Group results by meet_name, preserving order
   const meetOrder: string[] = []
   const byMeet: Record<string, ScrapedMeetRow[]> = {}
   for (const r of rows ?? []) {
@@ -222,25 +284,66 @@ function GymnastLookup({ onSelectMeet }: { onSelectMeet: (name: string) => void 
 
   return (
     <div>
-      <form
-        onSubmit={(e) => { e.preventDefault(); search(query) }}
-        className="flex gap-2 mb-6"
-      >
-        <input
-          ref={inputRef}
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Gymnast name…"
-          className="flex-1 bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-3 py-2 font-body text-sm text-[var(--c-txt-0)] placeholder-[var(--c-txt-5)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
-        />
-        <button
-          type="submit"
-          className="px-4 py-2 bg-[#dc2626] hover:bg-[#ef4444] text-white font-body text-sm font-medium rounded-lg transition-colors"
-        >
-          Search
-        </button>
-      </form>
+      {/* Search input with autocomplete */}
+      <div className="relative mb-6">
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          const target = activeIdx >= 0 ? suggestions[activeIdx]?.name : query
+          search(target)
+        }}>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <input
+                ref={inputRef}
+                type="text"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value)
+                  setShowDropdown(true)
+                  setActiveIdx(-1)
+                }}
+                onFocus={() => { if (query.length >= 2) setShowDropdown(true) }}
+                onKeyDown={handleKeyDown}
+                placeholder="Gymnast name…"
+                className="w-full bg-[var(--c-bg-2)] border border-[var(--c-border-lg)] rounded-lg px-3 py-2 font-body text-sm text-[var(--c-txt-0)] placeholder-[var(--c-txt-5)] outline-none focus:border-[rgba(220,38,38,0.4)] transition-colors"
+                autoComplete="off"
+              />
+
+              {/* Dropdown */}
+              {showDropdown && suggestions.length > 0 && (
+                <div
+                  ref={dropdownRef}
+                  className="absolute left-0 right-0 top-full mt-1 z-50 rounded-lg border border-[var(--c-border-lg)] shadow-xl overflow-hidden"
+                  style={{ backgroundColor: 'var(--c-bg-1)' }}
+                >
+                  {suggestions.map((g, i) => (
+                    <button
+                      key={`${g.name}|${g.noc}`}
+                      type="button"
+                      onMouseDown={() => search(g.name)}
+                      className="w-full text-left px-3 py-2.5 flex items-center justify-between gap-4 transition-colors border-b border-[var(--c-border-sm)] last:border-0"
+                      style={{
+                        backgroundColor: i === activeIdx ? 'rgba(220,38,38,0.08)' : undefined,
+                      }}
+                      onMouseEnter={() => setActiveIdx(i)}
+                    >
+                      <span className="font-body text-sm text-[var(--c-txt-0)]">{g.name}</span>
+                      <span className="font-body text-xs text-[var(--c-txt-4)] shrink-0">{g.noc} · {g.country}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="px-4 py-2 bg-[#dc2626] hover:bg-[#ef4444] text-white font-body text-sm font-medium rounded-lg transition-colors shrink-0"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
 
       {loading && <Spinner />}
       {error && <p className="font-body text-sm text-[#ef4444]">{error}</p>}
@@ -249,11 +352,11 @@ function GymnastLookup({ onSelectMeet }: { onSelectMeet: (name: string) => void 
         <p className="font-body text-sm text-[var(--c-txt-4)]">No results found for "{submitted}".</p>
       )}
 
+      {/* Results grouped by meet */}
       {meetOrder.length > 0 && (
         <div className="space-y-8">
           {meetOrder.map((meetName) => {
             const meetRows = byMeet[meetName]
-            // Detect which apparatus columns are present
             const appCols = (ALL_APPARATUS as readonly string[]).filter((a) =>
               meetRows.some((r) => r[a as keyof ScrapedMeetRow] != null)
             )
@@ -287,16 +390,13 @@ function GymnastLookup({ onSelectMeet }: { onSelectMeet: (name: string) => void 
                     <tbody>
                       {meetRows.map((r, i) => (
                         <tr key={i} className="border-b border-[var(--c-border-sm)]">
-                          <td className="font-body text-xs text-[var(--c-txt-3)] py-1.5 pr-3 max-w-[160px] truncate">{r.section ?? '—'}</td>
+                          <td className="font-body text-xs text-[var(--c-txt-3)] py-1.5 pr-3 max-w-[180px] truncate">{r.section ?? '—'}</td>
                           <td className="font-body text-xs text-[var(--c-txt-5)] py-1.5 pr-3">{r.round ?? '—'}</td>
-                          {appCols.map((a) => {
-                            const val = r[a as keyof ScrapedMeetRow] as number | null
-                            return (
-                              <td key={a} className="font-body text-xs text-[var(--c-txt-1)] py-1.5 px-2 text-right tabular-nums">
-                                {fmt(val)}
-                              </td>
-                            )
-                          })}
+                          {appCols.map((a) => (
+                            <td key={a} className="font-body text-xs text-[var(--c-txt-1)] py-1.5 px-2 text-right tabular-nums">
+                              {fmt(r[a as keyof ScrapedMeetRow] as number | null)}
+                            </td>
+                          ))}
                           {hasAA && (
                             <td className="font-body text-xs font-semibold text-[var(--c-txt-0)] py-1.5 pl-2 text-right tabular-nums">
                               {fmt(r.AA)}
