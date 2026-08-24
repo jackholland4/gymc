@@ -170,6 +170,10 @@ export interface ScrapedMeetRow {
   UB: number | null
   BB: number | null
   FX: number | null
+  PH: number | null
+  SR: number | null
+  PB: number | null
+  HB: number | null
   AA: number | null
   vt_sanctioned: boolean | null
 }
