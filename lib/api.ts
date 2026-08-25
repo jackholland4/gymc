@@ -13,6 +13,7 @@ import type {
   Discipline,
   CalendarMeet,
   MeetDetail,
+  GymnastSeed,
 } from '@/types/simulation'
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
@@ -57,6 +58,11 @@ export function optimizeTeam(noc: string, teamSize?: number, discipline: Discipl
     method: 'POST',
     body: JSON.stringify({ noc, discipline, ...(teamSize !== undefined ? { team_size: teamSize } : {}) }),
   })
+}
+
+/** GET /api/optimize-all — returns optimized lineup for every country in one request */
+export function optimizeAll(discipline: Discipline = 'WAG'): Promise<Record<string, { team: string[]; lineups: { quals: Record<string, string[]>; team_final: Record<string, string[]> } }>> {
+  return request(`/api/optimize-all?discipline=${discipline}`)
 }
 
 /** POST /api/validate-lineup */
@@ -131,6 +137,18 @@ export function runBatch(
         : {}),
     }),
   })
+}
+
+/** GET /api/seeds?discipline=... */
+export function fetchSeeds(discipline: Discipline = 'WAG'): Promise<GymnastSeed[]> {
+  return request<GymnastSeed[]>(`/api/seeds?discipline=${discipline}`)
+}
+
+/** GET /api/gymnast/{noc}/{name}/photo */
+export function fetchGymnastPhoto(noc: string, name: string): Promise<{ photo_url: string | null; is_olympian: boolean }> {
+  return request<{ photo_url: string | null; is_olympian: boolean }>(
+    `/api/gymnast/${encodeURIComponent(noc)}/${encodeURIComponent(name)}/photo`
+  )
 }
 
 /** GET /api/gymnast/{noc}/{name}/history */

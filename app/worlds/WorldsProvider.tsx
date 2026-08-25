@@ -9,6 +9,7 @@ import type {
   BatchGymnastStats,
   Discipline,
   Apparatus,
+  GymnastSeed,
 } from '@/types/simulation'
 import { APPARATUS_WAG, APPARATUS_MAG } from '@/types/simulation'
 
@@ -40,6 +41,7 @@ export interface WorldsState {
   batchError: string | null
   openGymnast: { noc: string; name: string } | null
   scoreFilter: ScoreFilter
+  seeds: GymnastSeed[] | null
 }
 
 const initialState: WorldsState = {
@@ -61,6 +63,7 @@ const initialState: WorldsState = {
   batchError: null,
   openGymnast: null,
   scoreFilter: { excludeDomestic: false, excludeNonFig: false },
+  seeds: null,
 }
 
 // ---------------------------------------------------------------------------
@@ -69,6 +72,7 @@ const initialState: WorldsState = {
 
 export type WorldsAction =
   | { type: 'SET_DISCIPLINE'; discipline: Discipline }
+  | { type: 'SET_SEEDS'; seeds: GymnastSeed[] }
   | { type: 'SET_COUNTRIES'; countries: Country[] }
   | { type: 'SET_COUNTRIES_ERROR'; msg: string }
   | { type: 'SELECT_NOC'; noc: string | null }
@@ -99,6 +103,9 @@ function reducer(state: WorldsState, action: WorldsAction): WorldsState {
         discipline: action.discipline,
         apparatus: action.discipline === 'MAG' ? APPARATUS_MAG : APPARATUS_WAG,
       }
+
+    case 'SET_SEEDS':
+      return { ...state, seeds: action.seeds }
 
     case 'SET_COUNTRIES':
       return { ...state, countries: action.countries, countriesError: null }

@@ -81,6 +81,16 @@ export interface SimulationResult {
   aa_final: AAResult[]
 }
 
+export interface GymnastSeed {
+  gymnast: string
+  noc: string
+  seed: number
+  seed_score: number
+  apparatus_scores: Partial<Record<Apparatus, number>>
+  apparatus_percentiles: Partial<Record<Apparatus, number>>
+  n_apparatus: number
+}
+
 export interface OptimizeResult {
   team: string[]
   mean_team: string[] | null

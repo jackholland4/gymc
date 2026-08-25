@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { useWorlds } from '../WorldsProvider'
-import { fetchCountries } from '@/lib/api'
+import { fetchCountries, optimizeAll, fetchSeeds } from '@/lib/api'
 import type { Apparatus, Country, LineupConfig } from '@/types/simulation'
 
 function buildDefaultLineup(country: Country, apparatus: Apparatus[]): LineupConfig {
@@ -138,14 +138,41 @@ function EmptyState() {
 export function WorldsMain() {
   const [state, dispatch] = useWorlds()
 
-  // Load countries and immediately build default lineups for all of them
+  // Load seeds once per discipline change
+  useEffect(() => {
+    fetchSeeds(state.discipline)
+      .then((seeds) => dispatch({ type: 'SET_SEEDS', seeds }))
+      .catch(() => {})
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, state.discipline])
+
+  // Load countries, set default lineups immediately for interactivity, then replace
+  // with properly optimized lineups from the backend for all countries.
   useEffect(() => {
     fetchCountries(state.discipline, state.scoreFilter)
       .then((countries) => {
         dispatch({ type: 'SET_COUNTRIES', countries })
-        const lineups: Record<string, LineupConfig> = {}
-        for (const c of countries) lineups[c.noc] = buildDefaultLineup(c, state.apparatus)
-        dispatch({ type: 'SET_ALL_LINEUPS', lineups })
+
+        // Immediate defaults so the UI is interactive right away
+        const defaults: Record<string, LineupConfig> = {}
+        for (const c of countries) defaults[c.noc] = buildDefaultLineup(c, state.apparatus)
+        dispatch({ type: 'SET_ALL_LINEUPS', lineups: defaults })
+
+        // Replace all default lineups with backend-optimized ones in a single request.
+        // TopCandidatesPanel still overrides with a 1000-sim result when a user
+        // explicitly opens a country, so user-selected lineups always win.
+        optimizeAll(state.discipline)
+          .then((all) => {
+            for (const [noc, result] of Object.entries(all)) {
+              const lineup: LineupConfig = {
+                team: result.team,
+                quals: result.lineups.quals,
+                teamFinal: result.lineups.team_final,
+              }
+              dispatch({ type: 'SET_LINEUP', noc, lineup })
+            }
+          })
+          .catch(() => {}) // keep defaults on failure
       })
       .catch(() =>
         dispatch({
