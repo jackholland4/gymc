@@ -10,17 +10,18 @@ import {
   fetchMeetResults,
 } from '@/lib/api'
 import type { GymnastHistory, ScrapedMeetRow } from '@/types/simulation'
-
-const APPARATUS = ['VT', 'UB', 'BB', 'FX'] as const
+import { APPARATUS_WAG, APPARATUS_MAG } from '@/types/simulation'
 
 // ── Meet results drill-down ──────────────────────────────────────────────────
 
 function MeetResultsView({
   meetName,
   onBack,
+  apparatus,
 }: {
   meetName: string
   onBack: () => void
+  apparatus: readonly string[]
 }) {
   const [rows, setRows] = useState<ScrapedMeetRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -71,7 +72,7 @@ function MeetResultsView({
                 <tr className="border-b border-[var(--c-border-sm)]">
                   <th className="text-left font-body text-[10px] text-[var(--c-txt-5)] py-1 pr-2 font-medium">#</th>
                   <th className="text-left font-body text-[10px] text-[var(--c-txt-5)] py-1 pr-2 font-medium">Gymnast</th>
-                  {APPARATUS.map((a) => (
+                  {apparatus.map((a) => (
                     <th key={a} className="text-right font-body text-[10px] text-[var(--c-txt-5)] py-1 px-1 font-medium">
                       {a}
                     </th>
@@ -87,11 +88,14 @@ function MeetResultsView({
                   >
                     <td className="font-body text-[10px] text-[var(--c-txt-5)] py-1 pr-2 tabular-nums">{r.rank ?? i + 1}</td>
                     <td className="font-body text-xs text-[var(--c-txt-2)] py-1 pr-2 truncate max-w-[110px]">{r.gymnast ?? '—'}</td>
-                    {APPARATUS.map((a) => (
-                      <td key={a} className="font-body text-[10px] text-[var(--c-txt-3)] py-1 px-1 text-right tabular-nums">
-                        {r[a] != null ? (r[a] as number).toFixed(3) : '—'}
-                      </td>
-                    ))}
+                    {apparatus.map((a) => {
+                      const val = (r as unknown as Record<string, unknown>)[a] as number | null
+                      return (
+                        <td key={a} className="font-body text-[10px] text-[var(--c-txt-3)] py-1 px-1 text-right tabular-nums">
+                          {val != null ? val.toFixed(3) : '—'}
+                        </td>
+                      )
+                    })}
                     <td className="font-body text-[10px] text-[var(--c-txt-3)] py-1 pl-1 text-right tabular-nums">
                       {r.AA != null ? r.AA.toFixed(3) : '—'}
                     </td>
@@ -112,11 +116,13 @@ function HistoryView({
   noc,
   name,
   discipline,
+  apparatus,
   onViewMeet,
 }: {
   noc: string
   name: string
   discipline: string
+  apparatus: readonly string[]
   onViewMeet: (meetName: string) => void
 }) {
   const [history, setHistory] = useState<GymnastHistory | null>(null)
@@ -165,7 +171,7 @@ function HistoryView({
           Summary
         </p>
         <div className="grid grid-cols-2 gap-2">
-          {APPARATUS.map((app) => {
+          {apparatus.map((app) => {
             const appComps = history.competitions.flatMap((c) =>
               c.scores.filter((s) => s.apparatus === app && s.score != null)
             )
@@ -257,13 +263,14 @@ function HistoryView({
                 >
                   <p className="font-body text-xs text-[var(--c-txt-2)] font-medium mb-1 truncate">{meetName}</p>
                   <div className="flex gap-3 flex-wrap">
-                    {APPARATUS.map((a) =>
-                      r[a] != null ? (
+                    {apparatus.map((a) => {
+                      const val = (r as unknown as Record<string, unknown>)[a] as number | null
+                      return val != null ? (
                         <span key={a} className="font-body text-[10px] text-[var(--c-txt-3)] tabular-nums">
-                          {a} {(r[a] as number).toFixed(3)}
+                          {a} {val.toFixed(3)}
                         </span>
                       ) : null
-                    )}
+                    })}
                     {r.rank != null && (
                       <span className="font-body text-[10px] text-[var(--c-txt-5)]">Rank {r.rank}</span>
                     )}
@@ -321,11 +328,13 @@ function OlympicRings() {
   )
 }
 
-function SeedBadge({ seed, total, apparatus_percentiles }: {
+function SeedBadge({ seed, total, apparatus_percentiles, apparatus }: {
   seed: number
   total: number
   apparatus_percentiles: Partial<Record<string, number>>
+  apparatus: readonly string[]
 }) {
+  const gridCols = apparatus.length <= 4 ? 'grid-cols-4' : 'grid-cols-6'
   return (
     <div className="mx-5 mb-4 bg-[var(--c-bg-1)] border border-[var(--c-border-sm)] rounded-lg px-3 py-2.5">
       <div className="flex items-baseline justify-between mb-2">
@@ -337,8 +346,8 @@ function SeedBadge({ seed, total, apparatus_percentiles }: {
           <span className="font-body text-[10px] text-[var(--c-txt-5)] ml-1">/ {total}</span>
         </span>
       </div>
-      <div className="grid grid-cols-4 gap-1">
-        {APPARATUS.map((app) => {
+      <div className={`grid ${gridCols} gap-1`}>
+        {apparatus.map((app) => {
           const pct = apparatus_percentiles[app]
           if (pct == null) return (
             <div key={app} className="text-center">
@@ -370,6 +379,7 @@ export function GymnastPanel() {
 
   const { openGymnast, discipline, seeds } = state
   const seedTotal = seeds?.length ?? 0
+  const apparatus = discipline === 'MAG' ? APPARATUS_MAG : APPARATUS_WAG
 
   // Reset on gymnast change
   useEffect(() => {
@@ -439,7 +449,7 @@ export function GymnastPanel() {
         {/* Content */}
         <div className="flex-1 overflow-y-auto">
           {viewMeet ? (
-            <MeetResultsView meetName={viewMeet} onBack={() => setViewMeet(null)} />
+            <MeetResultsView meetName={viewMeet} onBack={() => setViewMeet(null)} apparatus={apparatus} />
           ) : (
             <>
               {seedEntry && (
@@ -448,10 +458,11 @@ export function GymnastPanel() {
                     seed={seedEntry.seed}
                     total={seedTotal}
                     apparatus_percentiles={seedEntry.apparatus_percentiles}
+                    apparatus={apparatus}
                   />
                 </div>
               )}
-              <HistoryView noc={noc} name={name} discipline={discipline} onViewMeet={setViewMeet} />
+              <HistoryView noc={noc} name={name} discipline={discipline} apparatus={apparatus} onViewMeet={setViewMeet} />
             </>
           )}
         </div>
