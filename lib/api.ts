@@ -145,8 +145,8 @@ export function fetchSeeds(discipline: Discipline = 'WAG'): Promise<GymnastSeed[
 }
 
 /** GET /api/gymnast/{noc}/{name}/photo */
-export function fetchGymnastPhoto(noc: string, name: string): Promise<{ photo_url: string | null; is_olympian: boolean }> {
-  return request<{ photo_url: string | null; is_olympian: boolean }>(
+export function fetchGymnastPhoto(noc: string, name: string): Promise<{ photo_url: string | null; is_olympian: boolean; birth_year: number | null }> {
+  return request<{ photo_url: string | null; is_olympian: boolean; birth_year: number | null }>(
     `/api/gymnast/${encodeURIComponent(noc)}/${encodeURIComponent(name)}/photo`
   )
 }

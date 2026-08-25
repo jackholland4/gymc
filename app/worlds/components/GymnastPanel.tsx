@@ -376,6 +376,7 @@ export function GymnastPanel() {
   const [viewMeet, setViewMeet] = useState<string | null>(null)
   const [photoUrl, setPhotoUrl] = useState<string | null>(null)
   const [isOlympian, setIsOlympian] = useState(false)
+  const [birthYear, setBirthYear] = useState<number | null>(null)
 
   const { openGymnast, discipline, seeds } = state
   const seedTotal = seeds?.length ?? 0
@@ -386,11 +387,13 @@ export function GymnastPanel() {
     setViewMeet(null)
     setPhotoUrl(null)
     setIsOlympian(false)
+    setBirthYear(null)
     if (!openGymnast) return
     fetchGymnastPhoto(openGymnast.noc, openGymnast.name)
       .then((r) => {
         setPhotoUrl(r.photo_url)
         setIsOlympian(r.is_olympian)
+        setBirthYear(r.birth_year ?? null)
       })
       .catch(() => {})
   }, [openGymnast?.noc, openGymnast?.name])
@@ -434,7 +437,7 @@ export function GymnastPanel() {
                 <NocFlag noc={noc} />
                 {isOlympian && <OlympicRings />}
               </div>
-              <p className="font-body text-xs text-[var(--c-txt-4)]">{noc}</p>
+              <p className="font-body text-xs text-[var(--c-txt-4)]">{noc}{birthYear ? ` | ${birthYear}` : ''}</p>
             </div>
             <button
               onClick={() => dispatch({ type: 'CLOSE_GYMNAST' })}
