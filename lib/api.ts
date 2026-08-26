@@ -61,8 +61,14 @@ export function optimizeTeam(noc: string, teamSize?: number, discipline: Discipl
 }
 
 /** GET /api/optimize-all — returns optimized lineup for every country in one request */
-export function optimizeAll(discipline: Discipline = 'WAG'): Promise<Record<string, { team: string[]; lineups: { quals: Record<string, string[]>; team_final: Record<string, string[]> } }>> {
-  return request(`/api/optimize-all?discipline=${discipline}`)
+export function optimizeAll(
+  discipline: Discipline = 'WAG',
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
+): Promise<Record<string, { team: string[]; lineups: { quals: Record<string, string[]>; team_final: Record<string, string[]> } }>> {
+  const params = new URLSearchParams({ discipline })
+  if (scoreFilter?.excludeDomestic) params.set('include_domestic', 'false')
+  if (scoreFilter?.excludeNonFig) params.set('include_non_fig', 'false')
+  return request(`/api/optimize-all?${params}`)
 }
 
 /** POST /api/validate-lineup */

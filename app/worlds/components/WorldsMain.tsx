@@ -161,7 +161,7 @@ export function WorldsMain() {
         // Replace all default lineups with backend-optimized ones in a single request.
         // TopCandidatesPanel still overrides with a 1000-sim result when a user
         // explicitly opens a country, so user-selected lineups always win.
-        optimizeAll(state.discipline)
+        optimizeAll(state.discipline, state.scoreFilter)
           .then((all) => {
             for (const [noc, result] of Object.entries(all)) {
               const lineup: LineupConfig = {
