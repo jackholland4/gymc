@@ -159,10 +159,26 @@ export interface CompetitionEntry {
   aa: number | null
 }
 
+export interface ScoresheetScore {
+  apparatus: string
+  d_score: number | null
+  e_score: number | null
+  total: number | null
+  pen: number
+  is_domestic: number
+  is_fig: number
+}
+
+export interface ScoresheetCompetition {
+  competition: string
+  scores: ScoresheetScore[]
+}
+
 export interface GymnastHistory {
   name: string
   noc: string
   competitions: CompetitionEntry[]
+  scoresheet_competitions: ScoresheetCompetition[]
 }
 
 // ── Scraped meet data ────────────────────────────────────────────────────────

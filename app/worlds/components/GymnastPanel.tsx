@@ -9,7 +9,7 @@ import {
   fetchMeetResultsForGymnast,
   fetchMeetResults,
 } from '@/lib/api'
-import type { GymnastHistory, ScrapedMeetRow } from '@/types/simulation'
+import type { GymnastHistory, ScrapedMeetRow, ScoresheetCompetition } from '@/types/simulation'
 import { APPARATUS_WAG, APPARATUS_MAG } from '@/types/simulation'
 
 // ── Meet results drill-down ──────────────────────────────────────────────────
@@ -245,6 +245,69 @@ function HistoryView({
           </div>
         )}
       </div>
+
+      {/* D/E score breakdowns from official scoresheets */}
+      {(history.scoresheet_competitions ?? []).length > 0 && (
+        <div>
+          <p className="font-display text-[10px] font-semibold uppercase tracking-widest text-[#ef4444] mb-3">
+            Official D / E Scores
+          </p>
+          <div className="space-y-2">
+            {(history.scoresheet_competitions as ScoresheetCompetition[]).map((comp) => (
+              <div
+                key={comp.competition}
+                className="bg-[var(--c-bg-1)] border border-[var(--c-border-sm)] rounded-lg overflow-hidden"
+              >
+                <div
+                  className="px-3 py-2 flex items-center justify-between border-b"
+                  style={{ borderColor: 'var(--c-border-sm)', backgroundColor: 'var(--c-bg-2)' }}
+                >
+                  <p className="font-body text-xs font-semibold text-[var(--c-txt-1)] truncate flex-1 pr-2">
+                    {comp.competition}
+                  </p>
+                  {comp.scores[0]?.is_domestic === 1 && (
+                    <span
+                      className="text-[9px] font-semibold px-1.5 py-px rounded shrink-0"
+                      style={{ backgroundColor: 'rgba(220,38,38,0.12)', color: '#ef4444' }}
+                    >
+                      DOM
+                    </span>
+                  )}
+                </div>
+                <table className="w-full">
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid var(--c-border-sm)' }}>
+                      <th className="text-left px-3 py-1.5 font-body text-[10px] font-semibold text-[var(--c-txt-5)]">Event</th>
+                      <th className="text-right px-3 py-1.5 font-body text-[10px] font-semibold text-[var(--c-txt-5)]">D</th>
+                      <th className="text-right px-3 py-1.5 font-body text-[10px] font-semibold text-[var(--c-txt-5)]">E</th>
+                      <th className="text-right px-3 py-1.5 font-body text-[10px] font-semibold text-[var(--c-txt-5)]">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comp.scores.map((s) => (
+                      <tr
+                        key={s.apparatus}
+                        style={{ borderBottom: '1px solid var(--c-border-sm)' }}
+                      >
+                        <td className="px-3 py-1.5 font-body text-xs font-semibold text-[var(--c-txt-3)]">{s.apparatus}</td>
+                        <td className="px-3 py-1.5 font-body text-xs tabular-nums text-right text-[var(--c-txt-2)]">
+                          {s.d_score != null ? s.d_score.toFixed(3) : '—'}
+                        </td>
+                        <td className="px-3 py-1.5 font-body text-xs tabular-nums text-right text-[var(--c-txt-2)]">
+                          {s.e_score != null ? s.e_score.toFixed(3) : '—'}
+                        </td>
+                        <td className="px-3 py-1.5 font-body text-xs tabular-nums text-right text-[var(--c-txt-1)] font-semibold">
+                          {s.total != null ? s.total.toFixed(3) : s.d_score != null && s.e_score != null ? (s.d_score + s.e_score - s.pen).toFixed(3) : '—'}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Scraped meet appearances */}
       {Object.keys(scrapedMeets).length > 0 && (
