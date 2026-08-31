@@ -1,6 +1,5 @@
 import { WorldsProvider } from '../worlds/WorldsProvider'
-import { WorldsSidebar } from '../worlds/components/WorldsSidebar'
-import { WorldsMain } from '../worlds/components/WorldsMain'
+import { WorldsLayout } from '../worlds/WorldsLayout'
 import { GymnastPanel } from '../worlds/components/GymnastPanel'
 
 export const metadata = {
@@ -12,10 +11,7 @@ export default function WorldsMenPage() {
   return (
     <main className="min-h-screen pt-16">
       <WorldsProvider discipline="MAG">
-        <div className="flex h-[calc(100vh-4rem)]">
-          <WorldsSidebar />
-          <WorldsMain />
-        </div>
+        <WorldsLayout />
         <GymnastPanel />
       </WorldsProvider>
     </main>

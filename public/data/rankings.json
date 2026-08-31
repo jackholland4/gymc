@@ -1,14 +1,16 @@
 {
-  "generated_at": "2026-08-23T16:33:54.455635+00:00",
-  "n_sims": 5000,
+  "generated_at": "2026-08-27T00:20:57.086596+00:00",
+  "n_sims": 100,
+  "filter": "all",
   "worlds_field_nocs": [
-    "USA",
     "CHN",
+    "USA",
     "ITA",
     "JPN",
     "RUS",
     "FRA",
-    "BRA"
+    "BRA",
+    "GBR"
   ],
   "apparatus": {
     "VT": [
@@ -16,161 +18,171 @@
         "gymnast": "Rebeca Andrade",
         "noc": "BRA",
         "ef_rate": 1.0,
-        "mean_score": 14.451,
-        "gold_pct": 0.6974,
-        "medal_pct": 0.96,
+        "mean_score": 14.431,
+        "gold_pct": 0.63,
+        "medal_pct": 0.97,
         "top8_pct": 1.0,
-        "avg_rank": 1.52
+        "avg_rank": 1.58
       },
       {
         "gymnast": "Seojeong Yeo",
         "noc": "KOR",
         "ef_rate": 1.0,
-        "mean_score": 14.306,
-        "gold_pct": 0.1764,
-        "medal_pct": 0.952,
+        "mean_score": 14.303,
+        "gold_pct": 0.25,
+        "medal_pct": 0.96,
         "top8_pct": 1.0,
-        "avg_rank": 2.19
+        "avg_rank": 2.07
       },
       {
         "gymnast": "Angelina Melnikova",
         "noc": "RUS",
         "ef_rate": 1.0,
-        "mean_score": 14.25,
-        "gold_pct": 0.1114,
-        "medal_pct": 0.5022,
+        "mean_score": 14.233,
+        "gold_pct": 0.1,
+        "medal_pct": 0.4,
         "top8_pct": 1.0,
-        "avg_rank": 3.35
+        "avg_rank": 3.6
       },
       {
         "gymnast": "Jade Carey",
         "noc": "USA",
         "ef_rate": 1.0,
-        "mean_score": 14.241,
-        "gold_pct": 0.0148,
-        "medal_pct": 0.5296,
+        "mean_score": 14.243,
+        "gold_pct": 0.02,
+        "medal_pct": 0.57,
         "top8_pct": 1.0,
-        "avg_rank": 3.42
+        "avg_rank": 3.3
       },
       {
         "gymnast": "Benedetta Gava",
         "noc": "ITA",
         "ef_rate": 1.0,
-        "mean_score": 14.167,
+        "mean_score": 14.165,
         "gold_pct": 0.0,
-        "medal_pct": 0.003,
+        "medal_pct": 0.0,
         "top8_pct": 1.0,
-        "avg_rank": 4.99
+        "avg_rank": 5.05
       },
       {
         "gymnast": "Claire Pease",
         "noc": "USA",
-        "ef_rate": 0.6032,
-        "mean_score": 14.056,
+        "ef_rate": 0.63,
+        "mean_score": 14.073,
         "gold_pct": 0.0,
-        "medal_pct": 0.039,
-        "top8_pct": 0.6032,
-        "avg_rank": 6.03
+        "medal_pct": 0.08,
+        "top8_pct": 0.63,
+        "avg_rank": 5.9
       },
       {
         "gymnast": "Karina Schoenmaier",
         "noc": "GER",
-        "ef_rate": 0.6776,
-        "mean_score": 14.013,
+        "ef_rate": 0.63,
+        "mean_score": 14.019,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.6776,
-        "avg_rank": 6.72
+        "top8_pct": 0.63,
+        "avg_rank": 6.87
       },
       {
         "gymnast": "Reese Esponda",
         "noc": "USA",
-        "ef_rate": 0.381,
+        "ef_rate": 0.39,
         "mean_score": 14.0,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.381,
-        "avg_rank": 7.09
-      },
-      {
-        "gymnast": "Aiko Sugihara",
-        "noc": "JPN",
-        "ef_rate": 0.0824,
-        "mean_score": 13.966,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0824,
-        "avg_rank": 7.55
+        "top8_pct": 0.39,
+        "avg_rank": 7.0
       },
       {
         "gymnast": "Lia Monica Fontaine",
         "noc": "CAN",
-        "ef_rate": 0.4746,
-        "mean_score": 13.964,
+        "ef_rate": 0.45,
+        "mean_score": 13.999,
         "gold_pct": 0.0,
-        "medal_pct": 0.007,
-        "top8_pct": 0.4746,
-        "avg_rank": 6.79
+        "medal_pct": 0.02,
+        "top8_pct": 0.45,
+        "avg_rank": 6.64
+      },
+      {
+        "gymnast": "Aiko Sugihara",
+        "noc": "JPN",
+        "ef_rate": 0.03,
+        "mean_score": 13.966,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.03,
+        "avg_rank": 7.33
       },
       {
         "gymnast": "Zoey Molomo",
         "noc": "USA",
-        "ef_rate": 0.0086,
+        "ef_rate": 0.01,
         "mean_score": 13.95,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0086,
+        "top8_pct": 0.01,
         "avg_rank": 8.0
       },
       {
         "gymnast": "Anna Kalmykova",
         "noc": "RUS",
-        "ef_rate": 0.193,
-        "mean_score": 13.823,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0072,
-        "top8_pct": 0.193,
-        "avg_rank": 7.09
-      },
-      {
-        "gymnast": "Kohane Ushioku",
-        "noc": "JPN",
-        "ef_rate": 0.3288,
-        "mean_score": 13.617,
+        "ef_rate": 0.26,
+        "mean_score": 13.88,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.3288,
-        "avg_rank": 7.44
-      },
-      {
-        "gymnast": "Lyudmila Roshchina",
-        "noc": "RUS",
-        "ef_rate": 0.1118,
-        "mean_score": 13.566,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.1118,
-        "avg_rank": 7.61
+        "top8_pct": 0.26,
+        "avg_rank": 7.23
       },
       {
         "gymnast": "Shoko Miyata",
         "noc": "JPN",
-        "ef_rate": 0.1294,
-        "mean_score": 13.544,
+        "ef_rate": 0.12,
+        "mean_score": 13.677,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.1294,
-        "avg_rank": 7.66
+        "top8_pct": 0.12,
+        "avg_rank": 7.25
       },
       {
-        "gymnast": "Gabrielle Black",
-        "noc": "CAN",
-        "ef_rate": 0.0096,
-        "mean_score": 13.44,
+        "gymnast": "Kohane Ushioku",
+        "noc": "JPN",
+        "ef_rate": 0.33,
+        "mean_score": 13.674,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0096,
+        "top8_pct": 0.33,
+        "avg_rank": 7.33
+      },
+      {
+        "gymnast": "Lisa Vaelen",
+        "noc": "BEL",
+        "ef_rate": 0.05,
+        "mean_score": 13.653,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.05,
         "avg_rank": 8.0
+      },
+      {
+        "gymnast": "Lyudmila Roshchina",
+        "noc": "RUS",
+        "ef_rate": 0.08,
+        "mean_score": 13.633,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.08,
+        "avg_rank": 7.62
+      },
+      {
+        "gymnast": "An Chang Ok",
+        "noc": "PRK",
+        "ef_rate": 0.02,
+        "mean_score": 13.566,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.02,
+        "avg_rank": 7.5
       }
     ],
     "UB": [
@@ -178,1104 +190,914 @@
         "gymnast": "Fanyuwei Yang",
         "noc": "CHN",
         "ef_rate": 1.0,
-        "mean_score": 15.018,
-        "gold_pct": 0.6318,
-        "medal_pct": 0.9892,
+        "mean_score": 15.042,
+        "gold_pct": 0.69,
+        "medal_pct": 1.0,
         "top8_pct": 1.0,
-        "avg_rank": 1.44
+        "avg_rank": 1.36
       },
       {
         "gymnast": "Kaylia Nemour",
         "noc": "ALG",
-        "ef_rate": 0.617,
-        "mean_score": 14.588,
-        "gold_pct": 0.265,
-        "medal_pct": 0.3366,
-        "top8_pct": 0.617,
-        "avg_rank": 3.57
-      },
-      {
-        "gymnast": "Viktoria Listunova",
-        "noc": "RUS",
-        "ef_rate": 0.7534,
-        "mean_score": 14.466,
-        "gold_pct": 0.0572,
-        "medal_pct": 0.504,
-        "top8_pct": 0.7534,
-        "avg_rank": 3.65
+        "ef_rate": 0.64,
+        "mean_score": 14.409,
+        "gold_pct": 0.2,
+        "medal_pct": 0.29,
+        "top8_pct": 0.64,
+        "avg_rank": 3.92
       },
       {
         "gymnast": "Helen Kevric",
         "noc": "GER",
-        "ef_rate": 0.8354,
-        "mean_score": 14.578,
-        "gold_pct": 0.0242,
-        "medal_pct": 0.5176,
-        "top8_pct": 0.8354,
-        "avg_rank": 3.42
+        "ef_rate": 0.75,
+        "mean_score": 14.586,
+        "gold_pct": 0.04,
+        "medal_pct": 0.43,
+        "top8_pct": 0.75,
+        "avg_rank": 3.37
+      },
+      {
+        "gymnast": "Viktoria Listunova",
+        "noc": "RUS",
+        "ef_rate": 0.72,
+        "mean_score": 14.468,
+        "gold_pct": 0.04,
+        "medal_pct": 0.5,
+        "top8_pct": 0.72,
+        "avg_rank": 3.57
       },
       {
         "gymnast": "Qiyuan Qiu",
         "noc": "CHN",
-        "ef_rate": 0.2926,
-        "mean_score": 13.954,
-        "gold_pct": 0.0176,
-        "medal_pct": 0.0916,
-        "top8_pct": 0.2926,
-        "avg_rank": 5.52
+        "ef_rate": 0.27,
+        "mean_score": 14.031,
+        "gold_pct": 0.02,
+        "medal_pct": 0.09,
+        "top8_pct": 0.27,
+        "avg_rank": 5.63
       },
       {
         "gymnast": "Elena Colas",
         "noc": "FRA",
-        "ef_rate": 0.3642,
-        "mean_score": 14.11,
-        "gold_pct": 0.0042,
-        "medal_pct": 0.0518,
-        "top8_pct": 0.3642,
-        "avg_rank": 5.51
+        "ef_rate": 0.38,
+        "mean_score": 13.946,
+        "gold_pct": 0.01,
+        "medal_pct": 0.08,
+        "top8_pct": 0.38,
+        "avg_rank": 5.76
       },
       {
         "gymnast": "Siyu Du",
         "noc": "CHN",
-        "ef_rate": 0.5946,
-        "mean_score": 14.451,
+        "ef_rate": 0.63,
+        "mean_score": 14.438,
         "gold_pct": 0.0,
-        "medal_pct": 0.1702,
-        "top8_pct": 0.5946,
-        "avg_rank": 4.41
+        "medal_pct": 0.22,
+        "top8_pct": 0.63,
+        "avg_rank": 4.35
       },
       {
         "gymnast": "Elisa Iorio",
         "noc": "ITA",
-        "ef_rate": 0.514,
-        "mean_score": 14.301,
+        "ef_rate": 0.53,
+        "mean_score": 14.281,
         "gold_pct": 0.0,
-        "medal_pct": 0.0962,
-        "top8_pct": 0.514,
-        "avg_rank": 4.92
+        "medal_pct": 0.09,
+        "top8_pct": 0.53,
+        "avg_rank": 5.09
       },
       {
         "gymnast": "Qinqin Ke",
         "noc": "CHN",
-        "ef_rate": 0.3864,
-        "mean_score": 14.241,
+        "ef_rate": 0.36,
+        "mean_score": 14.262,
         "gold_pct": 0.0,
-        "medal_pct": 0.0394,
-        "top8_pct": 0.3864,
-        "avg_rank": 5.31
+        "medal_pct": 0.04,
+        "top8_pct": 0.36,
+        "avg_rank": 5.28
       },
       {
         "gymnast": "Skye Blakely",
         "noc": "USA",
-        "ef_rate": 0.0182,
-        "mean_score": 14.188,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0004,
-        "top8_pct": 0.0182,
-        "avg_rank": 5.69
-      },
-      {
-        "gymnast": "Aleksandra Andrianova",
-        "noc": "RUS",
-        "ef_rate": 0.0004,
-        "mean_score": 14.166,
+        "ef_rate": 0.01,
+        "mean_score": 14.25,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0004,
-        "avg_rank": 6.5
-      },
-      {
-        "gymnast": "Milana Kayumova",
-        "noc": "RUS",
-        "ef_rate": 0.033,
-        "mean_score": 14.16,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0012,
-        "top8_pct": 0.033,
-        "avg_rank": 5.81
-      },
-      {
-        "gymnast": "Leila Vasilieva",
-        "noc": "RUS",
-        "ef_rate": 0.0268,
-        "mean_score": 14.125,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.0268,
-        "avg_rank": 5.95
-      },
-      {
-        "gymnast": "Angelina Melnikova",
-        "noc": "RUS",
-        "ef_rate": 0.4658,
-        "mean_score": 14.058,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0694,
-        "top8_pct": 0.4658,
-        "avg_rank": 5.3
-      },
-      {
-        "gymnast": "Anna Kalmykova",
-        "noc": "RUS",
-        "ef_rate": 0.3424,
-        "mean_score": 14.027,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0302,
-        "top8_pct": 0.3424,
-        "avg_rank": 5.74
-      },
-      {
-        "gymnast": "Charleigh Bullock",
-        "noc": "USA",
-        "ef_rate": 0.1308,
-        "mean_score": 13.978,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0048,
-        "top8_pct": 0.1308,
-        "avg_rank": 6.0
-      },
-      {
-        "gymnast": "Misa Nishiyama",
-        "noc": "JPN",
-        "ef_rate": 0.0028,
-        "mean_score": 13.978,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0028,
-        "avg_rank": 6.36
-      },
-      {
-        "gymnast": "Becky Downie",
-        "noc": "GBR",
-        "ef_rate": 0.2188,
-        "mean_score": 13.923,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0244,
-        "top8_pct": 0.2188,
-        "avg_rank": 6.08
+        "top8_pct": 0.01,
+        "avg_rank": 5.0
       },
       {
         "gymnast": "Giulia Perotti",
         "noc": "ITA",
-        "ef_rate": 0.0958,
-        "mean_score": 13.919,
+        "ef_rate": 0.07,
+        "mean_score": 14.247,
         "gold_pct": 0.0,
-        "medal_pct": 0.0046,
-        "top8_pct": 0.0958,
-        "avg_rank": 6.28
+        "medal_pct": 0.01,
+        "top8_pct": 0.07,
+        "avg_rank": 5.29
       },
       {
-        "gymnast": "Artemisia Iorfino",
-        "noc": "ITA",
-        "ef_rate": 0.0006,
-        "mean_score": 13.844,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0006,
-        "avg_rank": 7.0
-      },
-      {
-        "gymnast": "Claire Pease",
-        "noc": "USA",
-        "ef_rate": 0.1772,
-        "mean_score": 13.831,
-        "gold_pct": 0.0,
-        "medal_pct": 0.008,
-        "top8_pct": 0.1772,
-        "avg_rank": 6.27
-      },
-      {
-        "gymnast": "Shuting Jiang",
-        "noc": "CHN",
-        "ef_rate": 0.2052,
-        "mean_score": 13.774,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0078,
-        "top8_pct": 0.2052,
-        "avg_rank": 6.35
-      },
-      {
-        "gymnast": "Zhuofan Tian",
-        "noc": "CHN",
-        "ef_rate": 0.3016,
-        "mean_score": 13.708,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0166,
-        "top8_pct": 0.3016,
-        "avg_rank": 6.19
-      },
-      {
-        "gymnast": "Asia D'Amato",
-        "noc": "ITA",
-        "ef_rate": 0.118,
-        "mean_score": 13.666,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0072,
-        "top8_pct": 0.118,
-        "avg_rank": 5.97
-      },
-      {
-        "gymnast": "July Marano",
-        "noc": "ITA",
-        "ef_rate": 0.0004,
-        "mean_score": 13.666,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0004,
-        "avg_rank": 6.5
-      },
-      {
-        "gymnast": "Lyudmila Roshchina",
+        "gymnast": "Anna Kalmykova",
         "noc": "RUS",
-        "ef_rate": 0.2704,
-        "mean_score": 13.654,
+        "ef_rate": 0.36,
+        "mean_score": 14.076,
         "gold_pct": 0.0,
-        "medal_pct": 0.0238,
-        "top8_pct": 0.2704,
-        "avg_rank": 6.3
+        "medal_pct": 0.05,
+        "top8_pct": 0.36,
+        "avg_rank": 5.47
+      },
+      {
+        "gymnast": "Angelina Melnikova",
+        "noc": "RUS",
+        "ef_rate": 0.43,
+        "mean_score": 14.054,
+        "gold_pct": 0.0,
+        "medal_pct": 0.07,
+        "top8_pct": 0.43,
+        "avg_rank": 5.4
       },
       {
         "gymnast": "Hezly Rivera",
         "noc": "USA",
-        "ef_rate": 0.0706,
-        "mean_score": 13.619,
+        "ef_rate": 0.03,
+        "mean_score": 14.033,
         "gold_pct": 0.0,
-        "medal_pct": 0.0012,
-        "top8_pct": 0.0706,
-        "avg_rank": 6.6
+        "medal_pct": 0.0,
+        "top8_pct": 0.03,
+        "avg_rank": 5.67
+      },
+      {
+        "gymnast": "Leila Vasilieva",
+        "noc": "RUS",
+        "ef_rate": 0.02,
+        "mean_score": 14.017,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.02,
+        "avg_rank": 6.0
+      },
+      {
+        "gymnast": "Sanna Veerman",
+        "noc": "NED",
+        "ef_rate": 0.25,
+        "mean_score": 13.916,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.25,
+        "avg_rank": 5.68
+      },
+      {
+        "gymnast": "Claire Pease",
+        "noc": "USA",
+        "ef_rate": 0.13,
+        "mean_score": 13.906,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.13,
+        "avg_rank": 6.54
+      },
+      {
+        "gymnast": "Becky Downie",
+        "noc": "GBR",
+        "ef_rate": 0.2,
+        "mean_score": 13.902,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.2,
+        "avg_rank": 6.25
+      },
+      {
+        "gymnast": "Naomi Visser",
+        "noc": "NED",
+        "ef_rate": 0.22,
+        "mean_score": 13.886,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.22,
+        "avg_rank": 5.5
+      },
+      {
+        "gymnast": "Lyudmila Roshchina",
+        "noc": "RUS",
+        "ef_rate": 0.23,
+        "mean_score": 13.836,
+        "gold_pct": 0.0,
+        "medal_pct": 0.03,
+        "top8_pct": 0.23,
+        "avg_rank": 5.48
+      },
+      {
+        "gymnast": "Charleigh Bullock",
+        "noc": "USA",
+        "ef_rate": 0.07,
+        "mean_score": 13.814,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.07,
+        "avg_rank": 7.43
+      },
+      {
+        "gymnast": "Zhuofan Tian",
+        "noc": "CHN",
+        "ef_rate": 0.24,
+        "mean_score": 13.752,
+        "gold_pct": 0.0,
+        "medal_pct": 0.05,
+        "top8_pct": 0.24,
+        "avg_rank": 5.83
+      },
+      {
+        "gymnast": "Asia D'Amato",
+        "noc": "ITA",
+        "ef_rate": 0.07,
+        "mean_score": 13.664,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.07,
+        "avg_rank": 6.14
+      },
+      {
+        "gymnast": "Shuting Jiang",
+        "noc": "CHN",
+        "ef_rate": 0.22,
+        "mean_score": 13.623,
+        "gold_pct": 0.0,
+        "medal_pct": 0.01,
+        "top8_pct": 0.22,
+        "avg_rank": 6.55
       },
       {
         "gymnast": "Alyona Glotova",
         "noc": "RUS",
-        "ef_rate": 0.06,
-        "mean_score": 13.58,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0016,
-        "top8_pct": 0.06,
-        "avg_rank": 6.75
-      },
-      {
-        "gymnast": "Giada di Pietro",
-        "noc": "ITA",
-        "ef_rate": 0.0014,
-        "mean_score": 13.579,
+        "ef_rate": 0.09,
+        "mean_score": 13.467,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0014,
-        "avg_rank": 7.0
+        "top8_pct": 0.09,
+        "avg_rank": 7.33
       },
       {
         "gymnast": "Kate MacDonald",
         "noc": "AUS",
-        "ef_rate": 0.0772,
-        "mean_score": 12.9,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0018,
-        "top8_pct": 0.0772,
-        "avg_rank": 6.87
-      },
-      {
-        "gymnast": "Ruby Pass",
-        "noc": "AUS",
-        "ef_rate": 0.0036,
-        "mean_score": 12.628,
+        "ef_rate": 0.07,
+        "mean_score": 12.395,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0036,
-        "avg_rank": 7.39
+        "top8_pct": 0.07,
+        "avg_rank": 6.57
       },
       {
         "gymnast": "Paulina Campos",
         "noc": "MEX",
-        "ef_rate": 0.0214,
-        "mean_score": 12.304,
+        "ef_rate": 0.01,
+        "mean_score": 11.0,
         "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.0214,
-        "avg_rank": 7.28
+        "medal_pct": 0.0,
+        "top8_pct": 0.01,
+        "avg_rank": 8.0
       }
     ],
     "BB": [
       {
         "gymnast": "Qingying Zhang",
         "noc": "CHN",
-        "ef_rate": 0.8554,
-        "mean_score": 14.699,
-        "gold_pct": 0.4494,
-        "medal_pct": 0.6724,
-        "top8_pct": 0.8554,
-        "avg_rank": 2.32
+        "ef_rate": 0.87,
+        "mean_score": 14.717,
+        "gold_pct": 0.5,
+        "medal_pct": 0.71,
+        "top8_pct": 0.87,
+        "avg_rank": 2.18
       },
       {
         "gymnast": "Qinqin Ke",
         "noc": "CHN",
-        "ef_rate": 0.7444,
-        "mean_score": 14.354,
-        "gold_pct": 0.2256,
-        "medal_pct": 0.4932,
-        "top8_pct": 0.7444,
-        "avg_rank": 3.11
+        "ef_rate": 0.77,
+        "mean_score": 14.272,
+        "gold_pct": 0.23,
+        "medal_pct": 0.52,
+        "top8_pct": 0.77,
+        "avg_rank": 3.06
       },
       {
         "gymnast": "Kaylia Nemour",
         "noc": "ALG",
-        "ef_rate": 0.7652,
-        "mean_score": 14.378,
-        "gold_pct": 0.1332,
-        "medal_pct": 0.482,
-        "top8_pct": 0.7652,
-        "avg_rank": 3.14
-      },
-      {
-        "gymnast": "Hwang Seohyun",
-        "noc": "KOR",
-        "ef_rate": 0.7984,
-        "mean_score": 14.292,
-        "gold_pct": 0.0948,
-        "medal_pct": 0.3742,
-        "top8_pct": 0.7984,
-        "avg_rank": 3.58
+        "ef_rate": 0.8,
+        "mean_score": 14.318,
+        "gold_pct": 0.11,
+        "medal_pct": 0.54,
+        "top8_pct": 0.8,
+        "avg_rank": 3.06
       },
       {
         "gymnast": "Qiyuan Qiu",
         "noc": "CHN",
-        "ef_rate": 0.5122,
-        "mean_score": 13.855,
-        "gold_pct": 0.043,
-        "medal_pct": 0.2302,
-        "top8_pct": 0.5122,
-        "avg_rank": 4.6
+        "ef_rate": 0.56,
+        "mean_score": 13.99,
+        "gold_pct": 0.07,
+        "medal_pct": 0.27,
+        "top8_pct": 0.56,
+        "avg_rank": 4.02
       },
       {
         "gymnast": "Hezly Rivera",
         "noc": "USA",
-        "ef_rate": 0.7708,
-        "mean_score": 14.08,
-        "gold_pct": 0.0288,
-        "medal_pct": 0.3406,
-        "top8_pct": 0.7708,
-        "avg_rank": 3.94
+        "ef_rate": 0.66,
+        "mean_score": 14.041,
+        "gold_pct": 0.04,
+        "medal_pct": 0.29,
+        "top8_pct": 0.66,
+        "avg_rank": 3.97
       },
       {
         "gymnast": "Haruka Nakamura",
         "noc": "JPN",
-        "ef_rate": 0.2272,
-        "mean_score": 13.122,
-        "gold_pct": 0.005,
-        "medal_pct": 0.0412,
-        "top8_pct": 0.2272,
-        "avg_rank": 6.17
+        "ef_rate": 0.32,
+        "mean_score": 13.096,
+        "gold_pct": 0.02,
+        "medal_pct": 0.07,
+        "top8_pct": 0.32,
+        "avg_rank": 6.09
       },
       {
-        "gymnast": "Manila Esposito",
-        "noc": "ITA",
-        "ef_rate": 0.3806,
-        "mean_score": 13.669,
-        "gold_pct": 0.0042,
-        "medal_pct": 0.0586,
-        "top8_pct": 0.3806,
-        "avg_rank": 5.37
-      },
-      {
-        "gymnast": "Skye Blakely",
-        "noc": "USA",
-        "ef_rate": 0.3334,
-        "mean_score": 13.228,
-        "gold_pct": 0.0036,
-        "medal_pct": 0.0544,
-        "top8_pct": 0.3334,
-        "avg_rank": 5.71
+        "gymnast": "Seoyuhn Hwang",
+        "noc": "KOR",
+        "ef_rate": 0.65,
+        "mean_score": 14.007,
+        "gold_pct": 0.01,
+        "medal_pct": 0.2,
+        "top8_pct": 0.65,
+        "avg_rank": 4.29
       },
       {
         "gymnast": "Mana Okamura",
         "noc": "JPN",
-        "ef_rate": 0.3868,
-        "mean_score": 13.797,
-        "gold_pct": 0.0026,
-        "medal_pct": 0.0638,
-        "top8_pct": 0.3868,
-        "avg_rank": 5.21
+        "ef_rate": 0.4,
+        "mean_score": 13.74,
+        "gold_pct": 0.01,
+        "medal_pct": 0.05,
+        "top8_pct": 0.4,
+        "avg_rank": 5.25
       },
       {
-        "gymnast": "Misa Nishiyama",
-        "noc": "JPN",
-        "ef_rate": 0.4568,
-        "mean_score": 13.764,
-        "gold_pct": 0.0026,
-        "medal_pct": 0.0668,
-        "top8_pct": 0.4568,
-        "avg_rank": 5.3
-      },
-      {
-        "gymnast": "Xinyi Zhang",
-        "noc": "CHN",
-        "ef_rate": 0.2538,
-        "mean_score": 13.34,
-        "gold_pct": 0.0026,
-        "medal_pct": 0.0394,
-        "top8_pct": 0.2538,
-        "avg_rank": 6.12
-      },
-      {
-        "gymnast": "Elena Colas",
-        "noc": "FRA",
-        "ef_rate": 0.168,
-        "mean_score": 13.409,
-        "gold_pct": 0.0022,
-        "medal_pct": 0.0166,
-        "top8_pct": 0.168,
-        "avg_rank": 5.87
-      },
-      {
-        "gymnast": "Breanna Scott",
-        "noc": "AUS",
-        "ef_rate": 0.2212,
-        "mean_score": 13.195,
-        "gold_pct": 0.002,
-        "medal_pct": 0.0276,
-        "top8_pct": 0.2212,
-        "avg_rank": 6.05
-      },
-      {
-        "gymnast": "Caroline Moreau",
-        "noc": "USA",
-        "ef_rate": 0.1654,
-        "mean_score": 13.382,
-        "gold_pct": 0.0002,
-        "medal_pct": 0.0158,
-        "top8_pct": 0.1654,
-        "avg_rank": 6.17
-      },
-      {
-        "gymnast": "Alia Leat",
-        "noc": "GBR",
-        "ef_rate": 0.1132,
-        "mean_score": 13.379,
-        "gold_pct": 0.0002,
-        "medal_pct": 0.006,
-        "top8_pct": 0.1132,
-        "avg_rank": 6.31
-      },
-      {
-        "gymnast": "Anna Kalmykova",
-        "noc": "RUS",
-        "ef_rate": 0.0002,
-        "mean_score": 13.6,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0002,
-        "avg_rank": 6.0
-      },
-      {
-        "gymnast": "Flavia Saraiva",
-        "noc": "BRA",
-        "ef_rate": 0.0256,
-        "mean_score": 13.528,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0006,
-        "top8_pct": 0.0256,
-        "avg_rank": 6.24
-      },
-      {
-        "gymnast": "Aiko Sugihara",
-        "noc": "JPN",
-        "ef_rate": 0.0646,
-        "mean_score": 13.485,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0012,
-        "top8_pct": 0.0646,
-        "avg_rank": 6.19
+        "gymnast": "Manila Esposito",
+        "noc": "ITA",
+        "ef_rate": 0.29,
+        "mean_score": 13.51,
+        "gold_pct": 0.01,
+        "medal_pct": 0.06,
+        "top8_pct": 0.29,
+        "avg_rank": 5.31
       },
       {
         "gymnast": "Xinyi Qin",
         "noc": "CHN",
-        "ef_rate": 0.1432,
-        "mean_score": 13.42,
+        "ef_rate": 0.1,
+        "mean_score": 13.826,
         "gold_pct": 0.0,
-        "medal_pct": 0.0036,
-        "top8_pct": 0.1432,
-        "avg_rank": 6.25
-      },
-      {
-        "gymnast": "Milana Kayumova",
-        "noc": "RUS",
-        "ef_rate": 0.0236,
-        "mean_score": 13.367,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.0236,
-        "avg_rank": 6.51
-      },
-      {
-        "gymnast": "Claire Pease",
-        "noc": "USA",
-        "ef_rate": 0.0302,
-        "mean_score": 13.354,
-        "gold_pct": 0.0,
-        "medal_pct": 0.001,
-        "top8_pct": 0.0302,
-        "avg_rank": 6.28
-      },
-      {
-        "gymnast": "Thais Santos Fidelis",
-        "noc": "BRA",
-        "ef_rate": 0.0152,
-        "mean_score": 13.352,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0152,
-        "avg_rank": 6.62
-      },
-      {
-        "gymnast": "Yihan Zhang",
-        "noc": "CHN",
-        "ef_rate": 0.003,
-        "mean_score": 13.313,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.003,
-        "avg_rank": 6.27
-      },
-      {
-        "gymnast": "Lyudmila Roshchina",
-        "noc": "RUS",
-        "ef_rate": 0.0018,
-        "mean_score": 13.218,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0018,
-        "avg_rank": 6.44
-      },
-      {
-        "gymnast": "Angelina Melnikova",
-        "noc": "RUS",
-        "ef_rate": 0.0858,
-        "mean_score": 13.194,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0014,
-        "top8_pct": 0.0858,
-        "avg_rank": 6.55
+        "medal_pct": 0.03,
+        "top8_pct": 0.1,
+        "avg_rank": 4.6
       },
       {
         "gymnast": "Isabella Anzola",
         "noc": "USA",
-        "ef_rate": 0.0062,
-        "mean_score": 13.181,
+        "ef_rate": 0.02,
+        "mean_score": 13.8,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0062,
-        "avg_rank": 6.81
+        "top8_pct": 0.02,
+        "avg_rank": 5.0
+      },
+      {
+        "gymnast": "Aiko Sugihara",
+        "noc": "JPN",
+        "ef_rate": 0.05,
+        "mean_score": 13.706,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.05,
+        "avg_rank": 4.8
+      },
+      {
+        "gymnast": "Misa Nishiyama",
+        "noc": "JPN",
+        "ef_rate": 0.47,
+        "mean_score": 13.617,
+        "gold_pct": 0.0,
+        "medal_pct": 0.03,
+        "top8_pct": 0.47,
+        "avg_rank": 5.53
+      },
+      {
+        "gymnast": "Flavia Saraiva",
+        "noc": "BRA",
+        "ef_rate": 0.03,
+        "mean_score": 13.577,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.03,
+        "avg_rank": 5.0
+      },
+      {
+        "gymnast": "Milana Kayumova",
+        "noc": "RUS",
+        "ef_rate": 0.05,
+        "mean_score": 13.46,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.05,
+        "avg_rank": 6.0
+      },
+      {
+        "gymnast": "Breanna Scott",
+        "noc": "AUS",
+        "ef_rate": 0.23,
+        "mean_score": 13.367,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.23,
+        "avg_rank": 6.13
+      },
+      {
+        "gymnast": "Xinyi Zhang",
+        "noc": "CHN",
+        "ef_rate": 0.26,
+        "mean_score": 13.356,
+        "gold_pct": 0.0,
+        "medal_pct": 0.06,
+        "top8_pct": 0.26,
+        "avg_rank": 5.96
+      },
+      {
+        "gymnast": "Naomi Visser",
+        "noc": "NED",
+        "ef_rate": 0.04,
+        "mean_score": 13.325,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.04,
+        "avg_rank": 6.25
+      },
+      {
+        "gymnast": "Elena Colas",
+        "noc": "FRA",
+        "ef_rate": 0.19,
+        "mean_score": 13.321,
+        "gold_pct": 0.0,
+        "medal_pct": 0.04,
+        "top8_pct": 0.19,
+        "avg_rank": 5.79
+      },
+      {
+        "gymnast": "Caroline Moreau",
+        "noc": "USA",
+        "ef_rate": 0.19,
+        "mean_score": 13.235,
+        "gold_pct": 0.0,
+        "medal_pct": 0.01,
+        "top8_pct": 0.19,
+        "avg_rank": 6.58
+      },
+      {
+        "gymnast": "Skye Blakely",
+        "noc": "USA",
+        "ef_rate": 0.34,
+        "mean_score": 13.231,
+        "gold_pct": 0.0,
+        "medal_pct": 0.07,
+        "top8_pct": 0.34,
+        "avg_rank": 5.44
+      },
+      {
+        "gymnast": "Alia Leat",
+        "noc": "GBR",
+        "ef_rate": 0.14,
+        "mean_score": 13.228,
+        "gold_pct": 0.0,
+        "medal_pct": 0.03,
+        "top8_pct": 0.14,
+        "avg_rank": 5.93
       },
       {
         "gymnast": "Vanesa Masova",
         "noc": "CZE",
-        "ef_rate": 0.047,
-        "mean_score": 13.103,
+        "ef_rate": 0.04,
+        "mean_score": 13.133,
         "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.047,
-        "avg_rank": 6.88
+        "medal_pct": 0.01,
+        "top8_pct": 0.04,
+        "avg_rank": 6.5
       },
       {
-        "gymnast": "Gabrielle Black",
-        "noc": "CAN",
-        "ef_rate": 0.001,
-        "mean_score": 13.077,
+        "gymnast": "Angelina Melnikova",
+        "noc": "RUS",
+        "ef_rate": 0.1,
+        "mean_score": 13.097,
         "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.001,
-        "avg_rank": 7.0
+        "medal_pct": 0.01,
+        "top8_pct": 0.1,
+        "avg_rank": 6.5
       },
       {
-        "gymnast": "Rina Kishi",
-        "noc": "JPN",
-        "ef_rate": 0.1068,
-        "mean_score": 13.011,
-        "gold_pct": 0.0,
-        "medal_pct": 0.003,
-        "top8_pct": 0.1068,
-        "avg_rank": 6.95
-      },
-      {
-        "gymnast": "Charleigh Bullock",
-        "noc": "USA",
-        "ef_rate": 0.0028,
-        "mean_score": 12.969,
+        "gymnast": "Aitana Pacheco",
+        "noc": "ESP",
+        "ef_rate": 0.08,
+        "mean_score": 12.962,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0028,
-        "avg_rank": 6.64
+        "top8_pct": 0.08,
+        "avg_rank": 6.75
       },
       {
         "gymnast": "Lia Redick",
         "noc": "CAN",
-        "ef_rate": 0.016,
-        "mean_score": 12.924,
+        "ef_rate": 0.02,
+        "mean_score": 12.875,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.016,
-        "avg_rank": 6.99
+        "top8_pct": 0.02,
+        "avg_rank": 8.0
       },
       {
-        "gymnast": "Ellie Black",
-        "noc": "CAN",
-        "ef_rate": 0.001,
-        "mean_score": 12.88,
+        "gymnast": "Rina Kishi",
+        "noc": "JPN",
+        "ef_rate": 0.14,
+        "mean_score": 12.864,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.001,
-        "avg_rank": 7.0
-      },
-      {
-        "gymnast": "Silja Stohr",
-        "noc": "GER",
-        "ef_rate": 0.1242,
-        "mean_score": 12.745,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0038,
-        "top8_pct": 0.1242,
-        "avg_rank": 6.9
+        "top8_pct": 0.14,
+        "avg_rank": 7.14
       },
       {
         "gymnast": "Greta Mayer",
         "noc": "HUN",
         "ef_rate": 0.09,
-        "mean_score": 12.696,
+        "mean_score": 12.677,
         "gold_pct": 0.0,
-        "medal_pct": 0.0022,
+        "medal_pct": 0.0,
         "top8_pct": 0.09,
-        "avg_rank": 6.95
-      },
-      {
-        "gymnast": "Aitana Pacheco",
-        "noc": "ESP",
-        "ef_rate": 0.0478,
-        "mean_score": 12.638,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.0478,
-        "avg_rank": 7.08
-      },
-      {
-        "gymnast": "Lia Monica Fontaine",
-        "noc": "CAN",
-        "ef_rate": 0.0026,
-        "mean_score": 12.381,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0026,
-        "avg_rank": 6.77
-      },
-      {
-        "gymnast": "Lola Chassat",
-        "noc": "FRA",
-        "ef_rate": 0.0012,
-        "mean_score": 12.2,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0012,
         "avg_rank": 7.0
       },
       {
         "gymnast": "Maria Drobniak",
         "noc": "POL",
-        "ef_rate": 0.0058,
-        "mean_score": 12.15,
+        "ef_rate": 0.02,
+        "mean_score": 12.3,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0058,
-        "avg_rank": 7.48
+        "top8_pct": 0.02,
+        "avg_rank": 7.5
       },
       {
-        "gymnast": "Ruby Pass",
-        "noc": "AUS",
-        "ef_rate": 0.0016,
-        "mean_score": 11.95,
+        "gymnast": "Silja Stohr",
+        "noc": "GER",
+        "ef_rate": 0.08,
+        "mean_score": 12.291,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0016,
-        "avg_rank": 7.75
+        "top8_pct": 0.08,
+        "avg_rank": 7.0
       }
     ],
     "FX": [
       {
         "gymnast": "Hezly Rivera",
         "noc": "USA",
-        "ef_rate": 0.9374,
-        "mean_score": 14.019,
-        "gold_pct": 0.497,
-        "medal_pct": 0.832,
-        "top8_pct": 0.9374,
-        "avg_rank": 1.82
+        "ef_rate": 0.9,
+        "mean_score": 14.042,
+        "gold_pct": 0.59,
+        "medal_pct": 0.79,
+        "top8_pct": 0.9,
+        "avg_rank": 1.7
       },
       {
         "gymnast": "Reese Esponda",
         "noc": "USA",
-        "ef_rate": 0.9686,
-        "mean_score": 14.01,
-        "gold_pct": 0.3878,
-        "medal_pct": 0.833,
-        "top8_pct": 0.9686,
-        "avg_rank": 2.13
+        "ef_rate": 0.98,
+        "mean_score": 13.917,
+        "gold_pct": 0.28,
+        "medal_pct": 0.79,
+        "top8_pct": 0.98,
+        "avg_rank": 2.36
       },
       {
         "gymnast": "Aiko Sugihara",
         "noc": "JPN",
-        "ef_rate": 0.536,
-        "mean_score": 13.614,
-        "gold_pct": 0.0354,
-        "medal_pct": 0.2468,
-        "top8_pct": 0.536,
-        "avg_rank": 4.11
-      },
-      {
-        "gymnast": "Sabrina Maneca-Voinea",
-        "noc": "ROM",
-        "ef_rate": 0.3438,
-        "mean_score": 13.305,
-        "gold_pct": 0.017,
-        "medal_pct": 0.111,
-        "top8_pct": 0.3438,
-        "avg_rank": 5.64
-      },
-      {
-        "gymnast": "Yihan Zhang",
-        "noc": "CHN",
-        "ef_rate": 0.2558,
-        "mean_score": 13.446,
-        "gold_pct": 0.013,
-        "medal_pct": 0.0562,
-        "top8_pct": 0.2558,
-        "avg_rank": 5.08
-      },
-      {
-        "gymnast": "Flavia Saraiva",
-        "noc": "BRA",
-        "ef_rate": 0.4904,
-        "mean_score": 13.539,
-        "gold_pct": 0.0124,
-        "medal_pct": 0.1812,
-        "top8_pct": 0.4904,
-        "avg_rank": 4.58
+        "ef_rate": 0.54,
+        "mean_score": 13.593,
+        "gold_pct": 0.05,
+        "medal_pct": 0.25,
+        "top8_pct": 0.54,
+        "avg_rank": 4.13
       },
       {
         "gymnast": "Manila Esposito",
         "noc": "ITA",
-        "ef_rate": 0.481,
-        "mean_score": 13.601,
-        "gold_pct": 0.0094,
-        "medal_pct": 0.1508,
-        "top8_pct": 0.481,
-        "avg_rank": 4.25
+        "ef_rate": 0.42,
+        "mean_score": 13.577,
+        "gold_pct": 0.01,
+        "medal_pct": 0.16,
+        "top8_pct": 0.42,
+        "avg_rank": 4.12
       },
       {
-        "gymnast": "Rina Kishi",
-        "noc": "JPN",
-        "ef_rate": 0.1792,
-        "mean_score": 13.156,
-        "gold_pct": 0.0076,
-        "medal_pct": 0.0322,
-        "top8_pct": 0.1792,
-        "avg_rank": 5.72
-      },
-      {
-        "gymnast": "Jade Carey",
-        "noc": "USA",
-        "ef_rate": 0.4942,
-        "mean_score": 13.48,
-        "gold_pct": 0.0064,
-        "medal_pct": 0.1492,
-        "top8_pct": 0.4942,
-        "avg_rank": 4.86
+        "gymnast": "Flavia Saraiva",
+        "noc": "BRA",
+        "ef_rate": 0.59,
+        "mean_score": 13.556,
+        "gold_pct": 0.01,
+        "medal_pct": 0.28,
+        "top8_pct": 0.59,
+        "avg_rank": 4.37
       },
       {
         "gymnast": "Angelina Melnikova",
         "noc": "RUS",
-        "ef_rate": 0.355,
-        "mean_score": 13.534,
-        "gold_pct": 0.0062,
-        "medal_pct": 0.0922,
-        "top8_pct": 0.355,
-        "avg_rank": 4.59
+        "ef_rate": 0.28,
+        "mean_score": 13.519,
+        "gold_pct": 0.01,
+        "medal_pct": 0.08,
+        "top8_pct": 0.28,
+        "avg_rank": 4.29
       },
       {
-        "gymnast": "Zoey Molomo",
+        "gymnast": "Yihan Zhang",
+        "noc": "CHN",
+        "ef_rate": 0.24,
+        "mean_score": 13.51,
+        "gold_pct": 0.01,
+        "medal_pct": 0.08,
+        "top8_pct": 0.24,
+        "avg_rank": 4.54
+      },
+      {
+        "gymnast": "Jade Carey",
         "noc": "USA",
-        "ef_rate": 0.3104,
-        "mean_score": 13.35,
-        "gold_pct": 0.002,
-        "medal_pct": 0.0466,
-        "top8_pct": 0.3104,
-        "avg_rank": 5.62
+        "ef_rate": 0.47,
+        "mean_score": 13.466,
+        "gold_pct": 0.01,
+        "medal_pct": 0.08,
+        "top8_pct": 0.47,
+        "avg_rank": 4.87
       },
       {
-        "gymnast": "Lia Monica Fontaine",
-        "noc": "CAN",
-        "ef_rate": 0.184,
-        "mean_score": 13.272,
-        "gold_pct": 0.002,
-        "medal_pct": 0.0278,
-        "top8_pct": 0.184,
-        "avg_rank": 5.9
+        "gymnast": "Sabrina Maneca-Voinea",
+        "noc": "ROM",
+        "ef_rate": 0.35,
+        "mean_score": 13.252,
+        "gold_pct": 0.01,
+        "medal_pct": 0.09,
+        "top8_pct": 0.35,
+        "avg_rank": 5.89
       },
       {
-        "gymnast": "Anna Kalmykova",
-        "noc": "RUS",
-        "ef_rate": 0.2434,
-        "mean_score": 13.361,
-        "gold_pct": 0.001,
-        "medal_pct": 0.0444,
-        "top8_pct": 0.2434,
-        "avg_rank": 5.38
+        "gymnast": "Rina Kishi",
+        "noc": "JPN",
+        "ef_rate": 0.16,
+        "mean_score": 13.159,
+        "gold_pct": 0.01,
+        "medal_pct": 0.04,
+        "top8_pct": 0.16,
+        "avg_rank": 5.56
       },
       {
         "gymnast": "Emma Fioravanti",
         "noc": "ITA",
-        "ef_rate": 0.283,
-        "mean_score": 12.881,
-        "gold_pct": 0.001,
-        "medal_pct": 0.0426,
-        "top8_pct": 0.283,
-        "avg_rank": 6.4
-      },
-      {
-        "gymnast": "Ruby Evans",
-        "noc": "GBR",
-        "ef_rate": 0.2504,
-        "mean_score": 13.256,
-        "gold_pct": 0.0006,
-        "medal_pct": 0.0284,
-        "top8_pct": 0.2504,
-        "avg_rank": 5.97
-      },
-      {
-        "gymnast": "Haruka Nakamura",
-        "noc": "JPN",
-        "ef_rate": 0.2786,
-        "mean_score": 13.105,
-        "gold_pct": 0.0006,
-        "medal_pct": 0.0286,
-        "top8_pct": 0.2786,
-        "avg_rank": 5.66
-      },
-      {
-        "gymnast": "Charleigh Bullock",
-        "noc": "USA",
-        "ef_rate": 0.1472,
-        "mean_score": 13.264,
-        "gold_pct": 0.0002,
-        "medal_pct": 0.0152,
-        "top8_pct": 0.1472,
-        "avg_rank": 6.01
-      },
-      {
-        "gymnast": "Mana Okamura",
-        "noc": "JPN",
-        "ef_rate": 0.1468,
-        "mean_score": 13.238,
-        "gold_pct": 0.0002,
-        "medal_pct": 0.013,
-        "top8_pct": 0.1468,
-        "avg_rank": 5.96
-      },
-      {
-        "gymnast": "Lyudmila Roshchina",
-        "noc": "RUS",
-        "ef_rate": 0.1452,
-        "mean_score": 13.183,
-        "gold_pct": 0.0002,
-        "medal_pct": 0.0104,
-        "top8_pct": 0.1452,
-        "avg_rank": 6.06
+        "ef_rate": 0.26,
+        "mean_score": 12.923,
+        "gold_pct": 0.01,
+        "medal_pct": 0.05,
+        "top8_pct": 0.26,
+        "avg_rank": 6.08
       },
       {
         "gymnast": "Asia D'Amato",
         "noc": "ITA",
-        "ef_rate": 0.159,
+        "ef_rate": 0.19,
         "mean_score": 13.5,
         "gold_pct": 0.0,
-        "medal_pct": 0.014,
-        "top8_pct": 0.159,
-        "avg_rank": 4.91
+        "medal_pct": 0.03,
+        "top8_pct": 0.19,
+        "avg_rank": 4.58
       },
       {
-        "gymnast": "Izzy Stassi",
+        "gymnast": "Zoey Molomo",
         "noc": "USA",
-        "ef_rate": 0.0002,
-        "mean_score": 13.4,
+        "ef_rate": 0.25,
+        "mean_score": 13.434,
         "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0002,
-        "avg_rank": 8.0
+        "medal_pct": 0.04,
+        "top8_pct": 0.25,
+        "avg_rank": 5.56
       },
       {
-        "gymnast": "Morgane Osyssek",
+        "gymnast": "Elena Colas",
         "noc": "FRA",
-        "ef_rate": 0.0002,
+        "ef_rate": 0.09,
+        "mean_score": 13.403,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.09,
+        "avg_rank": 4.89
+      },
+      {
+        "gymnast": "Abigail Martin",
+        "noc": "GBR",
+        "ef_rate": 0.07,
         "mean_score": 13.4,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0002,
+        "top8_pct": 0.07,
+        "avg_rank": 5.14
+      },
+      {
+        "gymnast": "Gabrielle Black",
+        "noc": "CAN",
+        "ef_rate": 0.01,
+        "mean_score": 13.4,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.01,
         "avg_rank": 6.0
       },
       {
         "gymnast": "Claire Pease",
         "noc": "USA",
-        "ef_rate": 0.223,
-        "mean_score": 13.345,
+        "ef_rate": 0.17,
+        "mean_score": 13.388,
         "gold_pct": 0.0,
-        "medal_pct": 0.0256,
-        "top8_pct": 0.223,
-        "avg_rank": 5.63
+        "medal_pct": 0.05,
+        "top8_pct": 0.17,
+        "avg_rank": 5.41
       },
       {
-        "gymnast": "Abigail Martin",
-        "noc": "GBR",
-        "ef_rate": 0.093,
-        "mean_score": 13.308,
+        "gymnast": "Anna Kalmykova",
+        "noc": "RUS",
+        "ef_rate": 0.21,
+        "mean_score": 13.381,
         "gold_pct": 0.0,
-        "medal_pct": 0.0036,
-        "top8_pct": 0.093,
-        "avg_rank": 5.87
+        "medal_pct": 0.04,
+        "top8_pct": 0.21,
+        "avg_rank": 5.43
       },
       {
-        "gymnast": "Ma\u00efana Prat",
-        "noc": "FRA",
-        "ef_rate": 0.0664,
-        "mean_score": 13.244,
+        "gymnast": "Charleigh Bullock",
+        "noc": "USA",
+        "ef_rate": 0.14,
+        "mean_score": 13.333,
         "gold_pct": 0.0,
-        "medal_pct": 0.0018,
-        "top8_pct": 0.0664,
-        "avg_rank": 6.19
-      },
-      {
-        "gymnast": "Elena Colas",
-        "noc": "FRA",
-        "ef_rate": 0.0756,
-        "mean_score": 13.225,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0024,
-        "top8_pct": 0.0756,
-        "avg_rank": 6.14
-      },
-      {
-        "gymnast": "Perla Denechere",
-        "noc": "FRA",
-        "ef_rate": 0.1428,
-        "mean_score": 13.223,
-        "gold_pct": 0.0,
-        "medal_pct": 0.008,
-        "top8_pct": 0.1428,
-        "avg_rank": 6.2
-      },
-      {
-        "gymnast": "July Marano",
-        "noc": "ITA",
-        "ef_rate": 0.04,
-        "mean_score": 13.211,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0006,
-        "top8_pct": 0.04,
-        "avg_rank": 6.42
-      },
-      {
-        "gymnast": "Misa Nishiyama",
-        "noc": "JPN",
-        "ef_rate": 0.0022,
-        "mean_score": 13.166,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0022,
-        "avg_rank": 6.64
+        "medal_pct": 0.03,
+        "top8_pct": 0.14,
+        "avg_rank": 5.21
       },
       {
         "gymnast": "Lia Redick",
         "noc": "CAN",
-        "ef_rate": 0.024,
-        "mean_score": 13.131,
+        "ef_rate": 0.02,
+        "mean_score": 13.317,
         "gold_pct": 0.0,
-        "medal_pct": 0.0006,
-        "top8_pct": 0.024,
-        "avg_rank": 6.38
+        "medal_pct": 0.0,
+        "top8_pct": 0.02,
+        "avg_rank": 5.0
       },
       {
         "gymnast": "Breanna Scott",
         "noc": "AUS",
-        "ef_rate": 0.069,
-        "mean_score": 13.015,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0014,
-        "top8_pct": 0.069,
-        "avg_rank": 6.92
-      },
-      {
-        "gymnast": "Benedetta Gava",
-        "noc": "ITA",
-        "ef_rate": 0.0136,
-        "mean_score": 12.916,
+        "ef_rate": 0.07,
+        "mean_score": 13.288,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0136,
-        "avg_rank": 6.82
+        "top8_pct": 0.07,
+        "avg_rank": 6.29
+      },
+      {
+        "gymnast": "Mana Okamura",
+        "noc": "JPN",
+        "ef_rate": 0.18,
+        "mean_score": 13.285,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.18,
+        "avg_rank": 5.61
+      },
+      {
+        "gymnast": "Perla Denechere",
+        "noc": "FRA",
+        "ef_rate": 0.14,
+        "mean_score": 13.239,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.14,
+        "avg_rank": 6.29
+      },
+      {
+        "gymnast": "Ruby Evans",
+        "noc": "GBR",
+        "ef_rate": 0.27,
+        "mean_score": 13.225,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.27,
+        "avg_rank": 6.26
+      },
+      {
+        "gymnast": "Lia Monica Fontaine",
+        "noc": "CAN",
+        "ef_rate": 0.16,
+        "mean_score": 13.187,
+        "gold_pct": 0.0,
+        "medal_pct": 0.01,
+        "top8_pct": 0.16,
+        "avg_rank": 6.06
       },
       {
         "gymnast": "Alba Petisco",
         "noc": "ESP",
-        "ef_rate": 0.004,
-        "mean_score": 12.733,
+        "ef_rate": 0.01,
+        "mean_score": 13.167,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.004,
-        "avg_rank": 7.25
+        "top8_pct": 0.01,
+        "avg_rank": 8.0
       },
       {
-        "gymnast": "Gabrielle Black",
-        "noc": "CAN",
-        "ef_rate": 0.0116,
-        "mean_score": 12.716,
+        "gymnast": "Ma\u00efana Prat",
+        "noc": "FRA",
+        "ef_rate": 0.01,
+        "mean_score": 13.166,
         "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.0116,
-        "avg_rank": 7.05
+        "medal_pct": 0.0,
+        "top8_pct": 0.01,
+        "avg_rank": 8.0
+      },
+      {
+        "gymnast": "Haruka Nakamura",
+        "noc": "JPN",
+        "ef_rate": 0.27,
+        "mean_score": 13.128,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.27,
+        "avg_rank": 6.04
+      },
+      {
+        "gymnast": "July Marano",
+        "noc": "ITA",
+        "ef_rate": 0.03,
+        "mean_score": 13.111,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.03,
+        "avg_rank": 7.33
+      },
+      {
+        "gymnast": "Naomi Visser",
+        "noc": "NED",
+        "ef_rate": 0.31,
+        "mean_score": 13.074,
+        "gold_pct": 0.0,
+        "medal_pct": 0.02,
+        "top8_pct": 0.31,
+        "avg_rank": 6.71
+      },
+      {
+        "gymnast": "Lyudmila Roshchina",
+        "noc": "RUS",
+        "ef_rate": 0.15,
+        "mean_score": 12.995,
+        "gold_pct": 0.0,
+        "medal_pct": 0.01,
+        "top8_pct": 0.15,
+        "avg_rank": 6.67
       },
       {
         "gymnast": "Alia Leat",
         "noc": "GBR",
-        "ef_rate": 0.026,
-        "mean_score": 12.688,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0002,
-        "top8_pct": 0.026,
-        "avg_rank": 7.08
-      },
-      {
-        "gymnast": "Georgia Godwin",
-        "noc": "AUS",
-        "ef_rate": 0.0022,
-        "mean_score": 12.524,
+        "ef_rate": 0.02,
+        "mean_score": 12.841,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0022,
-        "avg_rank": 7.55
+        "top8_pct": 0.02,
+        "avg_rank": 6.0
+      },
+      {
+        "gymnast": "Benedetta Gava",
+        "noc": "ITA",
+        "ef_rate": 0.02,
+        "mean_score": 12.8,
+        "gold_pct": 0.0,
+        "medal_pct": 0.0,
+        "top8_pct": 0.02,
+        "avg_rank": 7.0
       },
       {
         "gymnast": "Maria Drobniak",
         "noc": "POL",
-        "ef_rate": 0.0164,
-        "mean_score": 12.388,
+        "ef_rate": 0.02,
+        "mean_score": 12.408,
         "gold_pct": 0.0,
         "medal_pct": 0.0,
-        "top8_pct": 0.0164,
-        "avg_rank": 7.66
-      },
-      {
-        "gymnast": "Thais Santos Fidelis",
-        "noc": "BRA",
-        "ef_rate": 0.0004,
-        "mean_score": 12.05,
-        "gold_pct": 0.0,
-        "medal_pct": 0.0,
-        "top8_pct": 0.0004,
+        "top8_pct": 0.02,
         "avg_rank": 8.0
       }
     ]
@@ -1285,671 +1107,851 @@
       "gymnast": "Hezly Rivera",
       "noc": "USA",
       "aa_rate": 1.0,
-      "mean_score": 55.798,
-      "gold_pct": 0.5012,
-      "medal_pct": 0.7,
-      "top8_pct": 0.94,
-      "avg_rank": 2.97
+      "mean_score": 55.738,
+      "gold_pct": 0.48,
+      "medal_pct": 0.66,
+      "top8_pct": 0.95,
+      "avg_rank": 2.93
     },
     {
       "gymnast": "Angelina Melnikova",
       "noc": "RUS",
-      "aa_rate": 0.999,
-      "mean_score": 54.952,
-      "gold_pct": 0.1182,
-      "medal_pct": 0.4076,
-      "top8_pct": 0.7368,
-      "avg_rank": 5.9
+      "aa_rate": 1.0,
+      "mean_score": 55.058,
+      "gold_pct": 0.15,
+      "medal_pct": 0.5,
+      "top8_pct": 0.85,
+      "avg_rank": 4.99
     },
     {
       "gymnast": "Kaylia Nemour",
       "noc": "ALG",
-      "aa_rate": 0.9918,
-      "mean_score": 54.754,
-      "gold_pct": 0.1058,
-      "medal_pct": 0.291,
-      "top8_pct": 0.6748,
-      "avg_rank": 6.88
+      "aa_rate": 0.99,
+      "mean_score": 54.719,
+      "gold_pct": 0.13,
+      "medal_pct": 0.27,
+      "top8_pct": 0.7,
+      "avg_rank": 6.69
     },
     {
       "gymnast": "Qingying Zhang",
       "noc": "CHN",
       "aa_rate": 1.0,
-      "mean_score": 54.986,
-      "gold_pct": 0.0932,
-      "medal_pct": 0.3312,
-      "top8_pct": 0.7948,
-      "avg_rank": 5.67
+      "mean_score": 54.958,
+      "gold_pct": 0.1,
+      "medal_pct": 0.34,
+      "top8_pct": 0.83,
+      "avg_rank": 5.45
     },
     {
       "gymnast": "Qinqin Ke",
       "noc": "CHN",
       "aa_rate": 1.0,
-      "mean_score": 54.973,
-      "gold_pct": 0.0634,
-      "medal_pct": 0.3198,
-      "top8_pct": 0.792,
-      "avg_rank": 5.7
-    },
-    {
-      "gymnast": "Misa Nishiyama",
-      "noc": "JPN",
-      "aa_rate": 0.9996,
-      "mean_score": 54.753,
-      "gold_pct": 0.0342,
-      "medal_pct": 0.205,
-      "top8_pct": 0.7396,
-      "avg_rank": 6.55
-    },
-    {
-      "gymnast": "Claire Pease",
-      "noc": "USA",
-      "aa_rate": 0.9934,
-      "mean_score": 54.533,
-      "gold_pct": 0.0302,
-      "medal_pct": 0.1848,
-      "top8_pct": 0.6172,
-      "avg_rank": 7.65
+      "mean_score": 55.03,
+      "gold_pct": 0.08,
+      "medal_pct": 0.45,
+      "top8_pct": 0.83,
+      "avg_rank": 5.16
     },
     {
       "gymnast": "Asia D'Amato",
       "noc": "ITA",
       "aa_rate": 1.0,
-      "mean_score": 54.754,
-      "gold_pct": 0.0284,
-      "medal_pct": 0.341,
+      "mean_score": 54.736,
+      "gold_pct": 0.03,
+      "medal_pct": 0.32,
       "top8_pct": 0.67,
-      "avg_rank": 6.67
+      "avg_rank": 6.4
     },
     {
       "gymnast": "Anna Kalmykova",
       "noc": "RUS",
-      "aa_rate": 0.9786,
-      "mean_score": 54.296,
-      "gold_pct": 0.0162,
-      "medal_pct": 0.1188,
-      "top8_pct": 0.5416,
-      "avg_rank": 8.77
+      "aa_rate": 0.92,
+      "mean_score": 54.384,
+      "gold_pct": 0.02,
+      "medal_pct": 0.16,
+      "top8_pct": 0.54,
+      "avg_rank": 7.97
     },
     {
-      "gymnast": "Rina Kishi",
+      "gymnast": "Misa Nishiyama",
       "noc": "JPN",
-      "aa_rate": 0.998,
-      "mean_score": 53.868,
-      "gold_pct": 0.0046,
-      "medal_pct": 0.0352,
-      "top8_pct": 0.2872,
-      "avg_rank": 10.75
-    },
-    {
-      "gymnast": "Elena Colas",
-      "noc": "FRA",
-      "aa_rate": 0.9462,
-      "mean_score": 54.05,
-      "gold_pct": 0.0034,
-      "medal_pct": 0.0404,
-      "top8_pct": 0.4486,
-      "avg_rank": 9.81
-    },
-    {
-      "gymnast": "Lyudmila Roshchina",
-      "noc": "RUS",
-      "aa_rate": 0.9458,
-      "mean_score": 53.623,
-      "gold_pct": 0.0012,
-      "medal_pct": 0.0204,
-      "top8_pct": 0.2482,
-      "avg_rank": 11.95
+      "aa_rate": 1.0,
+      "mean_score": 54.724,
+      "gold_pct": 0.01,
+      "medal_pct": 0.22,
+      "top8_pct": 0.77,
+      "avg_rank": 6.17
     },
     {
       "gymnast": "Flavia Saraiva",
       "noc": "BRA",
       "aa_rate": 1.0,
-      "mean_score": 53.94,
+      "mean_score": 53.944,
       "gold_pct": 0.0,
-      "medal_pct": 0.0006,
-      "top8_pct": 0.2312,
-      "avg_rank": 10.25
+      "medal_pct": 0.0,
+      "top8_pct": 0.35,
+      "avg_rank": 9.64
+    },
+    {
+      "gymnast": "Elena Colas",
+      "noc": "FRA",
+      "aa_rate": 0.94,
+      "mean_score": 53.906,
+      "gold_pct": 0.0,
+      "medal_pct": 0.04,
+      "top8_pct": 0.42,
+      "avg_rank": 10.32
+    },
+    {
+      "gymnast": "Rina Kishi",
+      "noc": "JPN",
+      "aa_rate": 0.99,
+      "mean_score": 53.77,
+      "gold_pct": 0.0,
+      "medal_pct": 0.02,
+      "top8_pct": 0.28,
+      "avg_rank": 10.93
+    },
+    {
+      "gymnast": "Lyudmila Roshchina",
+      "noc": "RUS",
+      "aa_rate": 0.94,
+      "mean_score": 53.756,
+      "gold_pct": 0.0,
+      "medal_pct": 0.02,
+      "top8_pct": 0.29,
+      "avg_rank": 11.29
     },
     {
       "gymnast": "Mana Okamura",
       "noc": "JPN",
-      "aa_rate": 0.9316,
-      "mean_score": 53.661,
+      "aa_rate": 0.94,
+      "mean_score": 53.58,
       "gold_pct": 0.0,
-      "medal_pct": 0.0034,
-      "top8_pct": 0.22,
-      "avg_rank": 11.67
+      "medal_pct": 0.0,
+      "top8_pct": 0.21,
+      "avg_rank": 11.68
+    },
+    {
+      "gymnast": "Naomi Visser",
+      "noc": "NED",
+      "aa_rate": 0.83,
+      "mean_score": 53.165,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.17,
+      "avg_rank": 13.59
     },
     {
       "gymnast": "Lia Monica Fontaine",
       "noc": "CAN",
-      "aa_rate": 0.8468,
-      "mean_score": 52.818,
+      "aa_rate": 0.8,
+      "mean_score": 52.88,
       "gold_pct": 0.0,
-      "medal_pct": 0.0008,
-      "top8_pct": 0.0352,
-      "avg_rank": 15.81
+      "medal_pct": 0.0,
+      "top8_pct": 0.09,
+      "avg_rank": 15.5
     },
     {
       "gymnast": "Ruby Evans",
       "noc": "GBR",
-      "aa_rate": 0.8808,
-      "mean_score": 52.781,
+      "aa_rate": 0.84,
+      "mean_score": 52.793,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0122,
-      "avg_rank": 16.02
+      "top8_pct": 0.04,
+      "avg_rank": 15.86
     },
     {
       "gymnast": "Aur\u00e9lie Tran",
       "noc": "CAN",
-      "aa_rate": 0.997,
-      "mean_score": 52.678,
+      "aa_rate": 0.99,
+      "mean_score": 52.68,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 16.75
+      "avg_rank": 16.92
     },
     {
       "gymnast": "Alba Petisco",
       "noc": "ESP",
-      "aa_rate": 0.7348,
-      "mean_score": 52.448,
+      "aa_rate": 0.74,
+      "mean_score": 52.613,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0012,
-      "avg_rank": 17.48
+      "top8_pct": 0.0,
+      "avg_rank": 17.04
+    },
+    {
+      "gymnast": "Lena Bickel",
+      "noc": "SUI",
+      "aa_rate": 0.77,
+      "mean_score": 52.47,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 17.19
     },
     {
       "gymnast": "Kohane Ushioku",
       "noc": "JPN",
-      "aa_rate": 0.7306,
-      "mean_score": 52.32,
+      "aa_rate": 0.67,
+      "mean_score": 52.432,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 18.17
+      "avg_rank": 17.93
+    },
+    {
+      "gymnast": "An Chang Ok",
+      "noc": "PRK",
+      "aa_rate": 0.69,
+      "mean_score": 52.383,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 18.03
     },
     {
       "gymnast": "Vanesa Masova",
       "noc": "CZE",
-      "aa_rate": 0.6776,
-      "mean_score": 52.158,
+      "aa_rate": 0.63,
+      "mean_score": 52.221,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0018,
-      "avg_rank": 19.01
+      "top8_pct": 0.01,
+      "avg_rank": 18.6
     },
     {
       "gymnast": "Lia Redick",
       "noc": "CAN",
-      "aa_rate": 0.655,
-      "mean_score": 52.132,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0014,
-      "avg_rank": 18.85
-    },
-    {
-      "gymnast": "Lorrane Oliveira",
-      "noc": "BRA",
-      "aa_rate": 0.7666,
-      "mean_score": 52.126,
+      "aa_rate": 0.61,
+      "mean_score": 52.192,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 18.95
-    },
-    {
-      "gymnast": "Seojeong Yeo",
-      "noc": "KOR",
-      "aa_rate": 0.7136,
-      "mean_score": 52.094,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 19.63
+      "avg_rank": 18.74
     },
     {
       "gymnast": "Georgia Godwin",
       "noc": "AUS",
-      "aa_rate": 0.6114,
-      "mean_score": 52.092,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.004,
-      "avg_rank": 19.03
-    },
-    {
-      "gymnast": "Asumi Morishita",
-      "noc": "JPN",
-      "aa_rate": 0.6092,
-      "mean_score": 51.872,
+      "aa_rate": 0.48,
+      "mean_score": 52.152,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 20.28
+      "avg_rank": 19.12
     },
     {
-      "gymnast": "Silja Stohr",
-      "noc": "GER",
-      "aa_rate": 0.4898,
-      "mean_score": 51.608,
+      "gymnast": "Lorrane Oliveira",
+      "noc": "BRA",
+      "aa_rate": 0.72,
+      "mean_score": 52.12,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0022,
-      "avg_rank": 19.81
+      "top8_pct": 0.0,
+      "avg_rank": 19.25
     },
     {
-      "gymnast": "Nayoung Park",
+      "gymnast": "Seojeong Yeo",
       "noc": "KOR",
-      "aa_rate": 0.0982,
-      "mean_score": 51.566,
+      "aa_rate": 0.56,
+      "mean_score": 52.0,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 21.79
-    },
-    {
-      "gymnast": "Sumin Lim",
-      "noc": "KOR",
-      "aa_rate": 0.307,
-      "mean_score": 51.472,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 21.57
-    },
-    {
-      "gymnast": "Dohyun Eom",
-      "noc": "KOR",
-      "aa_rate": 0.0048,
-      "mean_score": 51.334,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 22.58
-    },
-    {
-      "gymnast": "Laia Font",
-      "noc": "ESP",
-      "aa_rate": 0.1494,
-      "mean_score": 50.885,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 22.39
-    },
-    {
-      "gymnast": "Emily Whitehead",
-      "noc": "AUS",
-      "aa_rate": 0.2082,
-      "mean_score": 50.825,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 22.22
-    },
-    {
-      "gymnast": "Natalia Escalera",
-      "noc": "MEX",
-      "aa_rate": 0.062,
-      "mean_score": 50.754,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 22.62
-    },
-    {
-      "gymnast": "Greta Mayer",
-      "noc": "HUN",
-      "aa_rate": 0.2662,
-      "mean_score": 50.74,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 21.65
-    },
-    {
-      "gymnast": "Victoriane Charron",
-      "noc": "CAN",
-      "aa_rate": 0.005,
-      "mean_score": 50.588,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 22.88
-    },
-    {
-      "gymnast": "Alexia-Elena Blanaru",
-      "noc": "ROM",
-      "aa_rate": 0.0268,
-      "mean_score": 50.44,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 23.06
+      "avg_rank": 20.38
     },
     {
       "gymnast": "Djenna Laroui",
       "noc": "ALG",
-      "aa_rate": 0.0364,
-      "mean_score": 50.15,
+      "aa_rate": 0.01,
+      "mean_score": 51.832,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 23.09
+      "avg_rank": 21.0
     },
     {
-      "gymnast": "Michelle Pineda",
+      "gymnast": "Asumi Morishita",
+      "noc": "JPN",
+      "aa_rate": 0.52,
+      "mean_score": 51.805,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 20.5
+    },
+    {
+      "gymnast": "Silja Stohr",
+      "noc": "GER",
+      "aa_rate": 0.46,
+      "mean_score": 51.734,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 19.43
+    },
+    {
+      "gymnast": "Nayoung Park",
+      "noc": "KOR",
+      "aa_rate": 0.02,
+      "mean_score": 51.566,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 22.0
+    },
+    {
+      "gymnast": "Jo Kyong Byol",
+      "noc": "PRK",
+      "aa_rate": 0.03,
+      "mean_score": 51.421,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 21.33
+    },
+    {
+      "gymnast": "Victoriane Charron",
+      "noc": "CAN",
+      "aa_rate": 0.01,
+      "mean_score": 51.266,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 23.0
+    },
+    {
+      "gymnast": "Sumin Lim",
+      "noc": "KOR",
+      "aa_rate": 0.15,
+      "mean_score": 51.244,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 22.13
+    },
+    {
+      "gymnast": "Greta Mayer",
+      "noc": "HUN",
+      "aa_rate": 0.22,
+      "mean_score": 50.852,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 21.77
+    },
+    {
+      "gymnast": "Natalia Escalera",
       "noc": "MEX",
-      "aa_rate": 0.0798,
-      "mean_score": 49.889,
+      "aa_rate": 0.02,
+      "mean_score": 50.65,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 23.17
+      "avg_rank": 22.0
     },
     {
-      "gymnast": "Ruby Pass",
+      "gymnast": "Laia Font",
+      "noc": "ESP",
+      "aa_rate": 0.12,
+      "mean_score": 50.626,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 22.83
+    },
+    {
+      "gymnast": "Alexia-Elena Blanaru",
+      "noc": "ROM",
+      "aa_rate": 0.01,
+      "mean_score": 50.433,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 24.0
+    },
+    {
+      "gymnast": "Emily Whitehead",
       "noc": "AUS",
-      "aa_rate": 0.144,
-      "mean_score": 49.819,
+      "aa_rate": 0.13,
+      "mean_score": 50.304,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 22.56
+      "avg_rank": 23.69
     },
     {
-      "gymnast": "Kristina Hrudetska",
-      "noc": "UKR",
-      "aa_rate": 0.0122,
-      "mean_score": 49.745,
+      "gymnast": "Emelie Westlund",
+      "noc": "SWE",
+      "aa_rate": 0.05,
+      "mean_score": 50.283,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 23.48
-    },
-    {
-      "gymnast": "Polina Diachenko",
-      "noc": "UKR",
-      "aa_rate": 0.0254,
-      "mean_score": 49.606,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 23.23
-    },
-    {
-      "gymnast": "Sona Artamonova",
-      "noc": "CZE",
-      "aa_rate": 0.017,
-      "mean_score": 49.511,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 23.46
+      "avg_rank": 22.6
     },
     {
       "gymnast": "Aitana Pacheco",
       "noc": "ESP",
-      "aa_rate": 0.05,
-      "mean_score": 49.358,
+      "aa_rate": 0.03,
+      "mean_score": 50.035,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 23.36
+      "avg_rank": 23.0
     },
     {
-      "gymnast": "Diana Lobok",
+      "gymnast": "Ruby Pass",
+      "noc": "AUS",
+      "aa_rate": 0.07,
+      "mean_score": 49.233,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 23.0
+    },
+    {
+      "gymnast": "Kristina Hrudetska",
       "noc": "UKR",
-      "aa_rate": 0.001,
-      "mean_score": 49.238,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 23.8
-    },
-    {
-      "gymnast": "Alice Vlkova",
-      "noc": "CZE",
-      "aa_rate": 0.001,
-      "mean_score": 49.226,
+      "aa_rate": 0.01,
+      "mean_score": 49.099,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
       "avg_rank": 24.0
     },
     {
-      "gymnast": "Paulina Guerra",
+      "gymnast": "Polina Diachenko",
+      "noc": "UKR",
+      "aa_rate": 0.02,
+      "mean_score": 48.558,
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 24.0
+    },
+    {
+      "gymnast": "Michelle Pineda",
       "noc": "MEX",
-      "aa_rate": 0.0072,
-      "mean_score": 48.555,
+      "aa_rate": 0.07,
+      "mean_score": 48.551,
       "gold_pct": 0.0,
       "medal_pct": 0.0,
       "top8_pct": 0.0,
-      "avg_rank": 23.42
-    },
-    {
-      "gymnast": "Maria Drobniak",
-      "noc": "POL",
-      "aa_rate": 0.0008,
-      "mean_score": 47.574,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 24.0
-    },
-    {
-      "gymnast": "Marta Pihan-Kulesza",
-      "noc": "POL",
-      "aa_rate": 0.0004,
-      "mean_score": 45.549,
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 23.5
+      "avg_rank": 23.86
     }
   ],
   "team": [
     {
-      "noc": "USA",
-      "tf_rate": 1.0,
-      "mean_score": 166.761,
-      "mean_per_app": {
-        "VT": 42.463,
-        "UB": 41.988,
-        "BB": 40.792,
-        "FX": 41.518
-      },
-      "gold_pct": 0.4224,
-      "medal_pct": 0.9166,
-      "top8_pct": 1.0,
-      "avg_rank": 1.93
-    },
-    {
       "noc": "CHN",
       "tf_rate": 1.0,
-      "mean_score": 166.648,
+      "mean_score": 166.7,
       "mean_per_app": {
-        "VT": 40.384,
-        "UB": 43.706,
-        "BB": 42.84,
-        "FX": 39.718
+        "VT": 40.389,
+        "UB": 43.695,
+        "BB": 42.933,
+        "FX": 39.682
       },
-      "gold_pct": 0.4024,
-      "medal_pct": 0.8618,
+      "gold_pct": 0.49,
+      "medal_pct": 0.88,
       "top8_pct": 1.0,
-      "avg_rank": 2.1
+      "avg_rank": 2.0
+    },
+    {
+      "noc": "USA",
+      "tf_rate": 1.0,
+      "mean_score": 166.698,
+      "mean_per_app": {
+        "VT": 42.547,
+        "UB": 41.956,
+        "BB": 40.729,
+        "FX": 41.466
+      },
+      "gold_pct": 0.36,
+      "medal_pct": 0.91,
+      "top8_pct": 1.0,
+      "avg_rank": 2.07
     },
     {
       "noc": "ITA",
       "tf_rate": 1.0,
-      "mean_score": 165.59,
+      "mean_score": 165.608,
       "mean_per_app": {
-        "VT": 42.593,
-        "UB": 41.775,
-        "BB": 40.899,
-        "FX": 40.323
+        "VT": 42.294,
+        "UB": 41.954,
+        "BB": 41.015,
+        "FX": 40.345
       },
-      "gold_pct": 0.1318,
-      "medal_pct": 0.6504,
+      "gold_pct": 0.11,
+      "medal_pct": 0.67,
       "top8_pct": 1.0,
-      "avg_rank": 3.01
+      "avg_rank": 3.0
     },
     {
       "noc": "JPN",
       "tf_rate": 1.0,
-      "mean_score": 164.535,
+      "mean_score": 164.814,
       "mean_per_app": {
-        "VT": 42.297,
-        "UB": 41.226,
-        "BB": 41.071,
-        "FX": 39.942
+        "VT": 42.326,
+        "UB": 41.272,
+        "BB": 41.053,
+        "FX": 40.163
       },
-      "gold_pct": 0.0246,
-      "medal_pct": 0.3074,
+      "gold_pct": 0.03,
+      "medal_pct": 0.3,
       "top8_pct": 1.0,
-      "avg_rank": 3.98
+      "avg_rank": 3.82
     },
     {
       "noc": "RUS",
       "tf_rate": 1.0,
-      "mean_score": 164.343,
+      "mean_score": 164.427,
       "mean_per_app": {
-        "VT": 41.843,
-        "UB": 42.759,
-        "BB": 39.653,
-        "FX": 40.088
+        "VT": 41.885,
+        "UB": 42.726,
+        "BB": 39.679,
+        "FX": 40.137
       },
-      "gold_pct": 0.0188,
-      "medal_pct": 0.2624,
+      "gold_pct": 0.01,
+      "medal_pct": 0.24,
       "top8_pct": 1.0,
-      "avg_rank": 4.14
+      "avg_rank": 4.23
     },
     {
       "noc": "FRA",
-      "tf_rate": 0.9248,
-      "mean_score": 161.108,
+      "tf_rate": 0.95,
+      "mean_score": 161.088,
       "mean_per_app": {
-        "VT": 40.903,
-        "UB": 40.928,
-        "BB": 39.563,
-        "FX": 39.714
+        "VT": 40.781,
+        "UB": 40.968,
+        "BB": 39.617,
+        "FX": 39.721
       },
       "gold_pct": 0.0,
-      "medal_pct": 0.0006,
-      "top8_pct": 0.9248,
+      "medal_pct": 0.0,
+      "top8_pct": 0.95,
       "avg_rank": 6.45
     },
     {
       "noc": "BRA",
-      "tf_rate": 0.6948,
-      "mean_score": 160.843,
+      "tf_rate": 0.85,
+      "mean_score": 160.868,
       "mean_per_app": {
-        "VT": 41.259,
-        "UB": 40.279,
-        "BB": 40.207,
-        "FX": 39.098
+        "VT": 41.279,
+        "UB": 40.296,
+        "BB": 40.156,
+        "FX": 39.137
       },
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.6948,
-      "avg_rank": 6.7
+      "top8_pct": 0.85,
+      "avg_rank": 6.68
     },
     {
       "noc": "GBR",
-      "tf_rate": 0.4716,
-      "mean_score": 159.85,
+      "tf_rate": 0.55,
+      "mean_score": 160.039,
       "mean_per_app": {
-        "VT": 41.176,
-        "UB": 40.21,
-        "BB": 38.979,
-        "FX": 39.484
+        "VT": 41.209,
+        "UB": 40.127,
+        "BB": 39.262,
+        "FX": 39.441
       },
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.4716,
-      "avg_rank": 7.25
+      "top8_pct": 0.55,
+      "avg_rank": 7.29
     },
     {
       "noc": "CAN",
-      "tf_rate": 0.248,
-      "mean_score": 158.96,
+      "tf_rate": 0.29,
+      "mean_score": 159.307,
       "mean_per_app": {
-        "VT": 41.179,
-        "UB": 39.632,
-        "BB": 38.731,
-        "FX": 39.417
+        "VT": 41.191,
+        "UB": 39.935,
+        "BB": 38.833,
+        "FX": 39.347
       },
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.248,
-      "avg_rank": 7.52
-    },
-    {
-      "noc": "ESP",
-      "tf_rate": 0.4738,
-      "mean_score": 158.517,
-      "mean_per_app": {
-        "VT": 43.319,
-        "UB": 39.061,
-        "BB": 38.036,
-        "FX": 38.101
-      },
-      "gold_pct": 0.0,
-      "medal_pct": 0.0008,
-      "top8_pct": 0.4738,
-      "avg_rank": 7.35
-    },
-    {
-      "noc": "GER",
-      "tf_rate": 0.0846,
-      "mean_score": 158.199,
-      "mean_per_app": {
-        "VT": 40.576,
-        "UB": 40.879,
-        "BB": 38.995,
-        "FX": 37.749
-      },
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0846,
-      "avg_rank": 7.68
+      "top8_pct": 0.29,
+      "avg_rank": 7.66
     },
     {
       "noc": "AUS",
-      "tf_rate": 0.0996,
-      "mean_score": 156.877,
+      "tf_rate": 0.08,
+      "mean_score": 158.164,
       "mean_per_app": {
-        "VT": 40.508,
-        "UB": 39.11,
-        "BB": 38.576,
-        "FX": 38.683
+        "VT": 40.506,
+        "UB": 39.925,
+        "BB": 38.901,
+        "FX": 38.833
       },
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0996,
+      "top8_pct": 0.08,
+      "avg_rank": 7.88
+    },
+    {
+      "noc": "GER",
+      "tf_rate": 0.12,
+      "mean_score": 158.138,
+      "mean_per_app": {
+        "VT": 40.652,
+        "UB": 41.073,
+        "BB": 39.04,
+        "FX": 37.372
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.12,
       "avg_rank": 7.83
     },
     {
-      "noc": "HUN",
-      "tf_rate": 0.0028,
-      "mean_score": 153.198,
+      "noc": "NED",
+      "tf_rate": 0.16,
+      "mean_score": 157.87,
       "mean_per_app": {
-        "VT": 40.518,
-        "UB": 38.625,
-        "BB": 37.511,
-        "FX": 36.544
+        "VT": 39.709,
+        "UB": 40.374,
+        "BB": 39.122,
+        "FX": 38.664
       },
       "gold_pct": 0.0,
       "medal_pct": 0.0,
-      "top8_pct": 0.0028,
-      "avg_rank": 7.93
+      "top8_pct": 0.16,
+      "avg_rank": 7.94
+    },
+    {
+      "noc": "PHI",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "MEX",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "ROM",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "SGP",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
     },
     {
       "noc": "ARG",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "KAZ",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "CRO",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "ISR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "POL",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "ALG",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "SUI",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "KOR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "BUL",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "NZL",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "UKR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "HKG",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -1979,6 +1981,96 @@
       "avg_rank": 9.0
     },
     {
+      "noc": "UZB",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "SWE",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "IND",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "MAS",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "BLR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "TPE",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
       "noc": "CZE",
       "tf_rate": 0.0,
       "mean_score": 0.0,
@@ -1994,7 +2086,7 @@
       "avg_rank": 9.0
     },
     {
-      "noc": "MEX",
+      "noc": "ESP",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -2009,22 +2101,7 @@
       "avg_rank": 9.0
     },
     {
-      "noc": "POL",
-      "tf_rate": 0.0,
-      "mean_score": 0.0,
-      "mean_per_app": {
-        "VT": 0.0,
-        "UB": 0.0,
-        "BB": 0.0,
-        "FX": 0.0
-      },
-      "gold_pct": 0.0,
-      "medal_pct": 0.0,
-      "top8_pct": 0.0,
-      "avg_rank": 9.0
-    },
-    {
-      "noc": "ROM",
+      "noc": "SVK",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -2054,7 +2131,7 @@
       "avg_rank": 9.0
     },
     {
-      "noc": "UKR",
+      "noc": "GRE",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -2069,7 +2146,7 @@
       "avg_rank": 9.0
     },
     {
-      "noc": "ALG",
+      "noc": "AZE",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -2084,7 +2161,157 @@
       "avg_rank": 9.0
     },
     {
-      "noc": "KOR",
+      "noc": "SRI",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "RSA",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "PAN",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "BEL",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "TUR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "HUN",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "PRK",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "POR",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "ISL",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "EGY",
+      "tf_rate": 0.0,
+      "mean_score": 0.0,
+      "mean_per_app": {
+        "VT": 0.0,
+        "UB": 0.0,
+        "BB": 0.0,
+        "FX": 0.0
+      },
+      "gold_pct": 0.0,
+      "medal_pct": 0.0,
+      "top8_pct": 0.0,
+      "avg_rank": 9.0
+    },
+    {
+      "noc": "AUT",
       "tf_rate": 0.0,
       "mean_score": 0.0,
       "mean_per_app": {
@@ -2160,51 +2387,51 @@
         "Hezly Rivera",
         "Skye Blakely",
         "Reese Esponda",
-        "Claire Pease",
-        "Charleigh Bullock"
+        "Charleigh Bullock",
+        "Claire Pease"
       ],
-      "mean_total": 166.021,
+      "mean_total": 165.952,
       "mean_per_app": {
-        "VT": 42.301,
-        "UB": 41.959,
-        "BB": 40.43,
-        "FX": 41.331
+        "VT": 42.326,
+        "UB": 41.862,
+        "BB": 40.416,
+        "FX": 41.348
       },
       "gymnasts": [
         {
           "gymnast": "Hezly Rivera",
           "VT": null,
           "UB": null,
-          "BB": 14.05,
-          "FX": 14.006
+          "BB": 14.103,
+          "FX": 14.031
         },
         {
           "gymnast": "Skye Blakely",
-          "VT": 14.079,
-          "UB": 14.19,
-          "BB": 13.09,
+          "VT": 14.084,
+          "UB": 14.188,
+          "BB": 13.123,
           "FX": null
         },
         {
           "gymnast": "Reese Esponda",
-          "VT": 14.13,
+          "VT": 14.121,
           "UB": null,
           "BB": null,
-          "FX": 13.978
-        },
-        {
-          "gymnast": "Claire Pease",
-          "VT": 14.092,
-          "UB": 13.776,
-          "BB": 13.291,
-          "FX": 13.347
+          "FX": 13.992
         },
         {
           "gymnast": "Charleigh Bullock",
           "VT": null,
-          "UB": 13.993,
-          "BB": null,
+          "UB": 13.95,
+          "BB": 13.19,
           "FX": null
+        },
+        {
+          "gymnast": "Claire Pease",
+          "VT": 14.121,
+          "UB": 13.723,
+          "BB": null,
+          "FX": 13.325
         }
       ]
     },
@@ -2263,109 +2490,109 @@
       ]
     },
     {
-      "noc": "ITA",
-      "team": [
-        "Asia D'Amato",
-        "Asia D\u2019Amato",
-        "Elisa Iorio",
-        "Manila Esposito",
-        "Giulia Perotti"
-      ],
-      "mean_total": 163.921,
-      "mean_per_app": {
-        "VT": 41.761,
-        "UB": 41.606,
-        "BB": 40.856,
-        "FX": 39.698
-      },
-      "gymnasts": [
-        {
-          "gymnast": "Asia D'Amato",
-          "VT": 14.107,
-          "UB": 13.457,
-          "BB": 13.582,
-          "FX": 13.5
-        },
-        {
-          "gymnast": "Asia D\u2019Amato",
-          "VT": 14.25,
-          "UB": null,
-          "BB": 13.619,
-          "FX": null
-        },
-        {
-          "gymnast": "Elisa Iorio",
-          "VT": null,
-          "UB": 14.278,
-          "BB": null,
-          "FX": null
-        },
-        {
-          "gymnast": "Manila Esposito",
-          "VT": 13.404,
-          "UB": null,
-          "BB": 13.654,
-          "FX": 13.585
-        },
-        {
-          "gymnast": "Giulia Perotti",
-          "VT": null,
-          "UB": 13.872,
-          "BB": null,
-          "FX": 12.613
-        }
-      ]
-    },
-    {
       "noc": "RUS",
       "team": [
         "Angelina Melnikova",
         "Anna Kalmykova",
         "Lyudmila Roshchina",
         "Viktoria Listunova",
-        "Aleksandra Anufrieva"
+        "Milana Kayumova"
       ],
-      "mean_total": 163.853,
+      "mean_total": 164.074,
       "mean_per_app": {
-        "VT": 41.861,
-        "UB": 42.601,
-        "BB": 39.32,
-        "FX": 40.071
+        "VT": 41.585,
+        "UB": 42.639,
+        "BB": 39.719,
+        "FX": 40.131
       },
       "gymnasts": [
         {
           "gymnast": "Angelina Melnikova",
-          "VT": 14.141,
-          "UB": 14.109,
-          "BB": 13.209,
-          "FX": 13.546
+          "VT": 14.131,
+          "UB": 14.023,
+          "BB": 13.288,
+          "FX": 13.544
         },
         {
           "gymnast": "Anna Kalmykova",
-          "VT": 13.751,
-          "UB": 13.995,
-          "BB": 13.06,
-          "FX": 13.351
+          "VT": 13.78,
+          "UB": null,
+          "BB": 13.107,
+          "FX": 13.391
         },
         {
           "gymnast": "Lyudmila Roshchina",
-          "VT": null,
+          "VT": 13.674,
           "UB": null,
-          "BB": 13.051,
-          "FX": 13.174
+          "BB": null,
+          "FX": 13.196
         },
         {
           "gymnast": "Viktoria Listunova",
           "VT": null,
-          "UB": 14.496,
+          "UB": 14.447,
           "BB": null,
           "FX": null
         },
         {
-          "gymnast": "Aleksandra Anufrieva",
-          "VT": 13.968,
+          "gymnast": "Milana Kayumova",
+          "VT": null,
+          "UB": 14.169,
+          "BB": 13.323,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "ITA",
+      "team": [
+        "Asia D'Amato",
+        "Manila Esposito",
+        "Elisa Iorio",
+        "Benedetta Gava",
+        "Giulia Perotti"
+      ],
+      "mean_total": 163.276,
+      "mean_per_app": {
+        "VT": 41.75,
+        "UB": 41.691,
+        "BB": 39.874,
+        "FX": 39.961
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Asia D'Amato",
+          "VT": 14.111,
+          "UB": 13.51,
+          "BB": 13.585,
+          "FX": 13.5
+        },
+        {
+          "gymnast": "Manila Esposito",
+          "VT": 13.385,
+          "UB": null,
+          "BB": 13.754,
+          "FX": 13.602
+        },
+        {
+          "gymnast": "Elisa Iorio",
+          "VT": null,
+          "UB": 14.273,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Benedetta Gava",
+          "VT": 14.255,
           "UB": null,
           "BB": null,
+          "FX": 12.859
+        },
+        {
+          "gymnast": "Giulia Perotti",
+          "VT": null,
+          "UB": 13.907,
+          "BB": 12.535,
           "FX": null
         }
       ]
@@ -2533,60 +2760,6 @@
       ]
     },
     {
-      "noc": "ESP",
-      "team": [
-        "Alba Petisco",
-        "Laia Font",
-        "Frida Rodriguez-Cabo",
-        "Marina Escudero",
-        "Leire Escauriaza"
-      ],
-      "mean_total": 158.405,
-      "mean_per_app": {
-        "VT": 43.498,
-        "UB": 39.12,
-        "BB": 37.598,
-        "FX": 38.189
-      },
-      "gymnasts": [
-        {
-          "gymnast": "Alba Petisco",
-          "VT": 13.35,
-          "UB": 13.326,
-          "BB": 12.651,
-          "FX": 13.075
-        },
-        {
-          "gymnast": "Laia Font",
-          "VT": 13.388,
-          "UB": null,
-          "BB": 12.646,
-          "FX": 12.67
-        },
-        {
-          "gymnast": "Frida Rodriguez-Cabo",
-          "VT": 16.759,
-          "UB": null,
-          "BB": null,
-          "FX": null
-        },
-        {
-          "gymnast": "Marina Escudero",
-          "VT": null,
-          "UB": 12.527,
-          "BB": 12.3,
-          "FX": 12.444
-        },
-        {
-          "gymnast": "Leire Escauriaza",
-          "VT": null,
-          "UB": 13.267,
-          "BB": null,
-          "FX": null
-        }
-      ]
-    },
-    {
       "noc": "GBR",
       "team": [
         "Ruby Evans",
@@ -2695,56 +2868,56 @@
       ]
     },
     {
-      "noc": "KOR",
+      "noc": "NED",
       "team": [
-        "Seojeong Yeo",
-        "Nayoung Park",
-        "Hwang Seohyun",
-        "Sumin Lim",
-        "Seoyuhn Hwang"
+        "Naomi Visser",
+        "Sanna Veerman",
+        "Sanne Wevers",
+        "Vera Ubbink",
+        "Vera van Pol"
       ],
-      "mean_total": 157.527,
+      "mean_total": 157.864,
       "mean_per_app": {
-        "VT": 40.075,
-        "UB": 37.95,
-        "BB": 41.093,
-        "FX": 38.409
+        "VT": 39.593,
+        "UB": 40.686,
+        "BB": 39.344,
+        "FX": 38.241
       },
       "gymnasts": [
         {
-          "gymnast": "Seojeong Yeo",
-          "VT": 14.23,
-          "UB": 12.757,
-          "BB": null,
-          "FX": 12.696
+          "gymnast": "Naomi Visser",
+          "VT": 13.122,
+          "UB": 13.568,
+          "BB": 13.307,
+          "FX": 13.12
         },
         {
-          "gymnast": "Nayoung Park",
-          "VT": 12.933,
-          "UB": 12.733,
+          "gymnast": "Sanna Veerman",
+          "VT": 13.364,
+          "UB": 14.079,
           "BB": null,
-          "FX": 12.933
-        },
-        {
-          "gymnast": "Hwang Seohyun",
-          "VT": null,
-          "UB": null,
-          "BB": 14.293,
           "FX": null
         },
         {
-          "gymnast": "Sumin Lim",
-          "VT": 12.912,
-          "UB": 12.46,
-          "BB": 13.267,
-          "FX": 12.78
+          "gymnast": "Sanne Wevers",
+          "VT": null,
+          "UB": 13.039,
+          "BB": 13.208,
+          "FX": null
         },
         {
-          "gymnast": "Seoyuhn Hwang",
+          "gymnast": "Vera Ubbink",
           "VT": null,
           "UB": null,
-          "BB": 13.533,
-          "FX": null
+          "BB": 12.829,
+          "FX": 12.305
+        },
+        {
+          "gymnast": "Vera van Pol",
+          "VT": 13.107,
+          "UB": null,
+          "BB": null,
+          "FX": 12.816
         }
       ]
     },
@@ -2799,6 +2972,168 @@
           "UB": null,
           "BB": null,
           "FX": 12.997
+        }
+      ]
+    },
+    {
+      "noc": "PRK",
+      "team": [
+        "An Chang Ok",
+        "Jo Kyong Byol",
+        "Chon Jin A",
+        "Pak Un Jong",
+        "Kim Kyong Ryong"
+      ],
+      "mean_total": 155.491,
+      "mean_per_app": {
+        "VT": 40.167,
+        "UB": 40.054,
+        "BB": 38.726,
+        "FX": 36.544
+      },
+      "gymnasts": [
+        {
+          "gymnast": "An Chang Ok",
+          "VT": 13.824,
+          "UB": 13.734,
+          "BB": null,
+          "FX": 12.377
+        },
+        {
+          "gymnast": "Jo Kyong Byol",
+          "VT": 13.677,
+          "UB": 12.833,
+          "BB": 12.7,
+          "FX": 12.266
+        },
+        {
+          "gymnast": "Chon Jin A",
+          "VT": null,
+          "UB": null,
+          "BB": 13.033,
+          "FX": 11.9
+        },
+        {
+          "gymnast": "Pak Un Jong",
+          "VT": null,
+          "UB": null,
+          "BB": 12.993,
+          "FX": null
+        },
+        {
+          "gymnast": "Kim Kyong Ryong",
+          "VT": 12.666,
+          "UB": 13.487,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "ESP",
+      "team": [
+        "Alba Petisco",
+        "Leire Escauriaza",
+        "Laia Font",
+        "Marina Escudero",
+        "Aitana Pacheco"
+      ],
+      "mean_total": 154.853,
+      "mean_per_app": {
+        "VT": 39.661,
+        "UB": 39.13,
+        "BB": 37.975,
+        "FX": 38.087
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Alba Petisco",
+          "VT": 13.363,
+          "UB": 13.28,
+          "BB": 12.716,
+          "FX": 13.015
+        },
+        {
+          "gymnast": "Leire Escauriaza",
+          "VT": 12.9,
+          "UB": 13.267,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Laia Font",
+          "VT": 13.398,
+          "UB": null,
+          "BB": 12.648,
+          "FX": 12.666
+        },
+        {
+          "gymnast": "Marina Escudero",
+          "VT": null,
+          "UB": 12.582,
+          "BB": null,
+          "FX": 12.406
+        },
+        {
+          "gymnast": "Aitana Pacheco",
+          "VT": null,
+          "UB": null,
+          "BB": 12.61,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "KOR",
+      "team": [
+        "Nayoung Park",
+        "Dohyun Eom",
+        "Lee Yunseo",
+        "Park Nayoung",
+        "Goo Laewon"
+      ],
+      "mean_total": 154.255,
+      "mean_per_app": {
+        "VT": 38.666,
+        "UB": 38.166,
+        "BB": 39.343,
+        "FX": 38.08
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Nayoung Park",
+          "VT": 12.933,
+          "UB": 12.733,
+          "BB": 12.967,
+          "FX": 12.933
+        },
+        {
+          "gymnast": "Dohyun Eom",
+          "VT": 12.8,
+          "UB": 12.667,
+          "BB": 13.3,
+          "FX": 12.567
+        },
+        {
+          "gymnast": "Lee Yunseo",
+          "VT": null,
+          "UB": 12.766,
+          "BB": 13.076,
+          "FX": 12.58
+        },
+        {
+          "gymnast": "Park Nayoung",
+          "VT": 12.933,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Goo Laewon",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": null
         }
       ]
     },
@@ -2965,6 +3300,60 @@
       ]
     },
     {
+      "noc": "SUI",
+      "team": [
+        "Lena Bickel",
+        "Samira Raffin",
+        "Anastasia Pascu",
+        "Daria Hartmann",
+        "Anny Wu"
+      ],
+      "mean_total": 151.943,
+      "mean_per_app": {
+        "VT": 39.718,
+        "UB": 37.959,
+        "BB": 36.919,
+        "FX": 37.347
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Lena Bickel",
+          "VT": 13.584,
+          "UB": 12.956,
+          "BB": 12.81,
+          "FX": 13.168
+        },
+        {
+          "gymnast": "Samira Raffin",
+          "VT": 13.159,
+          "UB": 12.338,
+          "BB": 12.056,
+          "FX": null
+        },
+        {
+          "gymnast": "Anastasia Pascu",
+          "VT": null,
+          "UB": 12.665,
+          "BB": null,
+          "FX": 11.898
+        },
+        {
+          "gymnast": "Daria Hartmann",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 12.28
+        },
+        {
+          "gymnast": "Anny Wu",
+          "VT": 12.974,
+          "UB": null,
+          "BB": 12.053,
+          "FX": null
+        }
+      ]
+    },
+    {
       "noc": "CZE",
       "team": [
         "Vanesa Masova",
@@ -3019,6 +3408,114 @@
       ]
     },
     {
+      "noc": "BEL",
+      "team": [
+        "Lisa Vaelen",
+        "Jade Vansteenkiste",
+        "Naomi Descamps",
+        "Erika Pinxten",
+        "Chloe Baert"
+      ],
+      "mean_total": 150.693,
+      "mean_per_app": {
+        "VT": 39.245,
+        "UB": 36.865,
+        "BB": 36.761,
+        "FX": 37.822
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Lisa Vaelen",
+          "VT": 13.628,
+          "UB": 13.213,
+          "BB": null,
+          "FX": 12.751
+        },
+        {
+          "gymnast": "Jade Vansteenkiste",
+          "VT": 13.05,
+          "UB": null,
+          "BB": 11.605,
+          "FX": 12.737
+        },
+        {
+          "gymnast": "Naomi Descamps",
+          "VT": null,
+          "UB": 12.271,
+          "BB": 12.471,
+          "FX": null
+        },
+        {
+          "gymnast": "Erika Pinxten",
+          "VT": null,
+          "UB": null,
+          "BB": 12.686,
+          "FX": null
+        },
+        {
+          "gymnast": "Chloe Baert",
+          "VT": 12.566,
+          "UB": 11.381,
+          "BB": null,
+          "FX": 12.333
+        }
+      ]
+    },
+    {
+      "noc": "SWE",
+      "team": [
+        "Jennifer Williams",
+        "Alva Eriksson",
+        "Nathalie Westlund",
+        "Elina Grawin",
+        "Emelie Westlund"
+      ],
+      "mean_total": 150.65,
+      "mean_per_app": {
+        "VT": 38.819,
+        "UB": 39.0,
+        "BB": 35.353,
+        "FX": 37.478
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Jennifer Williams",
+          "VT": null,
+          "UB": 13.524,
+          "BB": 11.303,
+          "FX": null
+        },
+        {
+          "gymnast": "Alva Eriksson",
+          "VT": null,
+          "UB": 12.853,
+          "BB": 11.953,
+          "FX": 12.042
+        },
+        {
+          "gymnast": "Nathalie Westlund",
+          "VT": 12.984,
+          "UB": null,
+          "BB": 12.097,
+          "FX": null
+        },
+        {
+          "gymnast": "Elina Grawin",
+          "VT": 13.0,
+          "UB": null,
+          "BB": null,
+          "FX": 12.75
+        },
+        {
+          "gymnast": "Emelie Westlund",
+          "VT": 12.835,
+          "UB": 12.623,
+          "BB": null,
+          "FX": 12.687
+        }
+      ]
+    },
+    {
       "noc": "HUN",
       "team": [
         "Greta Mayer",
@@ -3069,6 +3566,60 @@
           "UB": null,
           "BB": 12.397,
           "FX": 11.855
+        }
+      ]
+    },
+    {
+      "noc": "ISR",
+      "team": [
+        "Roni Shamay",
+        "Lihie Raz",
+        "Almog Leizerovich",
+        "Yali Shoshani",
+        "Tamar Brotfeld"
+      ],
+      "mean_total": 150.008,
+      "mean_per_app": {
+        "VT": 41.075,
+        "UB": 35.715,
+        "BB": 35.896,
+        "FX": 37.322
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Roni Shamay",
+          "VT": null,
+          "UB": 12.169,
+          "BB": 12.351,
+          "FX": 12.301
+        },
+        {
+          "gymnast": "Lihie Raz",
+          "VT": null,
+          "UB": 11.619,
+          "BB": 12.045,
+          "FX": 12.764
+        },
+        {
+          "gymnast": "Almog Leizerovich",
+          "VT": 13.028,
+          "UB": null,
+          "BB": null,
+          "FX": 12.257
+        },
+        {
+          "gymnast": "Yali Shoshani",
+          "VT": 13.033,
+          "UB": 11.927,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Tamar Brotfeld",
+          "VT": 15.013,
+          "UB": null,
+          "BB": 11.5,
+          "FX": null
         }
       ]
     },
@@ -3181,20 +3732,182 @@
       ]
     },
     {
+      "noc": "AUT",
+      "team": [
+        "Charlize M\u00f6rz",
+        "Leni Bohle",
+        "Selina Kickinger",
+        "Leonie Gschliesser",
+        "Rosa Schwaninger"
+      ],
+      "mean_total": 148.242,
+      "mean_per_app": {
+        "VT": 39.848,
+        "UB": 36.215,
+        "BB": 35.671,
+        "FX": 36.508
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Charlize M\u00f6rz",
+          "VT": 13.7,
+          "UB": 12.008,
+          "BB": null,
+          "FX": 12.217
+        },
+        {
+          "gymnast": "Leni Bohle",
+          "VT": 13.098,
+          "UB": 11.831,
+          "BB": 11.658,
+          "FX": 12.166
+        },
+        {
+          "gymnast": "Selina Kickinger",
+          "VT": null,
+          "UB": 12.376,
+          "BB": 12.266,
+          "FX": 12.125
+        },
+        {
+          "gymnast": "Leonie Gschliesser",
+          "VT": 13.05,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Rosa Schwaninger",
+          "VT": null,
+          "UB": null,
+          "BB": 11.747,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "TUR",
+      "team": [
+        "Nazli Savranbasi",
+        "Ceren Biner",
+        "Ilayda Sahin",
+        "Sevgi Kayisoglu",
+        "Bilge Tarhan"
+      ],
+      "mean_total": 146.666,
+      "mean_per_app": {
+        "VT": 38.913,
+        "UB": 36.472,
+        "BB": 35.28,
+        "FX": 36.001
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Nazli Savranbasi",
+          "VT": null,
+          "UB": 12.433,
+          "BB": 11.9,
+          "FX": 11.866
+        },
+        {
+          "gymnast": "Ceren Biner",
+          "VT": 12.866,
+          "UB": 12.214,
+          "BB": 11.455,
+          "FX": 11.894
+        },
+        {
+          "gymnast": "Ilayda Sahin",
+          "VT": 13.047,
+          "UB": 11.825,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Sevgi Kayisoglu",
+          "VT": null,
+          "UB": null,
+          "BB": 11.924,
+          "FX": 12.241
+        },
+        {
+          "gymnast": "Bilge Tarhan",
+          "VT": 13.0,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "PAN",
+      "team": [
+        "Alyiah Lide",
+        "Alyiah Lide de Leon",
+        "Hillary Heron",
+        "Ana Gabriela Gutierrez",
+        "Ana Lucia Beitia"
+      ],
+      "mean_total": 146.587,
+      "mean_per_app": {
+        "VT": 38.94,
+        "UB": 34.597,
+        "BB": 36.891,
+        "FX": 36.159
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Alyiah Lide",
+          "VT": 12.859,
+          "UB": 11.638,
+          "BB": 12.33,
+          "FX": 11.944
+        },
+        {
+          "gymnast": "Alyiah Lide de Leon",
+          "VT": null,
+          "UB": null,
+          "BB": 12.4,
+          "FX": 12.3
+        },
+        {
+          "gymnast": "Hillary Heron",
+          "VT": 13.125,
+          "UB": 11.39,
+          "BB": 12.161,
+          "FX": 11.915
+        },
+        {
+          "gymnast": "Ana Gabriela Gutierrez",
+          "VT": null,
+          "UB": 11.568,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Ana Lucia Beitia",
+          "VT": 12.956,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
       "noc": "FIN",
       "team": [
         "Kaia Tanskanen",
         "Ada Hautala",
         "Sirkku Korpela",
-        "Olivia V\u00e4tt\u00f6",
-        "Adeliina Sikala"
+        "Adeliina Siikala",
+        "Olivia V\u00e4tt\u00f6"
       ],
-      "mean_total": 146.641,
+      "mean_total": 146.575,
       "mean_per_app": {
-        "VT": 39.188,
-        "UB": 35.122,
+        "VT": 39.061,
+        "UB": 35.165,
         "BB": 36.238,
-        "FX": 36.093
+        "FX": 36.111
       },
       "gymnasts": [
         {
@@ -3207,30 +3920,300 @@
         {
           "gymnast": "Ada Hautala",
           "VT": 13.158,
-          "UB": 11.722,
-          "BB": 12.447,
+          "UB": 11.706,
+          "BB": 12.439,
           "FX": null
         },
         {
           "gymnast": "Sirkku Korpela",
           "VT": null,
-          "UB": 11.926,
+          "UB": 12.0,
           "BB": null,
-          "FX": 11.359
+          "FX": 11.372
+        },
+        {
+          "gymnast": "Adeliina Siikala",
+          "VT": 13.003,
+          "UB": null,
+          "BB": 11.666,
+          "FX": 12.172
         },
         {
           "gymnast": "Olivia V\u00e4tt\u00f6",
           "VT": null,
-          "UB": 11.474,
+          "UB": 11.46,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "MAS",
+      "team": [
+        "Yeap Kang Xian",
+        "Cadence Teh Zi Qi",
+        "Hannah Seow",
+        "Rachel Yeoh Li Wen",
+        "Marissa Zaiful Azian"
+      ],
+      "mean_total": 146.454,
+      "mean_per_app": {
+        "VT": 37.304,
+        "UB": 37.17,
+        "BB": 36.364,
+        "FX": 35.616
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Yeap Kang Xian",
+          "VT": 12.794,
+          "UB": 11.822,
+          "BB": 12.586,
+          "FX": null
+        },
+        {
+          "gymnast": "Cadence Teh Zi Qi",
+          "VT": 11.911,
+          "UB": 12.075,
+          "BB": 11.645,
+          "FX": 11.883
+        },
+        {
+          "gymnast": "Hannah Seow",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.933
+        },
+        {
+          "gymnast": "Rachel Yeoh Li Wen",
+          "VT": null,
+          "UB": 13.274,
+          "BB": 12.133,
+          "FX": null
+        },
+        {
+          "gymnast": "Marissa Zaiful Azian",
+          "VT": 12.6,
+          "UB": null,
+          "BB": null,
+          "FX": 11.8
+        }
+      ]
+    },
+    {
+      "noc": "UZB",
+      "team": [
+        "Dildora Aripova",
+        "Aleksandra Shevchenko",
+        "Odinakhon Robidjonova",
+        "Solikha Tursunboeva",
+        "Oksana Chusovitina"
+      ],
+      "mean_total": 146.31,
+      "mean_per_app": {
+        "VT": 38.205,
+        "UB": 35.097,
+        "BB": 35.889,
+        "FX": 37.119
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Dildora Aripova",
+          "VT": 12.56,
+          "UB": 12.215,
+          "BB": 12.2,
+          "FX": 12.637
+        },
+        {
+          "gymnast": "Aleksandra Shevchenko",
+          "VT": null,
+          "UB": 11.45,
+          "BB": 12.213,
+          "FX": 12.146
+        },
+        {
+          "gymnast": "Odinakhon Robidjonova",
+          "VT": null,
+          "UB": 11.433,
           "BB": null,
           "FX": null
         },
         {
-          "gymnast": "Adeliina Sikala",
-          "VT": 13.129,
+          "gymnast": "Solikha Tursunboeva",
+          "VT": 12.647,
           "UB": null,
-          "BB": 11.658,
-          "FX": 12.168
+          "BB": 11.476,
+          "FX": 12.337
+        },
+        {
+          "gymnast": "Oksana Chusovitina",
+          "VT": 12.998,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "BLR",
+      "team": [
+        "Ulyana Kuzmenkova",
+        "Sofia Shtykhetskaya",
+        "Karolina Fedoniuk",
+        "Vera Sadyrbaeva",
+        "Anastasiya Smantsar"
+      ],
+      "mean_total": 146.03,
+      "mean_per_app": {
+        "VT": 37.208,
+        "UB": 38.026,
+        "BB": 34.476,
+        "FX": 36.32
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Ulyana Kuzmenkova",
+          "VT": 12.375,
+          "UB": 12.869,
+          "BB": 11.613,
+          "FX": null
+        },
+        {
+          "gymnast": "Sofia Shtykhetskaya",
+          "VT": null,
+          "UB": 13.424,
+          "BB": 10.933,
+          "FX": 12.133
+        },
+        {
+          "gymnast": "Karolina Fedoniuk",
+          "VT": 12.133,
+          "UB": 11.733,
+          "BB": null,
+          "FX": 12.3
+        },
+        {
+          "gymnast": "Vera Sadyrbaeva",
+          "VT": 12.7,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Anastasiya Smantsar",
+          "VT": null,
+          "UB": null,
+          "BB": 11.93,
+          "FX": 11.887
+        }
+      ]
+    },
+    {
+      "noc": "RSA",
+      "team": [
+        "Caitlin Rooskrantz",
+        "Naveen Daries",
+        "Zelm\u00e9 Daries",
+        "Buhle Nhleko",
+        "Jessica Rautenbach"
+      ],
+      "mean_total": 145.945,
+      "mean_per_app": {
+        "VT": 37.875,
+        "UB": 37.881,
+        "BB": 34.936,
+        "FX": 35.253
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Caitlin Rooskrantz",
+          "VT": 12.3,
+          "UB": 13.21,
+          "BB": 11.741,
+          "FX": 11.734
+        },
+        {
+          "gymnast": "Naveen Daries",
+          "VT": 12.767,
+          "UB": 12.4,
+          "BB": 11.913,
+          "FX": null
+        },
+        {
+          "gymnast": "Zelm\u00e9 Daries",
+          "VT": null,
+          "UB": 12.271,
+          "BB": 11.281,
+          "FX": 11.686
+        },
+        {
+          "gymnast": "Buhle Nhleko",
+          "VT": 12.808,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Jessica Rautenbach",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.833
+        }
+      ]
+    },
+    {
+      "noc": "TPE",
+      "team": [
+        "Lai Pin-Ju",
+        "Ting Hua-Tien",
+        "Liao Yi-Chun",
+        "Yang Ko-Wen",
+        "Pan Cai-Chen"
+      ],
+      "mean_total": 144.857,
+      "mean_per_app": {
+        "VT": 37.728,
+        "UB": 34.264,
+        "BB": 37.766,
+        "FX": 35.099
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Lai Pin-Ju",
+          "VT": 12.833,
+          "UB": 11.0,
+          "BB": 12.733,
+          "FX": 12.0
+        },
+        {
+          "gymnast": "Ting Hua-Tien",
+          "VT": null,
+          "UB": 11.966,
+          "BB": 12.8,
+          "FX": 11.733
+        },
+        {
+          "gymnast": "Liao Yi-Chun",
+          "VT": 12.418,
+          "UB": null,
+          "BB": 12.233,
+          "FX": null
+        },
+        {
+          "gymnast": "Yang Ko-Wen",
+          "VT": 12.476,
+          "UB": null,
+          "BB": null,
+          "FX": 11.366
+        },
+        {
+          "gymnast": "Pan Cai-Chen",
+          "VT": null,
+          "UB": 11.298,
+          "BB": null,
+          "FX": null
         }
       ]
     },
@@ -3291,9 +4274,9 @@
     {
       "noc": "POL",
       "team": [
-        "Anna Gemza",
         "Maria Drobniak",
         "Marta Pihan-Kulesza",
+        "Anna Gemza",
         "Brygida Urbanska",
         "Sofiya Razumouskaya"
       ],
@@ -3305,13 +4288,6 @@
         "FX": 36.494
       },
       "gymnasts": [
-        {
-          "gymnast": "Anna Gemza",
-          "VT": null,
-          "UB": 11.933,
-          "BB": null,
-          "FX": null
-        },
         {
           "gymnast": "Maria Drobniak",
           "VT": 12.502,
@@ -3327,6 +4303,13 @@
           "FX": 12.007
         },
         {
+          "gymnast": "Anna Gemza",
+          "VT": null,
+          "UB": 11.933,
+          "BB": null,
+          "FX": null
+        },
+        {
           "gymnast": "Brygida Urbanska",
           "VT": null,
           "UB": null,
@@ -3338,6 +4321,708 @@
           "VT": 12.883,
           "UB": 10.626,
           "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "EGY",
+      "team": [
+        "Judy Abdalla",
+        "Jana Mahmoud",
+        "Claudine Soliman",
+        "Jana Abdelsalam",
+        "Sirine Abouelhoda"
+      ],
+      "mean_total": 143.367,
+      "mean_per_app": {
+        "VT": 37.451,
+        "UB": 34.884,
+        "BB": 35.368,
+        "FX": 35.664
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Judy Abdalla",
+          "VT": 12.841,
+          "UB": 12.265,
+          "BB": 12.154,
+          "FX": null
+        },
+        {
+          "gymnast": "Jana Mahmoud",
+          "VT": null,
+          "UB": null,
+          "BB": 11.466,
+          "FX": 12.014
+        },
+        {
+          "gymnast": "Claudine Soliman",
+          "VT": 12.108,
+          "UB": 11.31,
+          "BB": null,
+          "FX": 12.202
+        },
+        {
+          "gymnast": "Jana Abdelsalam",
+          "VT": null,
+          "UB": 11.309,
+          "BB": 11.748,
+          "FX": null
+        },
+        {
+          "gymnast": "Sirine Abouelhoda",
+          "VT": 12.502,
+          "UB": null,
+          "BB": null,
+          "FX": 11.448
+        }
+      ]
+    },
+    {
+      "noc": "ISL",
+      "team": [
+        "Thelma Adalsteinsdottir",
+        "Lilja Gunnarsdottir",
+        "Kristjana Olafsdottir",
+        "Rakel Petursdottir",
+        "Audur Thorbjarnardottir"
+      ],
+      "mean_total": 142.621,
+      "mean_per_app": {
+        "VT": 38.028,
+        "UB": 34.889,
+        "BB": 34.382,
+        "FX": 35.322
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Thelma Adalsteinsdottir",
+          "VT": 12.408,
+          "UB": 12.059,
+          "BB": 11.624,
+          "FX": 12.093
+        },
+        {
+          "gymnast": "Lilja Gunnarsdottir",
+          "VT": 13.017,
+          "UB": 11.728,
+          "BB": 11.252,
+          "FX": 11.579
+        },
+        {
+          "gymnast": "Kristjana Olafsdottir",
+          "VT": null,
+          "UB": 11.102,
+          "BB": 11.506,
+          "FX": null
+        },
+        {
+          "gymnast": "Rakel Petursdottir",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.649
+        },
+        {
+          "gymnast": "Audur Thorbjarnardottir",
+          "VT": 12.603,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "SGP",
+      "team": [
+        "Amanda Yap",
+        "Emma Yap",
+        "Ariel Lin Jing Han",
+        "Alena Tan",
+        "Charlotte Phoon"
+      ],
+      "mean_total": 141.848,
+      "mean_per_app": {
+        "VT": 37.481,
+        "UB": 32.248,
+        "BB": 36.055,
+        "FX": 36.064
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Amanda Yap",
+          "VT": 12.959,
+          "UB": 10.737,
+          "BB": 12.892,
+          "FX": 12.152
+        },
+        {
+          "gymnast": "Emma Yap",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 12.349
+        },
+        {
+          "gymnast": "Ariel Lin Jing Han",
+          "VT": null,
+          "UB": 10.683,
+          "BB": 11.627,
+          "FX": null
+        },
+        {
+          "gymnast": "Alena Tan",
+          "VT": 12.301,
+          "UB": 10.828,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Charlotte Phoon",
+          "VT": 12.221,
+          "UB": null,
+          "BB": 11.536,
+          "FX": 11.563
+        }
+      ]
+    },
+    {
+      "noc": "CRO",
+      "team": [
+        "Mila Prpic",
+        "Christina Zwicker",
+        "Mia Gasparin",
+        "Sofia Mester",
+        "Erin Bakran"
+      ],
+      "mean_total": 141.835,
+      "mean_per_app": {
+        "VT": 36.62,
+        "UB": 34.619,
+        "BB": 36.858,
+        "FX": 33.738
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Mila Prpic",
+          "VT": 12.799,
+          "UB": 10.633,
+          "BB": 12.305,
+          "FX": 11.138
+        },
+        {
+          "gymnast": "Christina Zwicker",
+          "VT": 11.4,
+          "UB": 11.7,
+          "BB": 12.031,
+          "FX": 10.966
+        },
+        {
+          "gymnast": "Mia Gasparin",
+          "VT": 12.421,
+          "UB": null,
+          "BB": null,
+          "FX": 11.634
+        },
+        {
+          "gymnast": "Sofia Mester",
+          "VT": null,
+          "UB": 12.286,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Erin Bakran",
+          "VT": null,
+          "UB": null,
+          "BB": 12.522,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "SVK",
+      "team": [
+        "Nela Ostrihonova",
+        "Adela Balcova",
+        "Laura Belicova",
+        "Barbora Kundrat",
+        "Barbora Kundr\u00e1t"
+      ],
+      "mean_total": 141.548,
+      "mean_per_app": {
+        "VT": 36.435,
+        "UB": 36.034,
+        "BB": 34.642,
+        "FX": 34.437
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Nela Ostrihonova",
+          "VT": 12.33,
+          "UB": 11.747,
+          "BB": 11.477,
+          "FX": 11.944
+        },
+        {
+          "gymnast": "Adela Balcova",
+          "VT": 11.911,
+          "UB": null,
+          "BB": 11.394,
+          "FX": 11.319
+        },
+        {
+          "gymnast": "Laura Belicova",
+          "VT": 12.194,
+          "UB": null,
+          "BB": null,
+          "FX": 11.175
+        },
+        {
+          "gymnast": "Barbora Kundrat",
+          "VT": null,
+          "UB": 12.379,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Barbora Kundr\u00e1t",
+          "VT": null,
+          "UB": 11.908,
+          "BB": 11.77,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "NZL",
+      "team": [
+        "Jun McDonald",
+        "Courtney McGregor",
+        "Freya Reid",
+        "Sienna Shields",
+        "Reece Cobb"
+      ],
+      "mean_total": 141.513,
+      "mean_per_app": {
+        "VT": 38.181,
+        "UB": 34.887,
+        "BB": 33.405,
+        "FX": 35.04
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Jun McDonald",
+          "VT": null,
+          "UB": 12.478,
+          "BB": 11.166,
+          "FX": 12.266
+        },
+        {
+          "gymnast": "Courtney McGregor",
+          "VT": 13.116,
+          "UB": 11.376,
+          "BB": 11.151,
+          "FX": null
+        },
+        {
+          "gymnast": "Freya Reid",
+          "VT": 12.416,
+          "UB": 11.033,
+          "BB": 11.088,
+          "FX": null
+        },
+        {
+          "gymnast": "Sienna Shields",
+          "VT": 12.648,
+          "UB": null,
+          "BB": null,
+          "FX": 11.248
+        },
+        {
+          "gymnast": "Reece Cobb",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.526
+        }
+      ]
+    },
+    {
+      "noc": "PHI",
+      "team": [
+        "Haylee Garcia",
+        "Chiara Andrew",
+        "Cielo Andrea Esliza",
+        "Amara Lagdameo",
+        "Kylee Kvamme"
+      ],
+      "mean_total": 141.367,
+      "mean_per_app": {
+        "VT": 39.131,
+        "UB": 31.271,
+        "BB": 35.133,
+        "FX": 35.832
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Haylee Garcia",
+          "VT": 12.898,
+          "UB": 11.0,
+          "BB": 12.1,
+          "FX": 11.933
+        },
+        {
+          "gymnast": "Chiara Andrew",
+          "VT": 12.6,
+          "UB": 10.166,
+          "BB": 10.6,
+          "FX": 12.233
+        },
+        {
+          "gymnast": "Cielo Andrea Esliza",
+          "VT": null,
+          "UB": 10.105,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Amara Lagdameo",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.666
+        },
+        {
+          "gymnast": "Kylee Kvamme",
+          "VT": 13.633,
+          "UB": null,
+          "BB": 12.433,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "BUL",
+      "team": [
+        "Mishel Arabadzhieva",
+        "Elena Nikolova",
+        "Yoana Yankova Benovic",
+        "Nikol Sokolova",
+        "Nikol Stoimenova"
+      ],
+      "mean_total": 140.621,
+      "mean_per_app": {
+        "VT": 37.618,
+        "UB": 30.838,
+        "BB": 35.982,
+        "FX": 36.183
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Mishel Arabadzhieva",
+          "VT": 12.467,
+          "UB": null,
+          "BB": 13.033,
+          "FX": 12.293
+        },
+        {
+          "gymnast": "Elena Nikolova",
+          "VT": null,
+          "UB": 10.021,
+          "BB": null,
+          "FX": 12.114
+        },
+        {
+          "gymnast": "Yoana Yankova Benovic",
+          "VT": 12.4,
+          "UB": 10.833,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Nikol Sokolova",
+          "VT": null,
+          "UB": null,
+          "BB": 11.732,
+          "FX": 11.776
+        },
+        {
+          "gymnast": "Nikol Stoimenova",
+          "VT": 12.751,
+          "UB": 9.983,
+          "BB": 11.218,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "GRE",
+      "team": [
+        "Magdalini Tsiori",
+        "Maria Sofia Livogianni",
+        "Olga Marina Kapoti",
+        "Athanasia Mesiri",
+        "Christina Kiosi"
+      ],
+      "mean_total": 139.273,
+      "mean_per_app": {
+        "VT": 37.958,
+        "UB": 34.3,
+        "BB": 32.136,
+        "FX": 34.879
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Magdalini Tsiori",
+          "VT": null,
+          "UB": 12.582,
+          "BB": 11.1,
+          "FX": null
+        },
+        {
+          "gymnast": "Maria Sofia Livogianni",
+          "VT": 12.35,
+          "UB": 10.501,
+          "BB": 10.242,
+          "FX": 11.95
+        },
+        {
+          "gymnast": "Olga Marina Kapoti",
+          "VT": null,
+          "UB": 11.216,
+          "BB": 10.794,
+          "FX": null
+        },
+        {
+          "gymnast": "Athanasia Mesiri",
+          "VT": 13.193,
+          "UB": null,
+          "BB": null,
+          "FX": 11.16
+        },
+        {
+          "gymnast": "Christina Kiosi",
+          "VT": 12.415,
+          "UB": null,
+          "BB": null,
+          "FX": 11.769
+        }
+      ]
+    },
+    {
+      "noc": "KAZ",
+      "team": [
+        "Ameli Mukusheva",
+        "Amina Khalimarden",
+        "Radmilla Tarassova",
+        "Darya Yassinskaya",
+        "Evelina Yezhova"
+      ],
+      "mean_total": 139.23,
+      "mean_per_app": {
+        "VT": 35.553,
+        "UB": 32.216,
+        "BB": 36.275,
+        "FX": 35.186
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Ameli Mukusheva",
+          "VT": 11.933,
+          "UB": 10.556,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Amina Khalimarden",
+          "VT": 11.766,
+          "UB": 10.014,
+          "BB": 11.721,
+          "FX": 11.641
+        },
+        {
+          "gymnast": "Radmilla Tarassova",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.4
+        },
+        {
+          "gymnast": "Darya Yassinskaya",
+          "VT": 11.854,
+          "UB": null,
+          "BB": 12.271,
+          "FX": 12.144
+        },
+        {
+          "gymnast": "Evelina Yezhova",
+          "VT": null,
+          "UB": 11.646,
+          "BB": 12.283,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "POR",
+      "team": [
+        "Mafalda Costa",
+        "Nuria Emidio",
+        "Mariana Parente",
+        "Joana Reis",
+        "Raquel Oliveira"
+      ],
+      "mean_total": 138.302,
+      "mean_per_app": {
+        "VT": 37.664,
+        "UB": 32.539,
+        "BB": 33.344,
+        "FX": 34.755
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Mafalda Costa",
+          "VT": 12.7,
+          "UB": 10.333,
+          "BB": 11.472,
+          "FX": 11.818
+        },
+        {
+          "gymnast": "Nuria Emidio",
+          "VT": 12.507,
+          "UB": 10.943,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Mariana Parente",
+          "VT": 12.457,
+          "UB": 11.263,
+          "BB": 10.849,
+          "FX": null
+        },
+        {
+          "gymnast": "Joana Reis",
+          "VT": null,
+          "UB": null,
+          "BB": 11.023,
+          "FX": 11.391
+        },
+        {
+          "gymnast": "Raquel Oliveira",
+          "VT": null,
+          "UB": null,
+          "BB": null,
+          "FX": 11.546
+        }
+      ]
+    },
+    {
+      "noc": "IND",
+      "team": [
+        "Protistha Samanta",
+        "Eshita Rewale",
+        "Eshitaa Rewale",
+        "Anoushka Patil",
+        "Pranati Nayak"
+      ],
+      "mean_total": 128.844,
+      "mean_per_app": {
+        "VT": 38.415,
+        "UB": 28.083,
+        "BB": 29.284,
+        "FX": 33.062
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Protistha Samanta",
+          "VT": 12.884,
+          "UB": null,
+          "BB": 9.701,
+          "FX": 10.962
+        },
+        {
+          "gymnast": "Eshita Rewale",
+          "VT": 12.766,
+          "UB": 9.3,
+          "BB": null,
+          "FX": 10.8
+        },
+        {
+          "gymnast": "Eshitaa Rewale",
+          "VT": null,
+          "UB": 9.55,
+          "BB": 10.05,
+          "FX": null
+        },
+        {
+          "gymnast": "Anoushka Patil",
+          "VT": null,
+          "UB": 9.233,
+          "BB": 9.533,
+          "FX": 11.3
+        },
+        {
+          "gymnast": "Pranati Nayak",
+          "VT": 12.766,
+          "UB": null,
+          "BB": null,
+          "FX": null
+        }
+      ]
+    },
+    {
+      "noc": "SRI",
+      "team": [
+        "Nuyara Fernando",
+        "Dinugi Boyagodage",
+        "Sapuni Weligama",
+        "Luhara Jayasekara",
+        "Tiana Sumanasekera"
+      ],
+      "mean_total": 116.289,
+      "mean_per_app": {
+        "VT": 32.697,
+        "UB": 23.944,
+        "BB": 30.674,
+        "FX": 28.974
+      },
+      "gymnasts": [
+        {
+          "gymnast": "Nuyara Fernando",
+          "VT": 10.831,
+          "UB": 9.478,
+          "BB": 9.624,
+          "FX": 10.141
+        },
+        {
+          "gymnast": "Dinugi Boyagodage",
+          "VT": 11.333,
+          "UB": 6.933,
+          "BB": null,
+          "FX": 9.333
+        },
+        {
+          "gymnast": "Sapuni Weligama",
+          "VT": 10.533,
+          "UB": 7.533,
+          "BB": null,
+          "FX": null
+        },
+        {
+          "gymnast": "Luhara Jayasekara",
+          "VT": null,
+          "UB": null,
+          "BB": 10.0,
+          "FX": 9.5
+        },
+        {
+          "gymnast": "Tiana Sumanasekera",
+          "VT": null,
+          "UB": null,
+          "BB": 11.05,
           "FX": null
         }
       ]

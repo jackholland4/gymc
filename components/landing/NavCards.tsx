@@ -27,10 +27,10 @@ const TOOLS = [
     id: 'team-selection',
     title: 'Team Selection Simulator',
     description:
-      'Optimize team selection with historical data analysis. Compare every possible lineup and find the best combination for any competition.',
-    cta: 'Coming Soon',
+      'Assemble any five-gymnast team from the full global roster and simulate them head-to-head against the world field, a national team, or a custom all-star opponent.',
+    cta: 'Generate',
     href: '/team-selection',
-    active: false,
+    active: true,
   },
 ] as const
 

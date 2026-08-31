@@ -2,31 +2,17 @@
 
 import { useState } from 'react'
 import { MedalBadge } from '@/components/shared/MedalBadge'
+import type { TeamFinalGymnast, TeamFinalDetail } from '@/types/simulation'
 
-export interface TeamFinalGymnast {
-  gymnast: string
-  VT: number | null
-  UB: number | null
-  BB: number | null
-  FX: number | null
-  [key: string]: string | number | null
-}
-
-export interface TeamFinalDetail {
-  noc: string
-  team: string[]
-  mean_total: number
-  mean_per_app: Record<string, number>
-  gymnasts: TeamFinalGymnast[]
-}
+export type { TeamFinalGymnast, TeamFinalDetail }
 
 const APPARATUS = ['VT', 'UB', 'BB', 'FX'] as const
 const fmt = (v: number | null | undefined) => (v != null ? v.toFixed(3) : '—')
 
 function ExpandedTeam({ row }: { row: TeamFinalDetail }) {
   const sorted = [...row.gymnasts].sort((a, b) => {
-    const sa = APPARATUS.reduce((s, app) => s + (a[app] ?? 0), 0)
-    const sb = APPARATUS.reduce((s, app) => s + (b[app] ?? 0), 0)
+    const sa = APPARATUS.reduce((s, app) => s + ((a[app] as number | null) ?? 0), 0)
+    const sb = APPARATUS.reduce((s, app) => s + ((b[app] as number | null) ?? 0), 0)
     return sb - sa
   })
 

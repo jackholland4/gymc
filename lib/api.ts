@@ -14,6 +14,9 @@ import type {
   CalendarMeet,
   MeetDetail,
   GymnastSeed,
+  RankingsData,
+  GymnastEntry,
+  MatchupBatchResult,
 } from '@/types/simulation'
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
@@ -203,6 +206,80 @@ export function fetchCalendar(discipline: Discipline = 'WAG'): Promise<CalendarM
 /** GET /api/meet/{meet_name}/results?discipline=WAG */
 export function fetchMeetDetail(meetName: string, discipline: Discipline = 'WAG'): Promise<MeetDetail> {
   return request<MeetDetail>(`/api/meet/${encodeURIComponent(meetName)}/results?discipline=${discipline}`)
+}
+
+/** POST /api/matchup/batch — pairwise head-to-head between two custom teams */
+export function runMatchupBatch(
+  teamA: { roster: GymnastEntry[]; lineup: Record<string, string[]> },
+  teamB: { roster: GymnastEntry[]; lineup: Record<string, string[]> },
+  opts: { nSims?: number; discipline?: Discipline; scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean } } = {}
+): Promise<MatchupBatchResult> {
+  return request<MatchupBatchResult>('/api/matchup/batch', {
+    method: 'POST',
+    body: JSON.stringify({
+      team_a: { roster: teamA.roster, lineup: teamA.lineup },
+      team_b: { roster: teamB.roster, lineup: teamB.lineup },
+      ...(opts.nSims !== undefined ? { n_sims: opts.nSims } : {}),
+      discipline: opts.discipline ?? 'WAG',
+      ...(opts.scoreFilter
+        ? { score_filter: { include_domestic: !opts.scoreFilter.excludeDomestic, include_non_fig: !opts.scoreFilter.excludeNonFig } }
+        : {}),
+    }),
+  })
+}
+
+/** POST /api/world-sim/batch — custom team inserted into world simulation field */
+export function runWorldSimBatch(
+  roster: GymnastEntry[],
+  team: string[],
+  lineup: Record<string, string[]>,
+  qualsLineup: Record<string, string[]>,
+  opts: { nSims?: number; discipline?: Discipline; scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean } } = {}
+): Promise<BatchTeamStats> {
+  return request<BatchTeamStats>('/api/world-sim/batch', {
+    method: 'POST',
+    body: JSON.stringify({
+      roster,
+      team,
+      lineup,
+      quals_lineup: qualsLineup,
+      ...(opts.nSims !== undefined ? { n_sims: opts.nSims } : {}),
+      discipline: opts.discipline ?? 'WAG',
+      ...(opts.scoreFilter
+        ? { score_filter: { include_domestic: !opts.scoreFilter.excludeDomestic, include_non_fig: !opts.scoreFilter.excludeNonFig } }
+        : {}),
+    }),
+  })
+}
+
+/** POST /api/custom-team/optimize — optimal lineup for a cross-national roster */
+export function optimizeCustomTeam(
+  roster: GymnastEntry[],
+  discipline: Discipline = 'WAG',
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean }
+): Promise<{ quals: Record<string, string[]>; team_final: Record<string, string[]> }> {
+  return request('/api/custom-team/optimize', {
+    method: 'POST',
+    body: JSON.stringify({
+      roster,
+      discipline,
+      ...(scoreFilter
+        ? { score_filter: { include_domestic: !scoreFilter.excludeDomestic, include_non_fig: !scoreFilter.excludeNonFig } }
+        : {}),
+    }),
+  })
+}
+
+/** GET /api/rankings */
+export function fetchRankings(
+  discipline: Discipline = 'WAG',
+  scoreFilter?: { excludeDomestic?: boolean; excludeNonFig?: boolean },
+  nSims = 500,
+): Promise<RankingsData> {
+  const params = new URLSearchParams({ discipline, n_sims: String(nSims) })
+  if (scoreFilter?.excludeDomestic) params.set('include_domestic', 'false')
+  if (scoreFilter?.excludeNonFig) params.set('include_non_fig', 'false')
+  return request<RankingsData>(`/api/rankings?${params}`)
 }
 
 /** POST /api/top-team-candidates */

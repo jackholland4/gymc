@@ -34,6 +34,7 @@ export interface WorldsState {
   simResult: SimulationResult | null
   isSimulating: boolean
   simError: string | null
+  disciplineConfirmed: boolean
   activeTab: 'quals' | 'tf' | 'ef' | 'aa' | 'analytics'
   batchStats: BatchTeamStats | null
   gymnstStats: BatchGymnastStats | null
@@ -56,6 +57,7 @@ const initialState: WorldsState = {
   simResult: null,
   isSimulating: false,
   simError: null,
+  disciplineConfirmed: false,
   activeTab: 'quals',
   batchStats: null,
   gymnstStats: null,
@@ -84,6 +86,7 @@ export type WorldsAction =
   | { type: 'SIM_START' }
   | { type: 'SIM_SUCCESS'; result: SimulationResult; usedSeed: number | null }
   | { type: 'SIM_ERROR'; msg: string }
+  | { type: 'CONFIRM_DISCIPLINE' }
   | { type: 'SET_TAB'; tab: WorldsState['activeTab'] }
   | { type: 'BATCH_START' }
   | { type: 'BATCH_TEAM_SUCCESS'; stats: BatchTeamStats }
@@ -97,6 +100,9 @@ export type WorldsAction =
 
 function reducer(state: WorldsState, action: WorldsAction): WorldsState {
   switch (action.type) {
+    case 'CONFIRM_DISCIPLINE':
+      return { ...state, disciplineConfirmed: true }
+
     case 'SET_DISCIPLINE':
       return {
         ...state,

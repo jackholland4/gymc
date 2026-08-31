@@ -6,11 +6,29 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const KB_ANIMS = ['kenburns-1', 'kenburns-2', 'kenburns-3', 'kenburns-4']
 
+export interface Slide {
+  src: string
+  position?: string
+}
+
 interface Props {
-  images: string[]
+  images: (string | Slide)[]
   interval?: number
   transitionDuration?: number
   kenBurnsDuration?: number
+}
+
+function toSlide(s: string | Slide): Slide {
+  return typeof s === 'string' ? { src: s } : s
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
 }
 
 export default function KenBurnsSlideshow({
@@ -19,21 +37,27 @@ export default function KenBurnsSlideshow({
   transitionDuration = 2000,
   kenBurnsDuration = 12000,
 }: Props) {
+  const [deck, setDeck] = useState<Slide[]>(images.map(toSlide))
   const [slideNum, setSlideNum] = useState(0)
 
   useEffect(() => {
-    if (images.length <= 1) return
+    setDeck(shuffle(images.map(toSlide)))
+  }, [images])
+
+  useEffect(() => {
+    if (deck.length <= 1) return
     const id = setInterval(() => setSlideNum(n => n + 1), interval)
     return () => clearInterval(id)
-  }, [images.length, interval])
+  }, [deck.length, interval])
 
-  if (images.length === 0) {
+  if (deck.length === 0) {
     return (
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black" />
     )
   }
 
-  const curr = slideNum % images.length
+  const curr = slideNum % deck.length
+  const slide = deck[curr]
   const animName = KB_ANIMS[slideNum % KB_ANIMS.length]
 
   return (
@@ -55,13 +79,14 @@ export default function KenBurnsSlideshow({
           }}
         >
           <Image
-            src={images[curr]}
+            src={slide.src}
             alt=""
             fill
-            className="object-cover object-center"
+            className="object-cover grayscale"
+            style={{ objectPosition: slide.position ?? 'center' }}
             sizes="100vw"
             priority={slideNum === 0}
-            unoptimized={images[curr].includes('.avif')}
+            unoptimized={slide.src.includes('.avif')}
           />
         </motion.div>
       </AnimatePresence>

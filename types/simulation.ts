@@ -263,3 +263,106 @@ export interface TopCandidatesResponse {
     team_final: Record<Apparatus, string[]>
   }
 }
+
+// ── Power Rankings ────────────────────────────────────────────────────────────
+
+export interface ApparatusRow {
+  gymnast: string
+  noc: string
+  ef_rate: number
+  mean_score: number
+  gold_pct: number
+  medal_pct: number
+  top8_pct: number
+  avg_rank: number
+}
+
+export interface AARow {
+  gymnast: string
+  noc: string
+  aa_rate: number
+  mean_score: number
+  gold_pct: number
+  medal_pct: number
+  top8_pct: number
+  avg_rank: number
+}
+
+export interface TeamRow {
+  noc: string
+  tf_rate: number
+  mean_score: number
+  mean_per_app: Record<string, number>
+  gold_pct: number
+  medal_pct: number
+  top8_pct: number
+  avg_rank: number
+}
+
+export interface TeamFinalGymnast {
+  gymnast: string
+  [key: string]: string | number | null
+}
+
+export interface TeamFinalDetail {
+  noc: string
+  team: string[]
+  mean_total: number
+  mean_per_app: Record<string, number>
+  gymnasts: TeamFinalGymnast[]
+}
+
+// ── Team Selection / Custom Matchup ─────────────────────────────────────────
+
+export interface GymnastEntry {
+  gymnast: string
+  noc: string
+}
+
+export interface GymnastSpread {
+  gymnast: string
+  noc: string
+  mean_contribution: number
+  std_contribution: number
+  marginal_win_rate_delta: number
+}
+
+export interface HistoricalSpreadEntry {
+  gymnast: string
+  noc: string
+  apparatus: Partial<Record<Apparatus, { mean: number; std: number; count: number }>>
+}
+
+export interface MatchupBatchResult {
+  n_sims: number
+  win_rate_a: number
+  win_rate_b: number
+  tie_rate: number
+  mean_total_a: number
+  mean_total_b: number
+  std_total_a: number
+  std_total_b: number
+  cv_a: number
+  cv_b: number
+  totals_a: number[]
+  totals_b: number[]
+  mean_margin: number
+  std_margin: number
+  margin_values: number[]
+  per_apparatus: Record<string, { mean_a: number; mean_b: number; win_rate_a: number }>
+  gymnast_spread_a: GymnastSpread[]
+  gymnast_spread_b: GymnastSpread[]
+  historical_spread_a: HistoricalSpreadEntry[]
+  historical_spread_b: HistoricalSpreadEntry[]
+  upset_index: number
+}
+
+export interface RankingsData {
+  generated_at: string
+  n_sims: number
+  worlds_field_nocs: string[]
+  apparatus: Record<string, ApparatusRow[]>
+  aa: AARow[]
+  team: TeamRow[]
+  team_final_detail?: TeamFinalDetail[]
+}

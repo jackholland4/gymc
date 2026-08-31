@@ -411,26 +411,25 @@ export function GymnastPanel() {
         onClick={() => dispatch({ type: 'CLOSE_GYMNAST' })}
       />
 
-      {/* Panel */}
-      <div className="fixed top-16 right-0 bottom-0 z-50 w-[420px] bg-[var(--c-bg-6)] border-l border-[var(--c-border-md)] flex flex-col shadow-2xl">
-        {/* Header */}
-        <div className="relative shrink-0">
-          {/* Photo banner */}
-          {photoUrl && (
-            <div className="w-full aspect-square relative overflow-hidden">
-              <img
-                src={photoUrl}
-                alt={name}
-                className="w-full h-full object-cover object-center grayscale"
-              />
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[var(--c-bg-6)] via-[var(--c-bg-6)]/30 to-transparent" />
-            </div>
-          )}
-          {/* Name row */}
-          <div
-            className="flex items-end gap-3 px-5 pb-4 border-b border-[var(--c-border-sm)]"
-            style={{ paddingTop: photoUrl ? '0' : '1rem' }}
-          >
+      {/* Panel — single scroll container; photo is sticky-behind, content slides over it */}
+      <div className="fixed top-16 right-0 bottom-0 z-50 w-[420px] bg-[var(--c-bg-6)] border-l border-[var(--c-border-md)] overflow-y-auto shadow-2xl">
+
+        {/* Photo — sticky at top with low z-index; content scrolls over it */}
+        {photoUrl && (
+          <div className="sticky top-0 w-full aspect-square relative overflow-hidden" style={{ zIndex: 0 }}>
+            <img
+              src={photoUrl}
+              alt={name}
+              className="w-full h-full object-cover object-center grayscale"
+            />
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[var(--c-bg-6)] via-[var(--c-bg-6)]/30 to-transparent" />
+          </div>
+        )}
+
+        {/* Content — opaque background so it covers the photo as it scrolls up */}
+        <div className="relative bg-[var(--c-bg-6)]" style={{ zIndex: 1 }}>
+          {/* Name row — sticky within content */}
+          <div className="sticky top-0 bg-[var(--c-bg-6)] flex items-center gap-3 px-5 py-3 border-b border-[var(--c-border-sm)]" style={{ zIndex: 2 }}>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 min-w-0">
                 <p className="font-display text-base font-bold text-[var(--c-txt-0)] truncate">{name}</p>
@@ -447,10 +446,8 @@ export function GymnastPanel() {
               ✕
             </button>
           </div>
-        </div>
 
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto">
+          {/* Body content */}
           {viewMeet ? (
             <MeetResultsView meetName={viewMeet} onBack={() => setViewMeet(null)} apparatus={apparatus} />
           ) : (

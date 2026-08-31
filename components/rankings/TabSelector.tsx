@@ -2,13 +2,14 @@
 
 import type { AppTab } from './RankingsShell'
 
-const TABS: { id: AppTab; label: string }[] = [
-  { id: 'AA',   label: 'All-Around' },
-  { id: 'Team', label: 'Team Final' },
-  { id: 'VT',   label: 'Vault' },
-  { id: 'UB',   label: 'Uneven Bars' },
-  { id: 'BB',   label: 'Balance Beam' },
-  { id: 'FX',   label: 'Floor' },
+const TABS: { id: AppTab; label: string; beta?: true }[] = [
+  { id: 'AA',          label: 'All-Around' },
+  { id: 'Team',        label: 'Team Final' },
+  { id: 'VT',          label: 'Vault' },
+  { id: 'UB',          label: 'Uneven Bars' },
+  { id: 'BB',          label: 'Balance Beam' },
+  { id: 'FX',          label: 'Floor' },
+  { id: 'Overscoring', label: 'Domestic Premium', beta: true },
 ]
 
 export default function TabSelector({
@@ -20,7 +21,7 @@ export default function TabSelector({
 }) {
   return (
     <div className="flex flex-wrap gap-1">
-      {TABS.map(({ id, label }) => (
+      {TABS.map(({ id, label, beta }) => (
         <button
           key={id}
           onClick={() => onChange(id)}
@@ -32,6 +33,14 @@ export default function TabSelector({
           }}
         >
           {label}
+          {beta && (
+            <span
+              className="ml-1.5 px-1 py-px rounded text-[9px] font-semibold leading-none align-middle"
+              style={{ backgroundColor: 'rgba(220,38,38,0.15)', color: '#ef4444' }}
+            >
+              β
+            </span>
+          )}
         </button>
       ))}
     </div>

@@ -5,57 +5,33 @@ import TabSelector from './TabSelector'
 import TeamToggle from './TeamToggle'
 import RankingsTable from './RankingsTable'
 import TeamFinalRankingsPanel from './TeamFinalRankingsPanel'
-import type { TeamFinalDetail } from './TeamFinalRankingsPanel'
+import OverscorePanel from './OverscorePanel'
+import type { RankingsData, ApparatusRow, AARow, TeamRow } from '@/types/simulation'
 
-export type AppTab = 'VT' | 'UB' | 'BB' | 'FX' | 'AA' | 'Team'
+export type { RankingsData, ApparatusRow, AARow, TeamRow }
+export type AppTab = 'VT' | 'UB' | 'BB' | 'FX' | 'AA' | 'Team' | 'Overscoring'
 
-export interface ApparatusRow {
-  gymnast: string
-  noc: string
-  ef_rate: number
-  mean_score: number
-  gold_pct: number
-  medal_pct: number
-  top8_pct: number
-  avg_rank: number
+type Preset = 'all' | 'international' | 'figOnly'
+
+const PRESETS: { key: Preset; label: string; description: string }[] = [
+  { key: 'all',           label: 'All meets',      description: 'Domestic + international + non-FIG' },
+  { key: 'international', label: 'International',   description: 'Excludes domestic meets' },
+  { key: 'figOnly',       label: 'FIG only',        description: 'FIG-sanctioned meets only' },
+]
+
+interface Datasets {
+  all: RankingsData
+  international: RankingsData | null
+  figOnly: RankingsData | null
 }
 
-export interface AARow {
-  gymnast: string
-  noc: string
-  aa_rate: number
-  mean_score: number
-  gold_pct: number
-  medal_pct: number
-  top8_pct: number
-  avg_rank: number
-}
-
-export interface TeamRow {
-  noc: string
-  tf_rate: number
-  mean_score: number
-  mean_per_app: Record<string, number>
-  gold_pct: number
-  medal_pct: number
-  top8_pct: number
-  avg_rank: number
-}
-
-export interface RankingsData {
-  generated_at: string
-  n_sims: number
-  worlds_field_nocs: string[]
-  apparatus: Record<string, ApparatusRow[]>
-  aa: AARow[]
-  team: TeamRow[]
-  team_final_detail?: TeamFinalDetail[]
-}
-
-export default function RankingsShell({ data }: { data: RankingsData }) {
+export default function RankingsShell({ datasets }: { datasets: Datasets }) {
+  const [preset, setPreset] = useState<Preset>('all')
   const [tab, setTab] = useState<AppTab>('AA')
   const [worldsOnly, setWorldsOnly] = useState(false)
   const [filter, setFilter] = useState('')
+
+  const data = datasets[preset] ?? datasets.all
 
   const worldsSet = useMemo(
     () => new Set(data.worlds_field_nocs),
@@ -114,10 +90,45 @@ export default function RankingsShell({ data }: { data: RankingsData }) {
         </span>
       </div>
 
-      {/* Controls row — hide filter/toggle for Team tab */}
+      {/* Score data preset selector */}
+      <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-[var(--c-border-sm)]">
+        <span className="font-body text-xs font-semibold text-[var(--c-txt-4)] uppercase tracking-wider shrink-0">
+          Score data
+        </span>
+        <div className="flex items-center gap-1 bg-[var(--c-bg-2)] rounded-lg p-0.5 border border-[var(--c-border-sm)]">
+          {PRESETS.map((p) => {
+            const available = datasets[p.key] !== null
+            const active = preset === p.key
+            return (
+              <button
+                key={p.key}
+                onClick={() => available && setPreset(p.key)}
+                disabled={!available}
+                title={p.description}
+                className="px-3 py-1 rounded-md font-body text-xs transition-all duration-150"
+                style={{
+                  backgroundColor: active ? 'rgba(220,38,38,0.15)' : 'transparent',
+                  color: active ? '#ef4444' : available ? 'var(--c-txt-3)' : 'var(--c-txt-6)',
+                  fontWeight: active ? 600 : 400,
+                  cursor: available ? 'pointer' : 'not-allowed',
+                }}
+              >
+                {p.label}
+              </button>
+            )
+          })}
+        </div>
+        {!datasets.international && !datasets.figOnly && (
+          <span className="font-body text-[10px] text-[var(--c-txt-5)]">
+            Run <code className="bg-[var(--c-bg-2)] px-1 py-0.5 rounded">rankings_compute.py</code> to unlock filter presets
+          </span>
+        )}
+      </div>
+
+      {/* Controls row — hide filter/toggle for Team and Overscoring tabs */}
       <div className="flex flex-wrap items-center gap-4">
         <TabSelector active={tab} onChange={setTab} />
-        {tab !== 'Team' && (
+        {tab !== 'Team' && tab !== 'Overscoring' && (
           <div className="ml-auto flex items-center gap-3">
             <TeamToggle worldsOnly={worldsOnly} onChange={setWorldsOnly} />
             <input
@@ -132,7 +143,9 @@ export default function RankingsShell({ data }: { data: RankingsData }) {
       </div>
 
       {/* Table */}
-      {tab === 'Team' ? (
+      {tab === 'Overscoring' ? (
+        <OverscorePanel discipline="WAG" />
+      ) : tab === 'Team' ? (
         <TeamFinalRankingsPanel rows={data.team_final_detail ?? []} />
       ) : (
         <RankingsTable key={tab} tab={tab} rows={rows} />

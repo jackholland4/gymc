@@ -1,11 +1,11 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import KenBurnsSlideshow from './KenBurnsSlideshow'
+import KenBurnsSlideshow, { type Slide } from './KenBurnsSlideshow'
 
 const TITLE = 'GYMC'
 
-export default function Hero({ photos }: { photos: string[] }) {
+export default function Hero({ photos }: { photos: (string | Slide)[] }) {
   const { scrollY } = useScroll()
   const contentOpacity = useTransform(scrollY, [0, 320], [1, 0])
   const contentY = useTransform(scrollY, [0, 320], [0, -56])

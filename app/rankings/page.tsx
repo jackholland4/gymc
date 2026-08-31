@@ -3,9 +3,14 @@ import { join } from 'path'
 import Link from 'next/link'
 import { RedRule } from '@/components/shared/RedRule'
 import RankingsShell from '@/components/rankings/RankingsShell'
-import type { RankingsData } from '@/components/rankings/RankingsShell'
+import type { RankingsData } from '@/types/simulation'
 
-const DATA_FILE = join(process.cwd(), 'public', 'data', 'rankings.json')
+const DATA_DIR = join(process.cwd(), 'public', 'data')
+
+function readJson(filename: string): RankingsData | null {
+  const path = join(DATA_DIR, filename)
+  return existsSync(path) ? JSON.parse(readFileSync(path, 'utf-8')) : null
+}
 
 function NoData() {
   return (
@@ -23,10 +28,9 @@ function NoData() {
 export const dynamic = 'force-dynamic'
 
 export default function RankingsPage() {
-  const hasData = existsSync(DATA_FILE)
-  const data: RankingsData | null = hasData
-    ? JSON.parse(readFileSync(DATA_FILE, 'utf-8'))
-    : null
+  const all           = readJson('rankings.json')
+  const international = readJson('rankings-international.json')
+  const figOnly       = readJson('rankings-fig-only.json')
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -42,13 +46,19 @@ export default function RankingsPage() {
         </h1>
         <RedRule delay={0.3} />
         <p className="mt-4 font-body text-[var(--c-txt-1)] max-w-xl leading-relaxed">
-          Projected medal probabilities and event-final rates derived from 5,000 Monte Carlo simulations
+          Projected medal probabilities and event-final rates derived from Monte Carlo simulations
           of the 2026 World Championships.
         </p>
       </section>
 
       <div className="flex-1 px-6 md:px-12 lg:px-20 pb-16">
-        {data ? <RankingsShell data={data} /> : <NoData />}
+        {all ? (
+          <RankingsShell
+            datasets={{ all, international, figOnly }}
+          />
+        ) : (
+          <NoData />
+        )}
       </div>
     </main>
   )

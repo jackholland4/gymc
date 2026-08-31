@@ -48,12 +48,11 @@ export default function Header() {
     setScrolled(false)
   }, [pathname])
 
-  const navLinks = [
-    { href: '/worlds', label: 'Worlds (W)' },
-    { href: '/worlds-men', label: 'Worlds (M)' },
-    { href: '/rankings', label: 'Rankings' },
-    { href: '/team-selection', label: 'Team Selection' },
-    { href: '/calendar', label: 'Calendar' },
+  const navLinks: { href: string; label: string; activeOn?: string[] }[] = [
+    { href: '/worlds',         label: 'Simulate', activeOn: ['/worlds', '/worlds-men'] },
+    { href: '/rankings',       label: 'Compare'  },
+    { href: '/team-selection', label: 'Generate' },
+    { href: '/calendar',       label: 'Calendar' },
   ]
 
   return (
@@ -67,19 +66,56 @@ export default function Header() {
         transition: 'background-color 300ms ease, border-color 300ms ease',
       }}
     >
-      {/* Logo */}
-      <Link
-        href="/"
-        className="font-display font-bold text-lg text-[var(--c-txt-0)] tracking-tight hover:text-[#ef4444] transition-colors duration-200 group"
-      >
-        GYMC
-        <span className="block h-0.5 w-0 group-hover:w-full bg-[#dc2626] transition-all duration-300 ease-out" />
-      </Link>
+      {/* Discipline pictograms + logo */}
+      <div className="flex items-center gap-3">
+        {[
+          { href: '/worlds',     src: '/images/pictogram-wag.png', alt: 'WAG' },
+          { href: '/worlds-men', src: '/images/pictogram-mag.png', alt: 'MAG' },
+        ].map(({ href, src, alt }) => {
+          const active = pathname === href || pathname.startsWith(href + '/')
+          const imgFilter = theme === 'dark' ? 'invert(1)' : 'none'
+          return (
+            <Link
+              key={href}
+              href={href}
+              className="relative flex flex-col items-center pb-1"
+              title={alt}
+            >
+              <img
+                src={src}
+                alt={alt}
+                className="h-7 w-auto object-contain select-none transition-opacity duration-150"
+                style={{
+                  filter: imgFilter,
+                  opacity: active ? 1 : 0.35,
+                }}
+                draggable={false}
+              />
+              {active && (
+                <span className="absolute -bottom-0 left-0 right-0 h-0.5 bg-[#dc2626] rounded-full" />
+              )}
+            </Link>
+          )
+        })}
+
+        {/* Divider */}
+        <span className="w-px h-4 bg-[var(--c-border-md)] mx-1" />
+
+        {/* Logo */}
+        <Link
+          href="/"
+          className="font-display font-bold text-lg text-[var(--c-txt-0)] tracking-tight hover:text-[#ef4444] transition-colors duration-200 group"
+        >
+          GYMC
+          <span className="block h-0.5 w-0 group-hover:w-full bg-[#dc2626] transition-all duration-300 ease-out" />
+        </Link>
+      </div>
 
       {/* Nav */}
       <nav className="ml-auto flex items-center gap-7">
-        {navLinks.map(({ href, label }) => {
-          const active = pathname === href || (pathname.startsWith(href + '/') && href !== '/')
+        {navLinks.map(({ href, label, activeOn }) => {
+          const routes = activeOn ?? [href]
+          const active = routes.some((r) => pathname === r || pathname.startsWith(r + '/'))
           return (
             <Link
               key={href}
